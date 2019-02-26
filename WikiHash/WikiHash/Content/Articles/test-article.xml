@@ -1,0 +1,32 @@
+﻿<article>
+	<meta>
+		<author>Author</author>
+	</meta>
+	<sections>
+		<section>
+			<title>Section 1 Title</title>
+			<frames>
+				<frame>
+					some text inside frame 1.1
+				</frame>
+				<frame>
+					some text inside frame 1.2
+				</frame>
+			</frames>
+		</section>
+		<section>
+			<title>Section 2 Title</title>
+			<frames>
+				<frame>
+					some text inside frame 2.1
+				</frame>
+				<frame>
+					some text inside frame 2.2
+				</frame>
+				<frame>
+					some text inside frame 2.3
+				</frame>
+			</frames>
+		</section>
+	</sections>
+</article>

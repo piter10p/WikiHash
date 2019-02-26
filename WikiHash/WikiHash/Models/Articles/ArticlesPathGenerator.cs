@@ -9,7 +9,7 @@ namespace WikiHash.Models.Articles
     public static class ArticlesPathGenerator
     {
         private const string ArticlesFolderPath = @"~/Content/Articles/";
-        private const string FileExtension = ".txt";
+        private const string FileExtension = ".xml";
 
         public static string Generate(string link)
         {

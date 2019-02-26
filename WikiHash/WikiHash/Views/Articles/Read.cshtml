@@ -13,7 +13,17 @@
                     <h1 class="underlined article-title">@Model.Title</h1>
                 </header>
                 <article>
-                    @Model.Body
+                    @foreach(var bodySection in Model.Body.Sections)
+                    {
+                        <section>
+                            <h3 class="underlined">@bodySection.Title </h3>
+
+                            @foreach(var frame in bodySection.Frames)
+                            {
+                                <p>@frame.Text</p>
+                            }
+                        </section>
+                    }
                 </article>
             </div>
         </div>

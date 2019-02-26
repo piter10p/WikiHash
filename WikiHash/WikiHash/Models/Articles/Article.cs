@@ -19,9 +19,13 @@ namespace WikiHash.Models.Articles
         public string Title { get; set; }
 
         [NotMapped]
-        public string Body
+        public Bodies.Body Body
         {
-            get { return BodyReader.Read(Link); }
+            get
+            {
+                var reader = new BodiesReader.BodyReader();
+                return reader.Read(Link);
+            }
         }
     }
 }

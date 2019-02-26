@@ -19,6 +19,6 @@ namespace WikiHash.Models.Articles
         [MaxLength(256)]
         public string Title { get; set; }
 
-        public string Body { get; set; }
+        public Bodies.Body Body { get; set; }
     }
 }

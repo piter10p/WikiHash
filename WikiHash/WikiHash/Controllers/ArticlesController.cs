@@ -12,6 +12,7 @@ namespace WikiHash.Controllers
         public ActionResult Read(string link)
         {
             var article = ArticlesManager.GetArticle(link);
+
             var viewModel = ArticleViewModel.FromArticle(article);
             return View(viewModel);
         }
