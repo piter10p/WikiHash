@@ -7,26 +7,56 @@
 			<title>Section 1 Title</title>
 			<frames>
 				<frame>
-					some text inside frame 1.1
+          <width>6</width>
+          <content>some text inside w6 frame 1.1</content>
 				</frame>
-				<frame>
-					some text inside frame 1.2
-				</frame>
+        <frame>
+          <width>6</width>
+          <content>some text inside w6 frame 1.2</content>
+        </frame>
 			</frames>
 		</section>
 		<section>
 			<title>Section 2 Title</title>
 			<frames>
 				<frame>
-					some text inside frame 2.1
+          <width>3</width>
+          <content>some text inside w3 frame 2.1</content>
 				</frame>
 				<frame>
-					some text inside frame 2.2
+          <width>3</width>
+          <content>some text inside w3 frame 2.2</content>
 				</frame>
 				<frame>
-					some text inside frame 2.3
+          <width>6</width>
+          <content>some text inside w6 frame 2.3</content>
 				</frame>
+        <frame>
+          <width>6</width>
+          <content>some text inside w6 frame 2.4</content>
+        </frame>
 			</frames>
 		</section>
+    <section>
+      <title>Section 3 Title</title>
+      <frames>
+        <frame>
+          <width>1</width>
+          <content>some text inside w1 frame 3.1</content>
+        </frame>
+        <frame>
+          <width>auto</width>
+          <content>some text inside auto frame 3.2</content>
+        </frame>
+        <frame>
+          <width>auto</width>
+          <content>some text inside auto frame 3.3</content>
+        </frame>
+        <frame>
+          <width>2</width>
+          <content>some text inside w2 frame 3.4</content>
+        </frame>
+      </frames>
+    </section>
 	</sections>
 </article>

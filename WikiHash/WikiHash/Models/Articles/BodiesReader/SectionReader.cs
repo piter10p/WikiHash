@@ -56,8 +56,9 @@ namespace WikiHash.Models.Articles.BodiesReader
         {
             try
             {
-                var text = node.InnerText;
-                return new ContentFrame(text);
+                var text = node.SelectSingleNode("content").InnerText;
+                var width = node.SelectSingleNode("width").InnerText;
+                return new ContentFrame(text, width);
             }
             catch(Exception e)
             {

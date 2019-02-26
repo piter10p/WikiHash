@@ -204,6 +204,7 @@
     <Compile Include="Models\Articles\BodiesReader\SectionReader.cs" />
     <Compile Include="Models\Articles\Bodies\Body.cs" />
     <Compile Include="Models\Articles\Bodies\ContentFrame.cs" />
+    <Compile Include="Models\Articles\Bodies\FrameWidth.cs" />
     <Compile Include="Models\Articles\Bodies\MetaData.cs" />
     <Compile Include="Models\Articles\Bodies\Section.cs" />
     <Compile Include="Models\IdentityModels.cs" />

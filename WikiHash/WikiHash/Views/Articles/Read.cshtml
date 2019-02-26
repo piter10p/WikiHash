@@ -18,10 +18,14 @@
                         <section>
                             <h3 class="underlined">@bodySection.Title </h3>
 
-                            @foreach(var frame in bodySection.Frames)
-                            {
-                                <p>@frame.Text</p>
-                            }
+                            <div class="row">
+                                @foreach (var frame in bodySection.Frames)
+                                {
+                                    <div class="col@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToBootstrapString(frame.Width)} ">
+                                        <p>@frame.Text</p>
+                                    </div>
+                                }
+                            </div>
                         </section>
                     }
                 </article>
