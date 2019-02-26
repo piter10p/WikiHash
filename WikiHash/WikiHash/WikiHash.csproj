@@ -188,6 +188,10 @@
     <Compile Include="Migrations\201902261639284_Added ArticleLink column to Articles table.Designer.cs">
       <DependentUpon>201902261639284_Added ArticleLink column to Articles table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902261640488_Changed name of column ArticleLink to Link in Articles table.cs" />
+    <Compile Include="Migrations\201902261640488_Changed name of column ArticleLink to Link in Articles table.Designer.cs">
+      <DependentUpon>201902261640488_Changed name of column ArticleLink to Link in Articles table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Articles\Article.cs" />
@@ -313,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902261639284_Added ArticleLink column to Articles table.resx">
       <DependentUpon>201902261639284_Added ArticleLink column to Articles table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902261640488_Changed name of column ArticleLink to Link in Articles table.resx">
+      <DependentUpon>201902261640488_Changed name of column ArticleLink to Link in Articles table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
