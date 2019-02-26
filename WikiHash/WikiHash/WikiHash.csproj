@@ -184,6 +184,10 @@
     <Compile Include="Migrations\201902261546038_Initial.Designer.cs">
       <DependentUpon>201902261546038_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902261639284_Added ArticleLink column to Articles table.cs" />
+    <Compile Include="Migrations\201902261639284_Added ArticleLink column to Articles table.Designer.cs">
+      <DependentUpon>201902261639284_Added ArticleLink column to Articles table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Articles\Article.cs" />
@@ -290,6 +294,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Articles\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -305,6 +310,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201902261546038_Initial.resx">
       <DependentUpon>201902261546038_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902261639284_Added ArticleLink column to Articles table.resx">
+      <DependentUpon>201902261639284_Added ArticleLink column to Articles table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

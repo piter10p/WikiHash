@@ -11,7 +11,10 @@ namespace WikiHash.Models.Articles
         [Key]
         public int ArticleId { get; set; }
 
-        [MaxLength(128)]
+        [MaxLength(512)]
+        public string ArticleLink { get; set; }
+
+        [MaxLength(256)]
         public string Title { get; set; }
     }
 }
