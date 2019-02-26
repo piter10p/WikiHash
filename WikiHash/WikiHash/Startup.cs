@@ -9,6 +9,7 @@ namespace WikiHash
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            WikiHash.Configuration.Load();
         }
     }
 }
