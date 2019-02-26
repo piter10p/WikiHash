@@ -1,32 +1,47 @@
 ﻿@model WikiHash.Models.Articles.ArticleViewModel
 @{ 
     ViewBag.Title = Model.Title;
+    var counter = 0;
 }
 <div class="article-body">
     <div class="container-fluid">
         <div class="row">
             <div class="col-2">
-                CONTENTS
+                <div class="contents">
+                    CONTENTS:
+                    <ol>
+                        @{ counter = 0; }
+                        @foreach (var bodySection in Model.Body.Sections)
+                        {
+                            <li><a href="#@bodySection.Title">@bodySection.Title</a></li>
+
+                            counter++;
+                        }
+                    </ol>
+                </div>
             </div>
-            <div class="col-10">
+            <div class="col-10 content-body">
                 <header>
                     <h1 class="underlined article-title">@Model.Title</h1>
                 </header>
                 <article>
-                    @foreach(var bodySection in Model.Body.Sections)
+                    @{ counter = 0; }
+                    @foreach (var bodySection in Model.Body.Sections)
                     {
                         <section>
-                            <h3 class="underlined">@bodySection.Title </h3>
+                            <h3 id="@bodySection.Title" class="underlined">@bodySection.Title </h3>
 
                             <div class="row">
                                 @foreach (var frame in bodySection.Frames)
                                 {
                                     <div class="col@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToBootstrapString(frame.Width)} ">
-                                        <p>@frame.Text</p>
+                                        <p class="text-justify">@frame.Text</p>
                                     </div>
                                 }
                             </div>
                         </section>
+
+                        counter++;
                     }
                 </article>
             </div>
