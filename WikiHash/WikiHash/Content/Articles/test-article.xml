@@ -8,11 +8,15 @@
 			<frames>
 				<frame>
           <width>6</width>
-          <content>some text inside w6 frame 1.1</content>
+          <content>
+            <p class="text-justified">some text inside w6 frame 1.1. Paragraph justified.</p>
+          </content>
 				</frame>
         <frame>
           <width>6</width>
-          <content>some text inside w6 frame 1.2</content>
+          <content>
+            <p class="text-right">some text inside w6 frame 1.2. Paragraph right.</p>
+          </content>
         </frame>
 			</frames>
 		</section>

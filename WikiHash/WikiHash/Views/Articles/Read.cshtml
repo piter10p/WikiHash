@@ -35,7 +35,7 @@
                                 @foreach (var frame in bodySection.Frames)
                                 {
                                     <div class="col@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToBootstrapString(frame.Width)} ">
-                                        <p class="text-justify">@frame.Text</p>
+                                        @Html.Raw(frame.Content)
                                     </div>
                                 }
                             </div>

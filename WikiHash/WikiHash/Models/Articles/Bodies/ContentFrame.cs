@@ -7,13 +7,13 @@ namespace WikiHash.Models.Articles.Bodies
 {
     public class ContentFrame
     {
-        public ContentFrame(string text, string width)
+        public ContentFrame(string content, string width)
         {
-            Text = text;
+            Content = content;
             Width = FrameWidthParser.Parse(width);
         }
 
-        public string Text { get; private set; }
+        public string Content { get; private set; }
         public FrameWidth Width { get; private set; }
     }
 }
