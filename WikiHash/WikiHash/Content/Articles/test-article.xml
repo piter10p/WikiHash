@@ -9,7 +9,7 @@
 				<frame>
           <width>6</width>
           <content>
-            <p class="text-justified">some text inside w6 frame 1.1. Paragraph justified.</p>
+            <p class="text-justify">some text inside w6 frame 1.1. Paragraph justified.</p>
           </content>
 				</frame>
         <frame>
@@ -67,27 +67,39 @@
       <frames>
         <frame>
           <width>6</width>
-          <content>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</content>
+          <content>
+            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</p>
+          </content>
         </frame>
         <frame>
           <width>6</width>
-          <content>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</content>
+          <content>
+            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</p>
+          </content>
         </frame>
         <frame>
           <width>6</width>
-          <content>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</content>
+          <content>
+            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</p>
+          </content>
         </frame>
         <frame>
           <width>6</width>
-          <content>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</content>
+          <content>
+            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</p>
+          </content>
         </frame>
         <frame>
           <width>2</width>
-          <content>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</content>
+          <content>
+            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</p>
+          </content>
         </frame>
         <frame>
           <width>auto</width>
-          <content>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</content>
+          <content>
+            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</p>
+          </content>
         </frame>
       </frames>
     </section>
@@ -105,7 +117,9 @@
       <frames>
         <frame>
           <width>auto</width>
-          <content>@media{1}</content>
+          <content>
+            <media data-id="0"></media>
+          </content>
         </frame>
       </frames>
     </section>

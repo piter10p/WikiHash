@@ -13,7 +13,7 @@
                         @{ counter = 0; }
                         @foreach (var bodySection in Model.Body.Sections)
                         {
-                            <li><a href="#@bodySection.Title">@bodySection.Title</a></li>
+                            <li><a data-slide="true" href="#@WikiHash.Models.TitleFunctions.GenerateLink(bodySection.Title)">@bodySection.Title</a></li>
 
                             counter++;
                         }
@@ -29,13 +29,15 @@
                     @foreach (var bodySection in Model.Body.Sections)
                     {
                         <section>
-                            <h3 id="@bodySection.Title" class="underlined">@bodySection.Title </h3>
+                            <h3 id="@WikiHash.Models.TitleFunctions.GenerateLink(bodySection.Title)" class="underlined">@bodySection.Title </h3>
 
                             <div class="row">
                                 @foreach (var frame in bodySection.Frames)
                                 {
                                     <div class="col@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToBootstrapString(frame.Width)} ">
-                                        @Html.Raw(frame.Content)
+                                        <div class="content-frame">
+                                            @Html.Raw(frame.Content)
+                                        </div>
                                     </div>
                                 }
                             </div>
