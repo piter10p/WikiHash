@@ -96,5 +96,14 @@
         </frame>
       </frames>
     </section>
+    <section>
+      <title>Media Section Title</title>
+      <frames>
+        <frame>
+          <width>auto</width>
+          <content>@media{1}</content>
+        </frame>
+      </frames>
+    </section>
 	</sections>
 </article>

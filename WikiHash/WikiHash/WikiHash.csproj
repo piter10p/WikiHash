@@ -212,6 +212,7 @@
     <Compile Include="Models\Articles\Bodies\MetaData.cs" />
     <Compile Include="Models\Articles\Bodies\Section.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Medias\MediasManager.cs" />
     <Compile Include="Models\TitleFunctions.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Medias\Media.cs" />

@@ -9,11 +9,22 @@ namespace WikiHash.Models.Articles
     {
         public static Article GetArticle(string link)
         {
-            var context = DAL.ApplicationDbContext.Create();
-            var query = from a in context.Articles where a.Link == link select a;
-            var result = query.First();
+            try
+            {
+                var context = DAL.ApplicationDbContext.Create();
+                var query = from a in context.Articles where a.Link == link select a;
+                var result = query.First();
 
-            return result;
+                return result;
+            }
+            catch(ArgumentNullException e)
+            {
+                throw new Exception("Argument is null.", e);
+            }
+            catch(InvalidOperationException e)
+            {
+                throw new Exception("No Article with specified link found.", e);
+            }
         }
     }
 }
