@@ -12,19 +12,26 @@ namespace WikiHash.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(WikiHash.DAL.ApplicationDbContext context)
+        protected override void Seed(DAL.ApplicationDbContext context)
         {
             GenerateTestArticles(context);
+            GenerateTestMedias(context);
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
         }
 
-        private void GenerateTestArticles(WikiHash.DAL.ApplicationDbContext context)
+        private void GenerateTestArticles(DAL.ApplicationDbContext context)
         {
-            context.Articles.Add(new Models.Articles.Article() { Title = "Test Article", Link = "test-article", ArticleId = 1});
+            context.Articles.Add(new Models.Articles.Article() { Title = "Test Article", Link = Models.TitleFunctions.GenerateLink("Test Article"), ArticleId = 1});
             context.Articles.AddOrUpdate();
+        }
+
+        private void GenerateTestMedias(DAL.ApplicationDbContext context)
+        {
+            context.Medias.Add(new Models.Medias.Media() { Title = "Test Media", Link = Models.TitleFunctions.GenerateLink("Test Media"), Description = "Some test description of media", MediaId = 1});
+            context.Medias.AddOrUpdate();
         }
     }
 }

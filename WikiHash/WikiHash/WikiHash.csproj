@@ -193,6 +193,10 @@
     <Compile Include="Migrations\201902261640488_Changed name of column ArticleLink to Link in Articles table.Designer.cs">
       <DependentUpon>201902261640488_Changed name of column ArticleLink to Link in Articles table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902271200148_Added Medias table.cs" />
+    <Compile Include="Migrations\201902271200148_Added Medias table.Designer.cs">
+      <DependentUpon>201902271200148_Added Medias table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Articles\Article.cs" />
@@ -208,7 +212,9 @@
     <Compile Include="Models\Articles\Bodies\MetaData.cs" />
     <Compile Include="Models\Articles\Bodies\Section.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\TitleFunctions.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Medias\Media.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -223,6 +229,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Medias\test-media.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -335,6 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902261640488_Changed name of column ArticleLink to Link in Articles table.resx">
       <DependentUpon>201902261640488_Changed name of column ArticleLink to Link in Articles table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902271200148_Added Medias table.resx">
+      <DependentUpon>201902271200148_Added Medias table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

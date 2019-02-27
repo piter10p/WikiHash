@@ -16,6 +16,7 @@ namespace WikiHash.DAL
         }
 
         public DbSet<Models.Articles.Article> Articles { get; set; }
+        public DbSet<Models.Medias.Media> Medias { get; set; }
 
         public static ApplicationDbContext Create()
         {
