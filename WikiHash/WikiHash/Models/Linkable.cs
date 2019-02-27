@@ -4,25 +4,24 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
-using System.Web.Hosting;
 
-namespace WikiHash.Models.Medias
+namespace WikiHash.Models
 {
-    public sealed class Media: Linkable
+    public abstract class Linkable
     {
-        [MaxLength(256)]
-        public string Description { get; set; }
+        [Key]
+        public int Id { get; set; }
 
         [Index(IsUnique = true)]
         [MaxLength(256)]
-        public string FileName { get; set; }
+        public string Title { get; set; }
 
         [NotMapped]
-        public string Url
+        public string Link
         {
             get
             {
-                return "/Content/Medias/" + FileName;
+                return TitleFunctions.GenerateLink(Title);
             }
         }
     }

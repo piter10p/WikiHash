@@ -24,13 +24,13 @@ namespace WikiHash.Migrations
 
         private void GenerateTestArticles(DAL.ApplicationDbContext context)
         {
-            context.Articles.Add(new Models.Articles.Article() { Title = "Test Article", Link = Models.TitleFunctions.GenerateLink("Test Article"), ArticleId = 1});
+            context.Articles.Add(new Models.Articles.Article() { Title = "Test Article"});
             context.Articles.AddOrUpdate();
         }
 
         private void GenerateTestMedias(DAL.ApplicationDbContext context)
         {
-            context.Medias.Add(new Models.Medias.Media() { Title = "Test Media", Link = Models.TitleFunctions.GenerateLink("Test Media"), Description = "Some test description of media", MediaId = 1});
+            context.Medias.Add(new Models.Medias.Media() { Title = "Test Media", Description = "Some test description of media", FileName = "test-media.jpg"});
             context.Medias.AddOrUpdate();
         }
     }

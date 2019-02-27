@@ -19,11 +19,14 @@
     margin-bottom: 40px;
 }
 
+.article-body {
+    margin-top: 80px;
+}
+
 .content-body {
     border-width: 0px 0px 0px 1px;
     border-style: solid solid solid solid;
     border-color: #9f9f9f;
-    margin-top: 80px;
 }
 
 div.contents {

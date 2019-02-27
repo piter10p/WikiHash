@@ -1,0 +1,13 @@
+﻿@model WikiHash.Models.Medias.Media
+@{
+    ViewBag.Title = "Media: " + Model.Title;
+}
+<div class="article-body">
+    <div class="container">
+        <h1 class="underlined">Media: @Model.Title</h1>
+        <br />
+        <img src="@Model.Url" />
+        <br /><br />
+        <p class="text-justify">@Model.Description</p>
+    </div>
+</div>

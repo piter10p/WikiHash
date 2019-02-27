@@ -10,3 +10,7 @@ $('a[data-slide=true]').on('click', function (event) {
         $('html,body').animate({ scrollTop: targetOffset - 75 }, 500);
 
 });
+
+$('media').load(function () {
+
+});

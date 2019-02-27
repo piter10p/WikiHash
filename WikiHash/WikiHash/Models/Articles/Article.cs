@@ -7,17 +7,8 @@ using System.Web;
 
 namespace WikiHash.Models.Articles
 {
-    public class Article
+    public sealed class Article: Linkable
     {
-        [Key]
-        public int ArticleId { get; set; }
-
-        [MaxLength(512)]
-        public string Link { get; set; }//TODO: Change length to 256
-
-        [MaxLength(256)]
-        public string Title { get; set; }
-
         [NotMapped]
         public Bodies.Body Body
         {

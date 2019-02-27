@@ -12,18 +12,19 @@ namespace WikiHash.Models.Articles
             try
             {
                 var context = DAL.ApplicationDbContext.Create();
-                var query = from a in context.Articles where a.Link == link select a;
-                var result = query.First();
+                var query = from a in context.Articles select a;
+                
+                foreach(var article in query)
+                {
+                    if (article.Link == link)
+                        return article;
+                }
 
-                return result;
+                throw new Exception("No article with specified link found.");
             }
-            catch(ArgumentNullException e)
+            catch(Exception e)
             {
-                throw new Exception("Argument is null.", e);
-            }
-            catch(InvalidOperationException e)
-            {
-                throw new Exception("No Article with specified link found.", e);
+                throw new Exception("Failed to get article.", e);
             }
         }
     }

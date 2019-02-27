@@ -7,15 +7,25 @@ namespace WikiHash.Models.Medias
 {
     public static class MediasManager
     {
-        public static Media GetMedia(int id)
+        public static Media GetMedia(string link)
         {
-            var context = DAL.ApplicationDbContext.Create();
-            var media = context.Medias.Find(id);
+            try
+            {
+                var context = DAL.ApplicationDbContext.Create();
+                var query = from a in context.Medias select a;
 
-            if (media == null)
-                throw new Exception("No media with specified id found.");
+                foreach (var media in query)
+                {
+                    if (media.Link == link)
+                        return media;
+                }
 
-            return media;
+                throw new Exception("No media with specified link found.");
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Failed to get article.", e);
+            }
         }
     }
 }

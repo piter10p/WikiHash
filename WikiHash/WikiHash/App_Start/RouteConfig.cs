@@ -14,6 +14,12 @@ namespace WikiHash
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Articles",
+                url: "Articles/{link}",
+                defaults: new { controller = "Articles", action = "Read" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{link}",
                 defaults: new { controller = "Home", action = "Index", link = UrlParameter.Optional }

@@ -177,6 +177,7 @@
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MediasController.cs" />
     <Compile Include="DAL\ApplicationDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -197,6 +198,14 @@
     <Compile Include="Migrations\201902271200148_Added Medias table.Designer.cs">
       <DependentUpon>201902271200148_Added Medias table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902271454417_Added Linkable abstract class.cs" />
+    <Compile Include="Migrations\201902271454417_Added Linkable abstract class.Designer.cs">
+      <DependentUpon>201902271454417_Added Linkable abstract class.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902271508049_Added FileName column to Medias Database.cs" />
+    <Compile Include="Migrations\201902271508049_Added FileName column to Medias Database.Designer.cs">
+      <DependentUpon>201902271508049_Added FileName column to Medias Database.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Articles\Article.cs" />
@@ -212,6 +221,7 @@
     <Compile Include="Models\Articles\Bodies\MetaData.cs" />
     <Compile Include="Models\Articles\Bodies\Section.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Linkable.cs" />
     <Compile Include="Models\Medias\MediasManager.cs" />
     <Compile Include="Models\TitleFunctions.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -320,6 +330,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Articles\Read.cshtml" />
+    <Content Include="Views\Medias\Show.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -347,6 +358,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902271200148_Added Medias table.resx">
       <DependentUpon>201902271200148_Added Medias table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902271454417_Added Linkable abstract class.resx">
+      <DependentUpon>201902271454417_Added Linkable abstract class.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902271508049_Added FileName column to Medias Database.resx">
+      <DependentUpon>201902271508049_Added FileName column to Medias Database.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
