@@ -25,5 +25,14 @@ namespace WikiHash.Models.Medias
                 return "/Content/Medias/" + FileName;
             }
         }
+
+        [NotMapped]
+        public string Type
+        {
+            get
+            {
+                return MediaTypeGetter.GetMediaType(FileName);
+            }
+        }
     }
 }

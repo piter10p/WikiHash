@@ -223,6 +223,8 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Linkable.cs" />
     <Compile Include="Models\Medias\MediasManager.cs" />
+    <Compile Include="Models\Medias\MediaTypeGetter.cs" />
+    <Compile Include="Models\Medias\MediaViewModel.cs" />
     <Compile Include="Models\TitleFunctions.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Medias\Media.cs" />
@@ -240,6 +242,8 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Medias\nyan cat.mp4" />
+    <Content Include="Content\Medias\programming.gif" />
     <Content Include="Content\Medias\test-media.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

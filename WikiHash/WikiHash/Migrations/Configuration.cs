@@ -24,14 +24,22 @@ namespace WikiHash.Migrations
 
         private void GenerateTestArticles(DAL.ApplicationDbContext context)
         {
-            context.Articles.Add(new Models.Articles.Article() { Title = "Test Article"});
-            context.Articles.AddOrUpdate();
+            if(context.Articles.Count() == 0)
+            {
+                context.Articles.Add(new Models.Articles.Article() { Title = "Test Article" });
+                context.Articles.AddOrUpdate();
+            }
         }
 
         private void GenerateTestMedias(DAL.ApplicationDbContext context)
         {
-            context.Medias.Add(new Models.Medias.Media() { Title = "Test Media", Description = "Some test description of media", FileName = "test-media.jpg"});
-            context.Medias.AddOrUpdate();
+            if (context.Medias.Count() == 0)
+            {
+                context.Medias.Add(new Models.Medias.Media() { Title = "Test Media", Description = "Some test description of media", FileName = "test-media.jpg" });
+                context.Medias.Add(new Models.Medias.Media() { Title = "Nyan Cat", Description = "Get Nyaned! A video media example", FileName = "nyan cat.mp4" });
+                context.Medias.Add(new Models.Medias.Media() { Title = "Programming", Description = "A gif media example", FileName = "programming.gif" });
+                context.Medias.AddOrUpdate();
+            }
         }
     }
 }

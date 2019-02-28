@@ -118,7 +118,49 @@
         <frame>
           <width>auto</width>
           <content>
-            <media data-id="0"></media>
+            <media data-link="test-media" data-class="figure-small"></media>
+          </content>
+        </frame>
+        <frame>
+          <width>auto</width>
+          <content>
+            <media data-link="test-media"></media>
+          </content>
+        </frame>
+        <frame>
+          <width>auto</width>
+          <content>
+            <media data-link="test-media" data-class="figure-big"></media>
+          </content>
+        </frame>
+        
+        <frame>
+          <width>6</width>
+          <content></content>
+        </frame>
+        
+        <frame>
+          <width>auto</width>
+          <content>
+            <media data-link="nyan-cat" data-class="figure-small"></media>
+          </content>
+        </frame>
+        <frame>
+          <width>auto</width>
+          <content>
+            <media data-link="nyan-cat"></media>
+          </content>
+        </frame>
+        <frame>
+          <width>auto</width>
+          <content>
+            <media data-link="nyan-cat" data-class="figure-big"></media>
+          </content>
+        </frame>
+        <frame>
+          <width>6</width>
+          <content>
+            <media data-link="programming"></media>
           </content>
         </frame>
       </frames>

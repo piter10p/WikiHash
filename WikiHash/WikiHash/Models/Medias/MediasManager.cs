@@ -24,7 +24,7 @@ namespace WikiHash.Models.Medias
             }
             catch (Exception e)
             {
-                throw new Exception("Failed to get article.", e);
+                throw new Exception("Failed to get media.", e);
             }
         }
     }
