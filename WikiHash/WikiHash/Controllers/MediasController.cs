@@ -13,7 +13,8 @@ namespace WikiHash.Controllers
         public ActionResult Show(string link)
         {
             var media = MediasManager.GetMedia(link);
-            return View(media);
+            var viewMedia = MediaViewModel.FromMedia(media);
+            return View(viewMedia);
         }
 
         public string GetMediaUrl(string link)

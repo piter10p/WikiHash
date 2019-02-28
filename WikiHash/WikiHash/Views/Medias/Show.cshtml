@@ -1,4 +1,4 @@
-﻿@model WikiHash.Models.Medias.Media
+﻿@model WikiHash.Models.Medias.MediaViewModel
 @{
     ViewBag.Title = "Media: " + Model.Title;
 }
@@ -6,8 +6,15 @@
     <div class="container">
         <h1 class="underlined">Media: @Model.Title</h1>
         <br />
-        <img src="@Model.Url" />
+        <div id="media-container"></div>
         <br /><br />
         <p class="text-justify">@Model.Description</p>
     </div>
 </div>
+
+@section scripts {
+    <script>
+        var content = getFigureContent(@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model)), "figure-big");
+        $("div#media-container").append(content);
+    </script>
+}
