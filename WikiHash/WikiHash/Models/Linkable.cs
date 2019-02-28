@@ -16,6 +16,9 @@ namespace WikiHash.Models
         [MaxLength(256)]
         public string Title { get; set; }
 
+        [DataType(DataType.Date)]
+        public DateTime CreationDate { get; set; } = DateTime.Now;
+
         [NotMapped]
         public string Link
         {

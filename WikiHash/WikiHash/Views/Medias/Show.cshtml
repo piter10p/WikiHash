@@ -9,12 +9,13 @@
         <div id="media-container"></div>
         <br /><br />
         <p class="text-justify">@Model.Description</p>
+        <p>Creation date: @Model.CreationDate</p>
     </div>
 </div>
 
 @section scripts {
     <script>
-        var content = getFigureContent(@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model)), "figure-big");
+        var content = getFigureContent(@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model)), "img-fluid");
         $("div#media-container").append(content);
     </script>
 }

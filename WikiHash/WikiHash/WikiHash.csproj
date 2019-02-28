@@ -206,6 +206,10 @@
     <Compile Include="Migrations\201902271508049_Added FileName column to Medias Database.Designer.cs">
       <DependentUpon>201902271508049_Added FileName column to Medias Database.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902281607530_Added CreationDate column to all Linkable tables..cs" />
+    <Compile Include="Migrations\201902281607530_Added CreationDate column to all Linkable tables..Designer.cs">
+      <DependentUpon>201902281607530_Added CreationDate column to all Linkable tables..cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Articles\Article.cs" />
@@ -368,6 +372,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902271508049_Added FileName column to Medias Database.resx">
       <DependentUpon>201902271508049_Added FileName column to Medias Database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902281607530_Added CreationDate column to all Linkable tables..resx">
+      <DependentUpon>201902281607530_Added CreationDate column to all Linkable tables..cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

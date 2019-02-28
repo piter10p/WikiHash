@@ -16,6 +16,7 @@ namespace WikiHash.Models.Medias
             output.FileName = media.FileName;
             output.Url = media.Url;
             output.Type = media.Type;
+            output.CreationDate = media.CreationDate;
 
             return output;
         }
@@ -28,6 +29,8 @@ namespace WikiHash.Models.Medias
 
         [MaxLength(256)]
         public string FileName { get; set; }
+
+        public DateTime CreationDate { get; set; }
 
         public string Url { get; set; }
 
