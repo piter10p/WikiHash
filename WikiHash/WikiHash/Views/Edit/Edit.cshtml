@@ -22,24 +22,36 @@
             </div>
             <div class="col-10 content-body">
                 <header>
-                    <h1 class="underlined article-title">@Model.Title</h1>
+                    <div class="article-title-container">
+                        <h1><input type="text" class="edit-input underlined" value="@Model.Title" /></h1>
+                    </div>
                 </header>
                 <article>
                     @{ counter = 0; }
                     @foreach (var bodySection in Model.Body.Sections)
                     {
                         <section>
-                            <h3 id="@WikiHash.Models.TitleFunctions.GenerateLink(bodySection.Title)" class="underlined">@bodySection.Title </h3>
+                            <h3 id="@WikiHash.Models.TitleFunctions.GenerateLink(bodySection.Title)"><input type="text" class="edit-input underlined" value="@bodySection.Title" /></h3>
 
                             <div class="row">
                                 @foreach (var frame in bodySection.Frames)
                                 {
                                     <div class="col@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToBootstrapString(frame.Width)} ">
-                                        <div class="content-frame">
+                                        <div class="content-frame content-frame-edit">
                                             @Html.Raw(frame.Content)
+                                            <div class="content-frame-edit-buttons">
+                                                <span class="fa fa-pencil edit" aria-hidden="true"></span>
+                                                <span class="fa fa-minus remove" aria-hidden="true"></span>
+                                            </div>
                                         </div>
                                     </div>
                                 }
+
+                                <div class="col">
+                                    <div class="content-frame content-frame-edit-add">
+                                        <span class="fa fa-plus" aria-hidden="true"></span>
+                                    </div>
+                                </div>
                             </div>
                         </section>
 
@@ -50,3 +62,7 @@
         </div>
     </div>
 </div>
+
+@section scripts {
+    @Scripts.Render("~/bundles/edit")
+}

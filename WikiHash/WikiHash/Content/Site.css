@@ -10,9 +10,9 @@
 }
 
 .underlined {
-    border-width: 0px 0px 1px 0px;
-    border-style: solid solid solid solid;
-    border-color: #9f9f9f;
+    border-width: 0px 0px 1px 0px !important;
+    border-style: solid solid solid solid !important;
+    border-color: #9f9f9f !important;
 }
 
 .article-title-container {
@@ -27,6 +27,12 @@
     text-decoration: none;
     color: grey;
     font-size: 25px;
+    transition: all 200ms;
+}
+
+.article-title-container .edit-button:hover {
+    transform: scale(1.2);
+    color: #47a3ff;
 }
 
 .article-body {
@@ -59,4 +65,68 @@ div.contents {
     height: auto;
 }
 
+.edit-input {
+    border: 0;
+    width: 100%;
+}
+
+
 /*Content Frame*/
+
+.content-frame-edit {
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    margin: 5px 0 20px 0;
+    padding: 2px;
+}
+
+.content-frame-edit-buttons {
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+    cursor: default;
+}
+
+.content-frame-edit-buttons span.edit {
+    color: #dbdbdb;
+    font-size: 15px;
+    transition: all 200ms;
+    cursor: pointer;
+}
+
+.content-frame-edit-buttons span.remove {
+    color: #dbdbdb;
+    font-size: 15px;
+    transition: all 200ms;
+    cursor: pointer;
+}
+
+.content-frame-edit-buttons span.edit:hover {
+    transform: scale(1.2);
+    color: #47a3ff;
+}
+
+.content-frame-edit-buttons span.remove:hover {
+    transform: scale(1.2);
+    color: #ff4c4c;
+}
+
+.content-frame-edit-add {
+    border: 1px dashed #dbdbdb;
+    border-radius: 3px;
+    margin: 5px 0;
+    padding: 2px;
+    text-align: center;
+    color: #dbdbdb;
+    font-size: 30px;
+}
+
+.content-frame-edit-add span {
+    cursor: pointer;
+    transition: all 200ms;
+}
+
+.content-frame-edit-add span:hover {
+    transform: scale(1.2);
+    color: #adadad;
+}
