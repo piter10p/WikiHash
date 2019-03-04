@@ -17,6 +17,50 @@ $("#edit-save-button").click(function () {
     $('#edit-frame-dialog').modal('toggle');
 });
 
+$("#edit-remove-button").click(function () {
+    var confirmation = confirm("Are you sure?");
+
+    if (confirmation) {
+        var frameId = $("#edit-frame-id").val();
+        $('#edit-frame-dialog').modal('toggle');
+
+        $("#" + frameId).slideUp(200, function () {
+            $("#" + frameId).remove();
+        });
+    }
+});
+
+$("div.content-frame-edit-add span").click(function () {
+    var element = `<div contentFrame style="display: none;" id='Frame-${FramesCounter}' class='col-12' data-width='6'>
+                        <div class="content-frame content-frame-edit">
+                            New Content Frame.
+                            <div class="content-frame-edit-buttons">
+                                <span class="fa fa-pencil" aria-hidden="true"
+                                        data-toggle="modal" data-target="#edit-frame-dialog"></span>
+                            </div>
+                        </div>
+                    </div>`;
+
+    $(element).insertBefore($(this).closest("div[contentFrame]")).slideDown(200);
+
+    FramesCounter++;
+});
+
+$("ul.edit-topbar li").click(function () {
+    $(this).parent().children().removeAttr("selected");
+    $(this).attr("selected", '');
+    $("#edit-tabs").children().hide();
+    $("#" + $(this).data("tab")).show();
+});
+
+//Textarea auto size
+$('textarea').each(function () {
+    this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
+}).on('input', function () {
+    this.style.height = 'auto';
+    this.style.height = (this.scrollHeight) + 'px';
+});
+
 function setFrameWidth(frameElement, width) {
     frameElement.data("width", width);
 

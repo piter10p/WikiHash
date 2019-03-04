@@ -68,16 +68,24 @@ div.contents {
 .edit-input {
     border: 0;
     width: 100%;
+    outline: none;
 }
 
+.edit-topbar li {
+    padding: 0 5px;
+    cursor: pointer;
+}
+
+.edit-topbar li[selected] {
+    background-color: #e5e5e5;
+}
 
 /*Content Frame*/
-
 .content-frame-edit {
     border: 1px solid #dbdbdb;
     border-radius: 3px;
     margin: 5px 0 20px 0;
-    padding: 2px;
+    padding: 5px;
 }
 
 .content-frame-edit-buttons {
@@ -116,5 +124,5 @@ div.contents {
 
 .content-frame-edit-add span:hover {
     transform: scale(1.2);
-    color: #adadad;
+    color: #4aaa3d;
 }

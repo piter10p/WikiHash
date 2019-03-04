@@ -36,6 +36,7 @@
                                          data-width="@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToString(frame.Width)}">
                                         <div class="content-frame content-frame-edit">
                                             @Html.Raw(frame.Content)
+                                            
                                             <div class="content-frame-edit-buttons">
                                                 <span class="fa fa-pencil" aria-hidden="true"
                                                       data-toggle="modal" data-target="#edit-frame-dialog"></span>
@@ -46,7 +47,7 @@
                                     framesCounter++;
                                 }
 
-                                <div class="col">
+                                <div contentFrame class="col">
                                     <div class="content-frame content-frame-edit-add">
                                         <span class="fa fa-plus" aria-hidden="true"></span>
                                     </div>
@@ -83,12 +84,21 @@
                         <option value="6">6/6</option>
                         <option value="auto">auto</option>
                     </select>
+
+                    <ul class="list-inline edit-topbar underlined">
+                        <li selected class="list-inline-item" data-tab="edit-text-tab">ASD</li>
+                        <li class="list-inline-item" data-tab="edit-media-tab">ASD2</li>
+                    </ul>
+                    <div id="edit-tabs">
+                        <div id="edit-text-tab" style="display: none;">TEXT</div>
+                        <div id="edit-media-tab" style="display: none;">MEDIA</div>
+                    </div>
                 </div>
                 
             </div>
             <div class="modal-footer">
                 <button id="edit-save-button" type="button" class="btn btn-primary">Save changes</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="edit-remove-button" type="button" class="btn btn-danger">Remove frame</button>
             </div>
         </div>
     </div>
