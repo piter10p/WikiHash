@@ -8,6 +8,7 @@ $('div.modal#edit-frame-dialog').on('shown.bs.modal', function (e) {
     $("#edit-frame-id").val(contentFrame.attr("id"));
 })
 
+//Save frame button click
 $("#edit-save-button").click(function () {
     var contentFrameId = $("#edit-frame-id").val();
     var width = $("#edit-width-input").val();
@@ -17,6 +18,7 @@ $("#edit-save-button").click(function () {
     $('#edit-frame-dialog').modal('toggle');
 });
 
+//Remove frame button click
 $("#edit-remove-button").click(function () {
     var confirmation = confirm("Are you sure?");
 
@@ -30,6 +32,7 @@ $("#edit-remove-button").click(function () {
     }
 });
 
+//Add frame button click
 $("div.content-frame-edit-add span").click(function () {
     var element = `<div contentFrame style="display: none;" id='Frame-${FramesCounter}' class='col-12' data-width='6'>
                         <div class="content-frame content-frame-edit">
@@ -46,11 +49,36 @@ $("div.content-frame-edit-add span").click(function () {
     FramesCounter++;
 });
 
+//Tab click
 $("ul.edit-topbar li").click(function () {
     $(this).parent().children().removeAttr("selected");
     $(this).attr("selected", '');
     $("#edit-tabs").children().hide();
     $("#" + $(this).data("tab")).show();
+});
+
+//Frame up button
+$("div.content-frame-edit-buttons span.fa-caret-up").click(function () {
+    var contentFrame = $(this).closest("div[contentFrame]");
+    var targetFrame = contentFrame.prev();
+
+    slideToElementPosition(contentFrame, targetFrame, function () {
+        targetFrame.before(contentFrame);
+    });
+
+    slideToElementPosition(targetFrame, contentFrame);
+});
+
+//Frame down button
+$("div.content-frame-edit-buttons span.fa-caret-down").click(function () {
+    var contentFrame = $(this).closest("div[contentFrame]");
+    var targetFrame = contentFrame.next();
+
+    slideToElementPosition(contentFrame, targetFrame, function () {
+        targetFrame.after(contentFrame);
+    });
+
+    slideToElementPosition(targetFrame, contentFrame);
 });
 
 //Textarea auto size
@@ -73,4 +101,16 @@ function setFrameWidth(frameElement, width) {
         frameElement.removeClass();
         frameElement.addClass("col-" + bootstrapWidth);
     }
+}
+
+function slideToElementPosition(elementToAnimate, target, callback) {
+    var top = target.position().top - elementToAnimate.position().top;
+    var left = target.position().left - elementToAnimate.position().left;
+
+    elementToAnimate.animate({ top: top , left: left}, 200, function () {
+        elementToAnimate.css("top", 0).css("left", 0);
+        if (typeof callback !== 'undefined') {
+            callback();
+        }
+    });
 }
