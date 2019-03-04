@@ -1,7 +1,6 @@
 ﻿@model WikiHash.Models.Articles.ArticleViewModel
 @{ 
     ViewBag.Title = Model.Title;
-    var counter = 0;
 }
 <div class="article-body">
     <div class="container-fluid">
@@ -10,12 +9,9 @@
                 <div class="contents">
                     CONTENTS:
                     <ol>
-                        @{ counter = 0; }
                         @foreach (var bodySection in Model.Body.Sections)
                         {
                             <li><a data-slide="true" href="#@WikiHash.Models.TitleFunctions.GenerateLink(bodySection.Title)">@bodySection.Title</a></li>
-
-                            counter++;
                         }
                     </ol>
                 </div>
@@ -28,7 +24,6 @@
                     </div>
                 </header>
                 <article>
-                    @{ counter = 0; }
                     @foreach (var bodySection in Model.Body.Sections)
                     {
                         <section>
@@ -37,7 +32,7 @@
                             <div class="row">
                                 @foreach (var frame in bodySection.Frames)
                                 {
-                                    <div class="col@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToBootstrapString(frame.Width)} ">
+                                    <div class="col@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToBootstrapString(frame.Width)}">
                                         <div class="content-frame">
                                             @Html.Raw(frame.Content)
                                         </div>
@@ -45,8 +40,6 @@
                                 }
                             </div>
                         </section>
-
-                        counter++;
                     }
                 </article>
             </div>

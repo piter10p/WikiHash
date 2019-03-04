@@ -1,7 +1,7 @@
 ﻿@model WikiHash.Models.Articles.ArticleViewModel
 @{
     ViewBag.Title = "Edit: " + Model.Title;
-    var counter = 0;
+    var framesCounter = 0;
 }
 <div class="article-body">
     <div class="container-fluid">
@@ -10,12 +10,9 @@
                 <div class="contents">
                     CONTENTS:
                     <ol>
-                        @{ counter = 0; }
                         @foreach (var bodySection in Model.Body.Sections)
                         {
                             <li><a data-slide="true" href="#@WikiHash.Models.TitleFunctions.GenerateLink(bodySection.Title)">@bodySection.Title</a></li>
-
-                            counter++;
                         }
                     </ol>
                 </div>
@@ -27,7 +24,6 @@
                     </div>
                 </header>
                 <article>
-                    @{ counter = 0; }
                     @foreach (var bodySection in Model.Body.Sections)
                     {
                         <section>
@@ -36,15 +32,18 @@
                             <div class="row">
                                 @foreach (var frame in bodySection.Frames)
                                 {
-                                    <div class="col@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToBootstrapString(frame.Width)} ">
+                                    <div contentFrame id="Frame-@framesCounter" class="col@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToBootstrapString(frame.Width)}"
+                                         data-width="@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToString(frame.Width)}">
                                         <div class="content-frame content-frame-edit">
                                             @Html.Raw(frame.Content)
                                             <div class="content-frame-edit-buttons">
-                                                <span class="fa fa-pencil edit" aria-hidden="true"></span>
-                                                <span class="fa fa-minus remove" aria-hidden="true"></span>
+                                                <span class="fa fa-pencil" aria-hidden="true"
+                                                      data-toggle="modal" data-target="#edit-frame-dialog"></span>
                                             </div>
                                         </div>
                                     </div>
+
+                                    framesCounter++;
                                 }
 
                                 <div class="col">
@@ -54,8 +53,6 @@
                                 </div>
                             </div>
                         </section>
-
-                        counter++;
                     }
                 </article>
             </div>
@@ -63,6 +60,43 @@
     </div>
 </div>
 
+<!--DIALOGS-->
+<div id="edit-frame-dialog" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Content Frame</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <input id="edit-frame-id" type="hidden" />
+                    Column width:
+                    <select id="edit-width-input">
+                        <option value="1">1/6</option>
+                        <option value="2">2/6</option>
+                        <option value="3">3/6</option>
+                        <option value="4">4/6</option>
+                        <option value="5">5/6</option>
+                        <option value="6">6/6</option>
+                        <option value="auto">auto</option>
+                    </select>
+                </div>
+                
+            </div>
+            <div class="modal-footer">
+                <button id="edit-save-button" type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section scripts {
     @Scripts.Render("~/bundles/edit")
+    <script>
+        FramesCounter = @framesCounter;
+    </script>
 }

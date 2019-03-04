@@ -87,28 +87,16 @@ div.contents {
     cursor: default;
 }
 
-.content-frame-edit-buttons span.edit {
+.content-frame-edit-buttons span {
     color: #dbdbdb;
     font-size: 15px;
     transition: all 200ms;
     cursor: pointer;
 }
 
-.content-frame-edit-buttons span.remove {
-    color: #dbdbdb;
-    font-size: 15px;
-    transition: all 200ms;
-    cursor: pointer;
-}
-
-.content-frame-edit-buttons span.edit:hover {
+.content-frame-edit-buttons span:hover {
     transform: scale(1.2);
     color: #47a3ff;
-}
-
-.content-frame-edit-buttons span.remove:hover {
-    transform: scale(1.2);
-    color: #ff4c4c;
 }
 
 .content-frame-edit-add {
