@@ -33,16 +33,18 @@ $("#edit-remove-button").click(function () {
 });
 
 //Add frame button click
-$("div.content-frame-edit-add span").click(function () {
+$(document).on('click', ' div.content-frame-edit-add span', function () {
     var element = `<div contentFrame style="display: none;" id='Frame-${FramesCounter}' class='col-12' data-width='6'>
-                        <div class="content-frame content-frame-edit">
-                            New Content Frame.
-                            <div class="content-frame-edit-buttons">
-                                <span class="fa fa-pencil" aria-hidden="true"
-                                        data-toggle="modal" data-target="#edit-frame-dialog"></span>
-                            </div>
+                    <div class="content-frame content-frame-edit">
+                        <p>New Content Frame.</p>
+                        <div class="content-frame-edit-buttons noselect">
+                            <span class="fa fa-caret-up" aria-hidden="true"></span>
+                            <span class="fa fa-caret-down" aria-hidden="true"></span>
+                            <span class="fa fa-pencil" aria-hidden="true"
+                                    data-toggle="modal" data-target="#edit-frame-dialog"></span>
                         </div>
-                    </div>`;
+                    </div>
+                </div>`;
 
     $(element).insertBefore($(this).closest("div[contentFrame]")).slideDown(200);
 
@@ -58,7 +60,7 @@ $("ul.edit-topbar li").click(function () {
 });
 
 //Frame up button
-$("div.content-frame-edit-buttons span.fa-caret-up").click(function () {
+$(document).on('click', "div.content-frame-edit-buttons span.fa-caret-up", function () {
     var contentFrame = $(this).closest("div[contentFrame]");
     var targetFrame = contentFrame.prev();
 
@@ -70,7 +72,7 @@ $("div.content-frame-edit-buttons span.fa-caret-up").click(function () {
 });
 
 //Frame down button
-$("div.content-frame-edit-buttons span.fa-caret-down").click(function () {
+$(document).on('click', "div.content-frame-edit-buttons span.fa-caret-down", function () {
     var contentFrame = $(this).closest("div[contentFrame]");
     var targetFrame = contentFrame.next();
 
@@ -88,6 +90,8 @@ $('textarea').each(function () {
     this.style.height = 'auto';
     this.style.height = (this.scrollHeight) + 'px';
 });
+
+
 
 function setFrameWidth(frameElement, width) {
     frameElement.data("width", width);
