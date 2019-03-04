@@ -1,6 +1,6 @@
 ﻿@model WikiHash.Models.Articles.ArticleViewModel
-@{ 
-    ViewBag.Title = Model.Title;
+@{
+    ViewBag.Title = "Edit: " + Model.Title;
     var counter = 0;
 }
 <div class="article-body">
@@ -22,10 +22,7 @@
             </div>
             <div class="col-10 content-body">
                 <header>
-                    <div class="article-title-container">
-                        <h1 class="underlined">@Model.Title</h1>
-                        <a href="@Url.Action("Edit", "Edit", Model.Link)" class="fa fa-pencil edit-button" aria-hidden="true"></a>
-                    </div>
+                    <h1 class="underlined article-title">@Model.Title</h1>
                 </header>
                 <article>
                     @{ counter = 0; }

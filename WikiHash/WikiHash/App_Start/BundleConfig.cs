@@ -11,6 +11,7 @@ namespace WikiHash
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/jquery.validate*",
+                        "~/Scripts/bootstrap.min.js",
                         "~/Scripts/script.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
@@ -18,13 +19,10 @@ namespace WikiHash
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.min.js"));
-
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.min.css",
                       "~/Content/site.css",
-                      "~/font-awesome.min.css"));
+                      "~/Content/font-awesome.min.css"));
         }
     }
 }

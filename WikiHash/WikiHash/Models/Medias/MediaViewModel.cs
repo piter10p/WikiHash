@@ -6,7 +6,7 @@ using System.Web;
 
 namespace WikiHash.Models.Medias
 {
-    public class MediaViewModel
+    public class MediaViewModel: LinkableViewModel
     {
         public static MediaViewModel FromMedia(Media media)
         {
@@ -22,15 +22,10 @@ namespace WikiHash.Models.Medias
         }
 
         [MaxLength(256)]
-        public string Title { get; set; }
-
-        [MaxLength(256)]
         public string Description { get; set; }
 
         [MaxLength(256)]
         public string FileName { get; set; }
-
-        public DateTime CreationDate { get; set; }
 
         public string Url { get; set; }
 

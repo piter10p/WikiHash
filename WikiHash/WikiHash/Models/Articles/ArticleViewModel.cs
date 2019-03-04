@@ -6,18 +6,16 @@ using System.Web;
 
 namespace WikiHash.Models.Articles
 {
-    public class ArticleViewModel
+    public class ArticleViewModel: LinkableViewModel
     {
         public static ArticleViewModel FromArticle(Article article)
         {
             var output = new ArticleViewModel();
             output.Title = article.Title;
             output.Body = article.Body;
+            output.CreationDate = article.CreationDate;
             return output;
         }
-
-        [MaxLength(256)]
-        public string Title { get; set; }
 
         public Bodies.Body Body { get; set; }
     }

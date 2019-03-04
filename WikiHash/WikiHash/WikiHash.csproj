@@ -175,6 +175,7 @@
     <Compile Include="Configuration\Configuration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
+    <Compile Include="Controllers\EditController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MediasController.cs" />
@@ -226,6 +227,7 @@
     <Compile Include="Models\Articles\Bodies\Section.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Linkable.cs" />
+    <Compile Include="Models\LinkableViewModel.cs" />
     <Compile Include="Models\Medias\MediasManager.cs" />
     <Compile Include="Models\Medias\MediaTypeGetter.cs" />
     <Compile Include="Models\Medias\MediaViewModel.cs" />
@@ -347,6 +349,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Articles\Read.cshtml" />
     <Content Include="Views\Medias\Show.cshtml" />
+    <Content Include="Views\Edit\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

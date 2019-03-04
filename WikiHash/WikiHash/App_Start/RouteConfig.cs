@@ -20,6 +20,12 @@ namespace WikiHash
             );
 
             routes.MapRoute(
+                name: "Edit",
+                url: "Edit/{link}",
+                defaults: new { controller = "Edit", action = "Edit" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{link}",
                 defaults: new { controller = "Home", action = "Index", link = UrlParameter.Optional }

@@ -15,8 +15,18 @@
     border-color: #9f9f9f;
 }
 
-.article-title {
+.article-title-container {
     margin-bottom: 40px;
+    position: relative;
+}
+
+.article-title-container .edit-button {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    text-decoration: none;
+    color: grey;
+    font-size: 25px;
 }
 
 .article-body {
