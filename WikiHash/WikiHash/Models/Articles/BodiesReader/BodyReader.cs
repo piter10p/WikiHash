@@ -51,7 +51,7 @@ namespace WikiHash.Models.Articles.BodiesReader
         {
             try
             {
-                var root = doc.FirstChild;
+                var root = doc.SelectSingleNode("article");
                 metaNode = root.SelectSingleNode("meta");
                 sectionsNode = root.SelectSingleNode("sections");
             }

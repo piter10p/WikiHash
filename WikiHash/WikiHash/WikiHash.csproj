@@ -221,6 +221,8 @@
     <Compile Include="Models\Articles\BodiesReader\BodyReader.cs" />
     <Compile Include="Models\Articles\BodiesReader\MetaDataReader.cs" />
     <Compile Include="Models\Articles\BodiesReader\SectionReader.cs" />
+    <Compile Include="Models\Articles\BodiesWriter\BodyWriter.cs" />
+    <Compile Include="Models\Articles\BodiesWriter\SectionGenerator.cs" />
     <Compile Include="Models\Articles\Bodies\Body.cs" />
     <Compile Include="Models\Articles\Bodies\Prototypes\BodyPrototype.cs" />
     <Compile Include="Models\Articles\Bodies\ContentFrame.cs" />

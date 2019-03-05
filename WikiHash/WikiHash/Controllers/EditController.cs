@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WikiHash.Models.Articles;
+using WikiHash.Models.Articles.BodiesWriter;
 
 namespace WikiHash.Controllers
 {
@@ -26,6 +27,8 @@ namespace WikiHash.Controllers
                 var articleViewModel = ArticleJsonParser.Parse(articleJson);
                 var article = Article.FromViewModel(articleViewModel);
                 ArticlesManager.UpdateArticle(article);
+                var writer = new BodyWriter();
+                writer.Write(articleViewModel.Body, articleViewModel.Link);
 
                 return "ok";
             }

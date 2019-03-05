@@ -36,7 +36,9 @@
                                     <div contentFrame id="Frame-@framesCounter" class="col@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToBootstrapString(frame.Width)}"
                                          data-width="@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToString(frame.Width)}">
                                         <div class="content-frame content-frame-edit">
-                                            @Html.Raw(frame.Content)
+                                            <div>
+                                                @Html.Raw(frame.Content)
+                                            </div>
                                             
                                             <div class="content-frame-edit-buttons noselect">
                                                 <span class="fa fa-caret-up" aria-hidden="true"></span>

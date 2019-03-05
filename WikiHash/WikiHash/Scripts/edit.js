@@ -192,7 +192,7 @@ function getContentFrames(sectionElement) {
 
     sectionElement.find("[contentFrame]:not([newContentFrame])").each(function () {
         var frame = {
-            Content: $(this).find(">:first-child").html(),
+            Content: $(this).children().first().children().first().html(),
             Width: $(this).data("width")
         };
 
