@@ -31,7 +31,7 @@ namespace WikiHash.Models.Articles
             }
         }
 
-        public static void SaveArticle(Article article, bool overwrite = false)
+        public static void UpdateArticle(Article article)
         {
             try
             {
@@ -40,35 +40,21 @@ namespace WikiHash.Models.Articles
 
                 var context = DAL.ApplicationDbContext.Create();
 
-                if (overwrite)
-                {
-                    if(!IsArticleExisting(article.Title))//TODO: Add data updating if existing
-                        context.Articles.Add(article);
-                }
-                else
-                {
-                    if (!IsArticleExisting(article.Title))
-                        context.Articles.Add(article);
-                    else
-                        throw new Exception("Article exists already.");
-                }
+                var query = from a in context.Articles where a.Title == article.Title select a;
+
+                if (query.Count() != 1)
+                    throw new Exception("No article with specified title found.");
+
+                var targetArticle = query.First();
+                targetArticle.Title = article.Title;
+                targetArticle.CreationDate = article.CreationDate;
 
                 context.SaveChanges();
             }
-            catch(Exception e)
+            catch
             {
-                throw new Exception("Failed to save article.", e);
+                throw;
             }
-        }
-
-        private static bool IsArticleExisting(string title)
-        {
-            var context = DAL.ApplicationDbContext.Create();
-            var query = from a in context.Articles where a.Title == title select a;
-
-            if (query.Count() != 0)
-                return true;
-            return false;
         }
     }
 }

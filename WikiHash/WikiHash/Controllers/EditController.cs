@@ -25,7 +25,7 @@ namespace WikiHash.Controllers
             {
                 var articleViewModel = ArticleJsonParser.Parse(articleJson);
                 var article = Article.FromViewModel(articleViewModel);
-                ArticlesManager.SaveArticle(article, true);
+                ArticlesManager.UpdateArticle(article);
 
                 return "ok";
             }

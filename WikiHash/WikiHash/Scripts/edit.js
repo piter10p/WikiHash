@@ -125,7 +125,7 @@ function slideToElementPosition(elementToAnimate, target, callback) {
 
 function saveChanges() {
     var output = {
-        Title: $("#title").val(),
+        Title: $("#title").text(),
         Body: getBody()
     };
 
@@ -147,9 +147,9 @@ function saveChanges() {
     .fail(function () {
         $("#connection-error-alert").show(200);
     });
-    //submit("/Save", "post", json);
 }
 
+//Unused. For tests only
 function submit(action, method, value) {
     var form = $('<form/>', {
         action: action,
