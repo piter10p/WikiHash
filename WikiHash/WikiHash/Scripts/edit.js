@@ -91,6 +91,10 @@ $('textarea').each(function () {
     this.style.height = (this.scrollHeight) + 'px';
 });
 
+//Save changes button click
+$("#save-changes-button").click(function () {
+    saveChanges();
+});
 
 
 function setFrameWidth(frameElement, width) {
@@ -117,4 +121,83 @@ function slideToElementPosition(elementToAnimate, target, callback) {
             callback();
         }
     });
+}
+
+function saveChanges() {
+    var output = {
+        Title: $("#title").val(),
+        Body: getBody()
+    };
+
+    var json = JSON.stringify(output);
+
+    console.log(output);
+
+    $.ajax({
+        url: "/Save",
+        method: "POST",
+        data: { articleJson: json }
+    })
+    .done(function (data) {
+        if (data == "ok")
+            $("#saved-alert").show(200);
+        else
+            $("#save-error-alert").show(200);
+    })
+    .fail(function () {
+        $("#connection-error-alert").show(200);
+    });
+    //submit("/Save", "post", json);
+}
+
+function submit(action, method, value) {
+    var form = $('<form/>', {
+        action: action,
+        method: method
+    });
+    form.append($('<input/>', {
+        type: 'hidden',
+        name: 'articleJson',
+        value: value
+    }));
+    form.appendTo('body').submit();
+}
+
+function getBody() {
+    var output = {
+        Sections: getSections()
+    };
+
+    return output;
+}
+
+function getSections() {
+    var sectionsArray = [];
+
+    $("section").each(function () {
+
+        var section = {
+            Title: $(this).find("h3").first().find("input").first().val(),
+            ContentFrames: getContentFrames($(this))
+        };
+
+        sectionsArray.push(section);
+    });
+
+    return sectionsArray;
+}
+
+function getContentFrames(sectionElement) {
+    var framesArray = [];
+
+    sectionElement.find("[contentFrame]:not([newContentFrame])").each(function () {
+        var frame = {
+            Content: $(this).find(">:first-child").html(),
+            Width: $(this).data("width")
+        };
+
+        framesArray.push(frame);
+    });
+
+    return framesArray;
 }

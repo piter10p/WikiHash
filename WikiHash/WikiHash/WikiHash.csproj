@@ -214,6 +214,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Articles\Article.cs" />
+    <Compile Include="Models\Articles\ArticleJsonParser.cs" />
     <Compile Include="Models\Articles\ArticlesManager.cs" />
     <Compile Include="Models\Articles\ArticlesPathGenerator.cs" />
     <Compile Include="Models\Articles\ArticleViewModel.cs" />
@@ -221,10 +222,13 @@
     <Compile Include="Models\Articles\BodiesReader\MetaDataReader.cs" />
     <Compile Include="Models\Articles\BodiesReader\SectionReader.cs" />
     <Compile Include="Models\Articles\Bodies\Body.cs" />
+    <Compile Include="Models\Articles\Bodies\Prototypes\BodyPrototype.cs" />
     <Compile Include="Models\Articles\Bodies\ContentFrame.cs" />
+    <Compile Include="Models\Articles\Bodies\Prototypes\ContentFramePrototype.cs" />
     <Compile Include="Models\Articles\Bodies\FrameWidth.cs" />
     <Compile Include="Models\Articles\Bodies\MetaData.cs" />
     <Compile Include="Models\Articles\Bodies\Section.cs" />
+    <Compile Include="Models\Articles\Bodies\Prototypes\SectionPrototype.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Linkable.cs" />
     <Compile Include="Models\LinkableViewModel.cs" />

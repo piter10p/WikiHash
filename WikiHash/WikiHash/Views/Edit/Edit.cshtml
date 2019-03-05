@@ -16,11 +16,12 @@
                         }
                     </ol>
                 </div>
+                <button id="save-changes-button" type="button" class="btn btn-primary save-changes-button">Save Changes</button>
             </div>
             <div class="col-10 content-body">
                 <header>
                     <div class="article-title-container">
-                        <h1><input type="text" class="edit-input underlined" value="@Model.Title" /></h1>
+                        <h1><input id="title" type="text" class="edit-input underlined" value="@Model.Title" /></h1>
                     </div>
                 </header>
                 <article>
@@ -49,7 +50,7 @@
                                     framesCounter++;
                                 }
 
-                                <div contentFrame class="col noselect">
+                                <div contentFrame newContentFrame class="col noselect">
                                     <div class="content-frame content-frame-edit-add">
                                         <span class="fa fa-plus" aria-hidden="true"></span>
                                     </div>
@@ -107,6 +108,21 @@
                 <button id="edit-remove-button" type="button" class="btn btn-danger">Remove frame</button>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="alerts-container">
+    <div id="saved-alert" style="display: none;" class="alert alert-success alert-dismissible fade show">
+        <button type="button" class="close">&times;</button>
+        <strong>Saved!</strong> Article has been saved successfully.
+    </div>
+    <div id="save-error-alert" style="display: none;" class="alert alert-danger alert-dismissible fade show">
+        <button type="button" class="close">&times;</button>
+        <strong>Server side error!</strong> Article has not been saved.
+    </div>
+    <div id="connection-error-alert" style="display: none;" class="alert alert-danger alert-dismissible fade show">
+        <button type="button" class="close">&times;</button>
+        <strong>Connection error!</strong> Article has not been saved.
     </div>
 </div>
 

@@ -11,8 +11,19 @@ namespace WikiHash.Models.Articles.Bodies
 
         public Section(string title, List<ContentFrame> frames)
         {
+            if (title == null || frames == null)
+                throw new ArgumentNullException();
+
             Title = title;
             contentFrames = frames;
+        }
+
+        public static Section FromPrototype(SectionPrototype prototype)
+        {
+            if (prototype == null)
+                throw new ArgumentNullException();
+
+            return new Section(prototype.Title, prototype.ContentFrames);
         }
 
         public string Title { get; private set; }

@@ -90,6 +90,12 @@ div.contents {
     background-color: #e5e5e5;
 }
 
+.save-changes-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
+
 /*Content Frame*/
 .content-frame-edit {
     border: 1px solid #dbdbdb;
@@ -135,4 +141,11 @@ div.contents {
 .content-frame-edit-add span:hover {
     transform: scale(1.2);
     color: #4aaa3d;
+}
+
+div.alerts-container {
+    position: fixed;
+    bottom: 5px;
+    width: 96%;
+    left: 2%;
 }

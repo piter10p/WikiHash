@@ -11,8 +11,19 @@ namespace WikiHash.Models.Articles.Bodies
 
         public Body(List<Section> sections, MetaData metaData)
         {
+            if (sections == null || metaData == null)
+                throw new ArgumentNullException();
+
             this.sections = sections;
             this.MetaData = metaData;
+        }
+
+        public static Body FromPrototype(BodyPrototype bodyPrototype)
+        {
+            if(bodyPrototype == null)
+                throw new ArgumentNullException();
+
+            return new Body(bodyPrototype.Sections, bodyPrototype.MetaData);
         }
 
         public MetaData MetaData { get; private set; }

@@ -9,7 +9,7 @@ namespace WikiHash.Models.Articles.Bodies
     {
         public MetaData(string author)
         {
-            Author = author;
+            Author = author ?? throw new ArgumentNullException();
         }
 
         public string Author { get; private set; }

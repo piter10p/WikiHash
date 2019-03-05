@@ -16,5 +16,23 @@ namespace WikiHash.Controllers
             var viewModel = ArticleViewModel.FromArticle(article);
             return View(viewModel);
         }
+
+        [ValidateInput(false)]
+        [HttpPost]
+        public string Save(string articleJson)
+        {
+            try
+            {
+                var articleViewModel = ArticleJsonParser.Parse(articleJson);
+                var article = Article.FromViewModel(articleViewModel);
+                ArticlesManager.SaveArticle(article, true);
+
+                return "ok";
+            }
+            catch
+            {
+                return "failed";
+            }
+        }
     }
 }

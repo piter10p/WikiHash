@@ -17,6 +17,11 @@ $('media').each(function () {
     loadMedia($(this));
 });
 
+//Alerts close
+$("div.alert button").click(function () {
+    $(this).parent().hide(200);
+});
+
 function loadMedia(mediaElement) {
     var link = mediaElement.data("link");
     var figureClass = "figure-standard";
