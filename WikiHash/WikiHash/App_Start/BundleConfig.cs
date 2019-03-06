@@ -20,12 +20,14 @@ namespace WikiHash
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/edit").Include(
-                        "~/Scripts/edit.js"));
+                        "~/Scripts/edit.js",
+                        "~/Scripts/quill/quill.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.min.css",
                       "~/Content/site.css",
-                      "~/Content/font-awesome.min.css"));
+                      "~/Content/font-awesome.min.css",
+                      "~/Content/quill/quill.snow.css"));
         }
     }
 }

@@ -259,6 +259,9 @@
     <Content Include="Content\Medias\nyan cat.mp4" />
     <Content Include="Content\Medias\programming.gif" />
     <Content Include="Content\Medias\test-media.jpg" />
+    <Content Include="Content\quill\quill.bubble.css" />
+    <Content Include="Content\quill\quill.core.css" />
+    <Content Include="Content\quill\quill.snow.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
@@ -306,6 +309,9 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\quill\quill.core.js" />
+    <Content Include="Scripts\quill\quill.js" />
+    <Content Include="Scripts\quill\quill.min.js" />
     <Content Include="Scripts\script.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
@@ -357,6 +363,7 @@
     <Content Include="Views\Articles\Read.cshtml" />
     <Content Include="Views\Medias\Show.cshtml" />
     <Content Include="Views\Edit\Edit.cshtml" />
+    <Content Include="Scripts\quill\quill.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
