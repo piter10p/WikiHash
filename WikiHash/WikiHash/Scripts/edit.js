@@ -8,7 +8,7 @@ var toolbarOptions = [
 ];
 
 //Edit dialog show
-$('div.modal#edit-frame-dialog').on('shown.bs.modal', function (e) {
+$('div.modal#edit-frame-dialog').on('show.bs.modal', function (e) {
     setEditDialogData(e);
 })
 
@@ -32,24 +32,6 @@ $("#edit-remove-button").click(function () {
 });
 
 //Add frame button click
-/*$(document).on('click', ' div.content-frame-edit-add span', function () {
-    var element = `<div contentFrame style="display: none;" id='Frame-${FramesCounter}' class='col-12' data-width='6'>
-                    <div class="content-frame content-frame-edit">
-                        <p>New Content Frame.</p>
-                        <div class="content-frame-edit-buttons noselect">
-                            <span class="fa fa-caret-up" aria-hidden="true"></span>
-                            <span class="fa fa-caret-down" aria-hidden="true"></span>
-                            <span class="fa fa-pencil" aria-hidden="true"
-                                    data-toggle="modal" data-target="#edit-frame-dialog"></span>
-                        </div>
-                    </div>
-                </div>`;
-
-    $(element).insertBefore($(this).closest("div[contentFrame]")).slideDown(200);
-
-    FramesCounter++;
-});*/
-
 $(document).on('click', ' div.content-frame-edit-add span', function () {
     var element = `<div contentframe="" id="Frame-${FramesCounter}" class="col-12" data-width="6">
                         <div class="content-frame content-frame-edit">
@@ -71,11 +53,15 @@ $(document).on('click', ' div.content-frame-edit-add span', function () {
 
 //Tab click
 $("ul.edit-topbar li").click(function () {
-    $(this).parent().children().removeAttr("selected");
-    $(this).attr("selected", '');
-    $("#edit-tabs").children().hide();
-    $("#" + $(this).data("tab")).show();
+    activateTab($(this));
 });
+
+function activateTab(tabElement) {
+    tabElement.parent().children().removeAttr("selected");
+    tabElement.attr("selected", '');
+    $("#edit-tabs").children().hide();
+    $("#" + tabElement.data("tab")).show();
+}
 
 //Frame up button
 $(document).on('click', "div.content-frame-edit-buttons span.fa-caret-up", function () {
@@ -243,9 +229,17 @@ function setBasicEditDialogData(contentFrame) {
 function fillContentEditor(contentFrame) {
     var contentElement = getEditorContentElement(contentFrame);
 
-    //var isMedia = frameContainMedia(contentFrame);
+    var isMedia = frameContainMedia(contentFrame);
 
-    fillTextEditor(contentElement);
+    if (!isMedia) {
+        fillTextEditor(contentElement);
+        activateTab($("li[data-tab=edit-text-tab]"));
+    }
+    else {
+        clearTextEditor();
+        activateTab($("li[data-tab=edit-media-tab]"));
+    }
+        
 }
 
 function frameContainMedia(contentElement) {
@@ -258,6 +252,10 @@ function frameContainMedia(contentElement) {
 
 function fillTextEditor(contentElement) {
     quill.root.innerHTML = contentElement.html();
+}
+
+function clearTextEditor() {
+    quill.root.innerHTML = "";
 }
 
 function saveContentFrameChanges() {
