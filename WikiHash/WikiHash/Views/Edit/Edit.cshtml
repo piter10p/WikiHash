@@ -39,7 +39,7 @@
                                             <div>
                                                 @Html.Raw(frame.Content)
                                             </div>
-                                            
+
                                             <div class="content-frame-edit-buttons noselect">
                                                 <span class="fa fa-caret-up" aria-hidden="true"></span>
                                                 <span class="fa fa-caret-down" aria-hidden="true"></span>
@@ -59,7 +59,7 @@
                                     <div class="content-frame-edit-buttons">
                                         <span class="fa fa-caret-up" aria-hidden="true"></span>
                                         <span class="fa fa-caret-down" aria-hidden="true"></span>
-                                     </div>
+                                    </div>
                                 </div>
                             </div>
                         </section>
@@ -70,7 +70,7 @@
     </div>
 </div>
 
-<!--DIALOGS-->
+<!--EDITOR DIALOG-->
 <div id="edit-frame-dialog" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -95,15 +95,18 @@
                     </select>
 
                     <ul class="list-inline edit-topbar underlined">
-                        <li selected class="list-inline-item" data-tab="edit-text-tab">ASD</li>
-                        <li class="list-inline-item" data-tab="edit-media-tab">ASD2</li>
+                        <li selected class="list-inline-item" data-tab="edit-text-tab">Text</li>
+                        <li class="list-inline-item" data-tab="edit-media-tab">Media</li>
                     </ul>
                     <div id="edit-tabs">
-                        <div id="edit-text-tab" style="display: none;">TEXT</div>
-                        <div id="edit-media-tab" style="display: none;">MEDIA</div>
+                        <!--Text editor-->
+                        <div id="edit-text-tab" style="display: none;">Text cotnent</div>
+
+                        <!--Media editor-->
+                        <div id="edit-media-tab" style="display: none;">Media content</div>
                     </div>
                 </div>
-                
+
             </div>
             <div class="modal-footer">
                 <button id="edit-save-button" type="button" class="btn btn-primary">Save changes</button>
@@ -113,6 +116,7 @@
     </div>
 </div>
 
+<!--ALERTS-->
 <div class="alerts-container">
     <div id="saved-alert" style="display: none;" class="alert alert-success alert-dismissible fade show">
         <button type="button" class="close">&times;</button>

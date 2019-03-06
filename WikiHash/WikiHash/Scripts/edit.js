@@ -1,11 +1,8 @@
 ﻿var FramesCounter = 0;
 
+//Edit dialog show
 $('div.modal#edit-frame-dialog').on('shown.bs.modal', function (e) {
-    var contentFrame = $(e.relatedTarget).closest("div[contentFrame]");
-    var widthValue = contentFrame.data("width");
-
-    $("#edit-width-input").val(widthValue).change();
-    $("#edit-frame-id").val(contentFrame.attr("id"));
+    setEditDialogData(e);
 })
 
 //Save frame button click
@@ -81,14 +78,6 @@ $(document).on('click', "div.content-frame-edit-buttons span.fa-caret-down", fun
     });
 
     slideToElementPosition(targetFrame, contentFrame);
-});
-
-//Textarea auto size
-$('textarea').each(function () {
-    this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
-}).on('input', function () {
-    this.style.height = 'auto';
-    this.style.height = (this.scrollHeight) + 'px';
 });
 
 //Save changes button click
@@ -200,4 +189,32 @@ function getContentFrames(sectionElement) {
     });
 
     return framesArray;
+}
+
+/*Editor Dialog*/
+function setEditDialogData(sender) {
+    var contentFrame = $(sender.relatedTarget).closest("div[contentFrame]");
+    clearEditorTabs();
+    setBasicEditDialogData(contentFrame);
+    fillContentEditor(contentFrame);
+}
+
+function setBasicEditDialogData(contentFrame) {
+    var widthValue = contentFrame.data("width");
+    $("#edit-width-input").val(widthValue).change();
+    $("#edit-frame-id").val(contentFrame.attr("id"));
+}
+
+function fillContentEditor(contentFrame) {
+    var contentElement = contentFrame.children().first().children().first();
+
+    var mediaFrame = frameContainMedia(contentElement);
+}
+
+function frameContainMedia(contentElement) {
+    var media = contentElement.find("media");
+
+    if (media.length > 0)
+        return true;
+    return false;
 }
