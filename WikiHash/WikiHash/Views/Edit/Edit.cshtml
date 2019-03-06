@@ -36,9 +36,8 @@
                                     <div contentFrame id="Frame-@framesCounter" class="col@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToBootstrapString(frame.Width)}"
                                          data-width="@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToString(frame.Width)}">
                                         <div class="content-frame content-frame-edit">
-                                            <div>
-                                                @Html.Raw(frame.Content)
-                                            </div>
+
+                                            <div>@Html.Raw(frame.Content)</div>
 
                                             <div class="content-frame-edit-buttons noselect">
                                                 <span class="fa fa-caret-up" aria-hidden="true"></span>
@@ -72,7 +71,7 @@
 
 <!--EDITOR DIALOG-->
 <div id="edit-frame-dialog" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Edit Content Frame</h5>
@@ -100,7 +99,9 @@
                     </ul>
                     <div id="edit-tabs">
                         <!--Text editor-->
-                        <div id="edit-text-tab" style="display: none;">Text cotnent</div>
+                        <div id="edit-text-tab" style="display: none;">
+                            <div id="quill"></div>
+                        </div>
 
                         <!--Media editor-->
                         <div id="edit-media-tab" style="display: none;">Media content</div>
@@ -136,5 +137,18 @@
     @Scripts.Render("~/bundles/edit")
     <script>
         FramesCounter = @framesCounter;
+
+        var quill = new Quill("#quill", {
+            theme: "snow",
+            modules: {
+                toolbar: toolbarOptions
+            }
+        });
+
+        $("[contentFrame]:not([newContentFrame]):not(:has(media))").each(function () {
+            var frame = getContentElement($(this)).get(0);
+            var editor = new Quill(frame);
+            editor.enable(false);
+        });
     </script>
 }

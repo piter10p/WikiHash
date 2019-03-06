@@ -42,16 +42,15 @@ function loadMedia(mediaElement) {
             }
         })
         .done(function (res) {
-            var figureContent = getFigureContent(res, figureClass)
             mediaElement.text("");
-            mediaElement.append(
-                `<figure class="figure">
+            var figureContent = getFigureContent(res, figureClass);
+            $(`<figure class="figure">
                     <a href="/Medias/Show/${link}">
                         ${figureContent}
                     </a>
                     <figcaption class="figure-caption text-center">${res.Title}</figcaption>
-                </figure>`
-            );
+                </figure>`)
+            .insertAfter(mediaElement);
         })
         .fail(function () {
             mediaElement.text("Can not get media from server.");

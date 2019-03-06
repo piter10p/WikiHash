@@ -1,5 +1,12 @@
 ﻿var FramesCounter = 0;
 
+var toolbarOptions = [
+    ['bold', 'italic', 'underline', 'strike', { 'script': 'sub' }, { 'script': 'super' }],
+    ['blockquote', 'code-block'],
+    [{ align: '' }, { align: 'center' }, { align: 'right' }, { align: 'justify' }],
+    [{ 'list': 'ordered' }, { 'list': 'bullet' }]
+];
+
 //Edit dialog show
 $('div.modal#edit-frame-dialog').on('shown.bs.modal', function (e) {
     setEditDialogData(e);
@@ -7,12 +14,7 @@ $('div.modal#edit-frame-dialog').on('shown.bs.modal', function (e) {
 
 //Save frame button click
 $("#edit-save-button").click(function () {
-    var contentFrameId = $("#edit-frame-id").val();
-    var width = $("#edit-width-input").val();
-    var contentFrame = $("#" + contentFrameId);
-    setFrameWidth(contentFrame, width);
-
-    $('#edit-frame-dialog').modal('toggle');
+    saveContentFrameChanges();
 });
 
 //Remove frame button click
@@ -30,7 +32,7 @@ $("#edit-remove-button").click(function () {
 });
 
 //Add frame button click
-$(document).on('click', ' div.content-frame-edit-add span', function () {
+/*$(document).on('click', ' div.content-frame-edit-add span', function () {
     var element = `<div contentFrame style="display: none;" id='Frame-${FramesCounter}' class='col-12' data-width='6'>
                     <div class="content-frame content-frame-edit">
                         <p>New Content Frame.</p>
@@ -42,6 +44,25 @@ $(document).on('click', ' div.content-frame-edit-add span', function () {
                         </div>
                     </div>
                 </div>`;
+
+    $(element).insertBefore($(this).closest("div[contentFrame]")).slideDown(200);
+
+    FramesCounter++;
+});*/
+
+$(document).on('click', ' div.content-frame-edit-add span', function () {
+    var element = `<div contentframe="" id="Frame-${FramesCounter}" class="col-12" data-width="6">
+                        <div class="content-frame content-frame-edit">
+
+                            <div class="ql-container ql-disabled"><div class="ql-editor" data-gramm="false" contenteditable="false"><p class="ql-align-left">New Content Frame.</p></div><div class="ql-clipboard" contenteditable="true" tabindex="-1"></div></div>
+
+                            <div class="content-frame-edit-buttons noselect">
+                                <span class="fa fa-caret-up" aria-hidden="true"></span>
+                                <span class="fa fa-caret-down" aria-hidden="true"></span>
+                                <span class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#edit-frame-dialog"></span>
+                            </div>
+                        </div>
+                    </div>`;
 
     $(element).insertBefore($(this).closest("div[contentFrame]")).slideDown(200);
 
@@ -98,6 +119,11 @@ function setFrameWidth(frameElement, width) {
         frameElement.removeClass();
         frameElement.addClass("col-" + bootstrapWidth);
     }
+}
+
+function setFrameContent(contentFrame, content) {
+    var contentElement = getEditorContentElement(contentFrame);
+    contentElement.html(content);
 }
 
 function slideToElementPosition(elementToAnimate, target, callback) {
@@ -180,8 +206,18 @@ function getContentFrames(sectionElement) {
     var framesArray = [];
 
     sectionElement.find("[contentFrame]:not([newContentFrame])").each(function () {
+
+        var isMedia = frameContainMedia($(this));
+
+        var content;
+
+        if (!isMedia)
+            content = getEditorContentElement($(this)).html();
+        else
+            content = getContentElement($(this)).children().first().prop('outerHTML');;
+
         var frame = {
-            Content: $(this).children().first().children().first().html(),
+            Content: content,
             Width: $(this).data("width")
         };
 
@@ -194,7 +230,6 @@ function getContentFrames(sectionElement) {
 /*Editor Dialog*/
 function setEditDialogData(sender) {
     var contentFrame = $(sender.relatedTarget).closest("div[contentFrame]");
-    clearEditorTabs();
     setBasicEditDialogData(contentFrame);
     fillContentEditor(contentFrame);
 }
@@ -206,9 +241,11 @@ function setBasicEditDialogData(contentFrame) {
 }
 
 function fillContentEditor(contentFrame) {
-    var contentElement = contentFrame.children().first().children().first();
+    var contentElement = getEditorContentElement(contentFrame);
 
-    var mediaFrame = frameContainMedia(contentElement);
+    //var isMedia = frameContainMedia(contentFrame);
+
+    fillTextEditor(contentElement);
 }
 
 function frameContainMedia(contentElement) {
@@ -218,3 +255,26 @@ function frameContainMedia(contentElement) {
         return true;
     return false;
 }
+
+function fillTextEditor(contentElement) {
+    quill.root.innerHTML = contentElement.html();
+}
+
+function saveContentFrameChanges() {
+    var contentFrameId = $("#edit-frame-id").val();
+    var width = $("#edit-width-input").val();
+    var contentFrame = $("#" + contentFrameId);
+    setFrameWidth(contentFrame, width);
+    setFrameContent(contentFrame, quill.root.innerHTML);
+
+    $('#edit-frame-dialog').modal('toggle');
+}
+
+function getContentElement(contentFrame) {
+    return contentFrame.children().first().children().first();
+}
+
+function getEditorContentElement(contentFrame) {
+    return getContentElement(contentFrame).children().first();
+}
+

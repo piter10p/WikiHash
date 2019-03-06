@@ -1,64 +1,80 @@
-﻿<article>
-	<meta>
-		<author>Author</author>
-	</meta>
-	<sections>
-		<section>
-			<title>Section 1 Title</title>
-			<frames>
-				<frame>
-          <width>6</width>
-          <content>
-            <p class="text-justify">some text inside w6 frame 1.1. Paragraph justified.</p>
-          </content>
-				</frame>
+<article>
+  <meta>
+    <author>asd</author>
+  </meta>
+  <sections>
+    <section>
+      <title>Section 1 Titlee</title>
+      <frames>
         <frame>
           <width>6</width>
           <content>
-            <p class="text-right">some text inside w6 frame 1.2. Paragraph right.</p>
+            <p class="ql-align-justify">some text inside w6 frame 1.1. Paragraph justified.</p>
           </content>
         </frame>
-			</frames>
-		</section>
-		<section>
-			<title>Section 2 Title</title>
-			<frames>
-				<frame>
-          <width>3</width>
-          <content>some text inside w3 frame 2.1</content>
-				</frame>
-				<frame>
-          <width>3</width>
-          <content>some text inside w3 frame 2.2</content>
-				</frame>
-				<frame>
-          <width>6</width>
-          <content>some text inside w6 frame 2.3</content>
-				</frame>
         <frame>
           <width>6</width>
-          <content>some text inside w6 frame 2.4</content>
+          <content>
+            <p class="ql-align-right">some text inside w6 frame 1.2. Paragraph right.</p>
+          </content>
         </frame>
-			</frames>
-		</section>
+      </frames>
+    </section>
+    <section>
+      <title>Section 2 Title</title>
+      <frames>
+        <frame>
+          <width>3</width>
+          <content>
+            <p>some text inside w3 frame 2.1</p>
+          </content>
+        </frame>
+        <frame>
+          <width>3</width>
+          <content>
+            <p>some text inside w3 frame 2.2</p>
+          </content>
+        </frame>
+        <frame>
+          <width>6</width>
+          <content>
+            <p>some text inside w6 frame 2.3</p>
+          </content>
+        </frame>
+        <frame>
+          <width>6</width>
+          <content>
+            <p>some text inside w6 frame 2.4</p>
+          </content>
+        </frame>
+      </frames>
+    </section>
     <section>
       <title>Section 3 Title</title>
       <frames>
         <frame>
           <width>1</width>
-          <content>some text inside w1 frame 3.1</content>
+          <content>
+            <p>some text inside w1 frame 3.1</p>
+          </content>
         </frame>
         <frame>
           <width>auto</width>
-          <content>some text inside auto frame 3.2</content>
+          <content>
+            <p>some text inside auto frame 3.2</p>
+          </content>
         </frame>
         <frame>
           <width>auto</width>
-          <content>some text inside auto frame 3.3</content>
+          <content>
+            <p>some text inside auto frame 3.3</p>
+          </content>
         </frame>
         <frame>
           <width>2</width>
-          <content>some text inside w2 frame 3.4</content>
+          <content>
+            <p>some text inside w2 frame 3.4</p>
+          </content>
         </frame>
       </frames>
     </section>
@@ -68,37 +84,37 @@
         <frame>
           <width>6</width>
           <content>
-            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</p>
+            <p class="ql-align-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</p>
           </content>
         </frame>
         <frame>
           <width>6</width>
           <content>
-            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</p>
+            <p class="ql-align-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</p>
           </content>
         </frame>
         <frame>
           <width>6</width>
           <content>
-            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</p>
+            <p class="ql-align-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</p>
           </content>
         </frame>
         <frame>
           <width>6</width>
           <content>
-            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</p>
+            <p class="ql-align-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</p>
           </content>
         </frame>
         <frame>
           <width>2</width>
           <content>
-            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</p>
+            <p class="ql-align-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</p>
           </content>
         </frame>
         <frame>
           <width>auto</width>
           <content>
-            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</p>
+            <p class="ql-align-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</p>
           </content>
         </frame>
       </frames>
@@ -108,7 +124,9 @@
       <frames>
         <frame>
           <width>auto</width>
-          <content>some text inside auto frame</content>
+          <content>
+            <p>some text inside auto frame</p>
+          </content>
         </frame>
       </frames>
     </section>
@@ -118,52 +136,60 @@
         <frame>
           <width>auto</width>
           <content>
-            <media data-link="test-media" data-class="figure-small"></media>
+            <media data-link="test-media" data-class="figure-small">
+            </media>
           </content>
         </frame>
         <frame>
           <width>auto</width>
           <content>
-            <media data-link="test-media"></media>
+            <media data-link="test-media">
+            </media>
           </content>
         </frame>
         <frame>
           <width>auto</width>
           <content>
-            <media data-link="test-media" data-class="figure-big"></media>
-          </content>
-        </frame>
-        
-        <frame>
-          <width>6</width>
-          <content></content>
-        </frame>
-        
-        <frame>
-          <width>auto</width>
-          <content>
-            <media data-link="nyan-cat" data-class="figure-small"></media>
-          </content>
-        </frame>
-        <frame>
-          <width>auto</width>
-          <content>
-            <media data-link="nyan-cat"></media>
-          </content>
-        </frame>
-        <frame>
-          <width>auto</width>
-          <content>
-            <media data-link="nyan-cat" data-class="figure-big"></media>
+            <media data-link="test-media" data-class="figure-big">
+            </media>
           </content>
         </frame>
         <frame>
           <width>6</width>
           <content>
-            <media data-link="programming"></media>
+            <p>
+            </p>
+          </content>
+        </frame>
+        <frame>
+          <width>auto</width>
+          <content>
+            <media data-link="nyan-cat" data-class="figure-small">
+            </media>
+          </content>
+        </frame>
+        <frame>
+          <width>auto</width>
+          <content>
+            <media data-link="nyan-cat">
+            </media>
+          </content>
+        </frame>
+        <frame>
+          <width>auto</width>
+          <content>
+            <media data-link="nyan-cat" data-class="figure-big">
+            </media>
+          </content>
+        </frame>
+        <frame>
+          <width>6</width>
+          <content>
+            <media data-link="programming">
+            </media>
           </content>
         </frame>
       </frames>
     </section>
-	</sections>
+  </sections>
 </article>

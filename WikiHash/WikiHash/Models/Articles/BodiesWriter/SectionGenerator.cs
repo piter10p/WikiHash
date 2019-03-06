@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Xml.Linq;
+using System.Xml;
 using WikiHash.Models.Articles.Bodies;
 using System.Text.RegularExpressions;
 
@@ -11,14 +11,19 @@ namespace WikiHash.Models.Articles.BodiesWriter
     public class SectionGenerator
     {
         Section Section;
-        XElement SectionElement;
+        XmlDocument Document;
+        XmlElement SectionElement;
 
-        public XElement GenerateSection(Section section)
+        public XmlElement GenerateSection(Section section, XmlDocument document)
         {
             try
             {
-                Section = section ?? throw new ArgumentNullException();
-                SectionElement = new XElement("section");
+                if(section == null || document == null)
+                    throw new ArgumentNullException();
+
+                Section = section;
+                Document = document;
+                SectionElement = Document.CreateElement("section");
 
                 AddTitle();
                 AddFrames();
@@ -33,43 +38,36 @@ namespace WikiHash.Models.Articles.BodiesWriter
 
         private void AddTitle()
         {
-            var title = new XElement("title");
-            title.Value = Section.Title;
-            SectionElement.Add(title);
+            var title = Document.CreateElement("title");
+            title.InnerText = Section.Title;
+            SectionElement.AppendChild(title);
         }
 
         private void AddFrames()
         {
-            var frames = new XElement("frames");
-            SectionElement.Add(frames);
+            var frames = Document.CreateElement("frames");
+            SectionElement.AppendChild(frames);
 
             foreach(var frame in Section.Frames)
             {
                 var fr = GetFrame(frame);
-                frames.Add(fr);
+                frames.AppendChild(fr);
             }
         }
 
-        private XElement GetFrame(ContentFrame contentFrame)
+        private XmlElement GetFrame(ContentFrame contentFrame)
         {
-            XElement frame = new XElement("frame");
+            var frame = Document.CreateElement("frame");
 
-            XElement width = new XElement("width");
-            width.Value = FrameWidthParser.ToString(contentFrame.Width);
-            frame.Add(width);
+            var width = Document.CreateElement("width");
+            width.InnerText = FrameWidthParser.ToString(contentFrame.Width);
+            frame.AppendChild(width);
 
-            try//For content with html tags
-            {
-                var trimmed = Regex.Replace(contentFrame.Content, @"\s\s+", "");
-                XElement content = new XElement("content", XElement.Parse(trimmed));
-                frame.Add(content);
-            }
-            catch(Exception e)//For content withour html tags
-            {
-                XElement content = new XElement("content");
-                content.Value = contentFrame.Content;
-                frame.Add(content);
-            }
+            var trimmedContent = Regex.Replace(contentFrame.Content, @"\s\s+", "");
+            trimmedContent = Regex.Replace(trimmedContent, @"<br>", "");//TODO: Dirty way to remove <br> objects created by Quill. Becouse they're not closed, they're throwing exception.
+            var content = Document.CreateElement("content");
+            content.InnerXml = trimmedContent;
+            frame.AppendChild(content);
 
             return frame;
         }

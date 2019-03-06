@@ -4,14 +4,13 @@ using System.Linq;
 using System.Web;
 using WikiHash.Models.Articles.Bodies;
 using System.Xml;
-using System.Xml.Linq;
 
 namespace WikiHash.Models.Articles.BodiesWriter
 {
     public class BodyWriter
     {
-        XDocument doc;
-        XElement root;
+        XmlDocument Doc;
+        XmlElement Root;
         Body Body;
 
         public void Write(Body body, string link)
@@ -35,21 +34,21 @@ namespace WikiHash.Models.Articles.BodiesWriter
 
         private void CreateDocument()
         {
-            doc = new XDocument();
-            root = new XElement("article");
-            doc.Add(root);
+            Doc = new XmlDocument();
+            Root = Doc.CreateElement("article");
+            Doc.AppendChild(Root);
         }
 
         private void GenerateMeta()
         {
             try
             {
-                var meta = new XElement("meta");
-                root.Add(meta);
+                var meta = Doc.CreateElement("meta");
+                Root.AppendChild(meta);
 
-                var author = new XElement("author");
-                author.Value = Body.MetaData.Author;
-                meta.Add(author);
+                var author = Doc.CreateElement("author");
+                author.InnerText = Body.MetaData.Author;
+                meta.AppendChild(author);
             }
             catch(Exception e)
             {
@@ -62,13 +61,14 @@ namespace WikiHash.Models.Articles.BodiesWriter
             try
             {
                 var generator = new SectionGenerator();
-                var sections = new XElement("sections");
-                root.Add(sections);
+
+                var sections = Doc.CreateElement("sections");
+                Root.AppendChild(sections);
 
                 foreach(var section in Body.Sections)
                 {
-                    var sec = generator.GenerateSection(section);
-                    sections.Add(sec);
+                    var sec = generator.GenerateSection(section, Doc);
+                    sections.AppendChild(sec);
                 }
             }
             catch(Exception e)
@@ -82,7 +82,7 @@ namespace WikiHash.Models.Articles.BodiesWriter
             try
             {
                 var path = ArticlesPathGenerator.Generate(link);
-                doc.Save(path);
+                Doc.Save(path);
             }
             catch (Exception e)
             {

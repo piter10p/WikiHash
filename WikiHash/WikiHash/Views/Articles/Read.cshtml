@@ -1,5 +1,5 @@
 ﻿@model WikiHash.Models.Articles.ArticleViewModel
-@{ 
+@{
     ViewBag.Title = Model.Title;
 }
 <div class="article-body">
@@ -46,3 +46,13 @@
         </div>
     </div>
 </div>
+
+@section scripts {
+    <script>
+        var containers = $("div.content-frame:not(:has(media))");
+        var editors = Array.from(containers).map(function (container) {
+            var editor = new Quill(container);
+            editor.enable(false);
+        });
+    </script>
+}
