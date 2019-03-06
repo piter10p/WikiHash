@@ -1,0 +1,55 @@
+﻿@model WikiHash.Models.Medias.MediaCreationModel
+@{
+    ViewBag.Title = "Upload new media";
+}
+<div class="article-body">
+    <div class="container">
+        <h1 class="underlined">Media uploading</h1>
+        <br />
+
+        @using (Html.BeginForm(FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-input-container">
+                <div>
+                    @Html.LabelFor(m => Model.Title)
+                </div>
+                <div>
+
+                    @Html.TextBoxFor(m => Model.Title)
+                </div>
+                <div>
+                    @Html.ValidationMessageFor(m => Model.Title, null, new { @class = "validation-message"})
+                </div>
+            </div>
+            
+            <div class="form-input-container">
+                <div>
+                    @Html.LabelFor(m => Model.Description)
+                </div>
+                <div>
+
+                    @Html.TextBoxFor(m => Model.Description)
+                </div>
+                <div>
+                    @Html.ValidationMessageFor(m => Model.Description, null, new { @class = "validation-message" })
+                </div>
+            </div>
+            
+
+            <div class="form-input-container">
+                <div>
+                    @Html.TextBoxFor(m => m.File, new { type = "file" })
+                </div>
+                <div>
+                    @Html.ValidationMessageFor(m => m.File, null, new { @class = "validation-message" })
+                </div>
+            </div>
+
+            <div class="form-input-container">
+                <input type="submit" value="Upload Media" />
+            </div>
+        }
+    </div>
+</div>

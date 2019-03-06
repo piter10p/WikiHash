@@ -17,6 +17,26 @@ namespace WikiHash.Controllers
             return View(viewMedia);
         }
 
+        [HttpGet]
+        public ActionResult New()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult New(MediaCreationModel model)
+        {
+            if(!ModelState.IsValid)
+                return View(model);
+
+            //TODO: Implement saving
+
+            throw new NotImplementedException();
+
+            return View();
+        }
+
         public string GetMediaUrl(string link)
         {
             var media = MediasManager.GetMedia(link);

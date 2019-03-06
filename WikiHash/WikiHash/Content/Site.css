@@ -149,3 +149,11 @@ div.alerts-container {
     width: 96%;
     left: 2%;
 }
+
+div.form-input-container {
+    margin-bottom: 20px;
+}
+
+.validation-message {
+    color: red;
+}
