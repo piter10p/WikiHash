@@ -12,10 +12,12 @@ $('a[data-slide=true]').on('click', function (event) {
 });
 
 //Loads medias
-$('media').each(function () {
-    $(this).text("LOADING...");
-    loadMedia($(this));
-});
+function loadMedias() {
+    $('media').each(function () {
+        $(this).text("LOADING...");
+        loadMedia($(this));
+    });
+}
 
 //Alerts close
 $("div.alert button").click(function () {
@@ -24,6 +26,15 @@ $("div.alert button").click(function () {
 
 //Medias list button click
 $("#medias-filter-button").click(function () {
+    GenerateMediasList(false)
+});
+
+//Medias list button click in editor
+$("#medias-filter-button-editor").click(function () {
+    GenerateMediasList(true)
+});
+
+function GenerateMediasList(addOption) {
     $.ajax({
         url: "/Medias/GetMediasAJAX",
         method: "get",
@@ -32,25 +43,30 @@ $("#medias-filter-button").click(function () {
             filter: $("#medias-filter-input").val()
         }
     })
-    .done(function (res) {
-        var container = $("#medias-container");
-        container.text("");
+        .done(function (res) {
+            var container = $("#medias-container");
+            container.text("");
 
-        if (res.ToMuchResults)
-            container.text("Too many results.");
-        else if (res.Medias.length == 0)
-            container.text("No results.");
-        else {
-            for (var i = 0; i < res.Medias.length; i++) {
-                var media = res.Medias[i];
-                AddMediaToMediasContainer(media);
+            if (res.ToMuchResults)
+                container.text("Too many results.");
+            else if (res.Medias.length == 0)
+                container.text("No results.");
+            else {
+                for (var i = 0; i < res.Medias.length; i++) {
+                    var media = res.Medias[i];
+                    AddMediaToMediasContainer(media, addOption);
+                }
             }
-        }
-    });
-});
+        });
+}
 
-function AddMediaToMediasContainer(media) {
+function AddMediaToMediasContainer(media, addOption) {
     var mediaText = "";
+
+    var addText = "";
+
+    if (addOption)
+        addText = `<p><button type='button' class='btn btn-secondary' selectButton data-link='${media.Link}'>Select</button></p>`;
 
     if (media.Type == "image")
         mediaText = `<img src="${media.Url}" class="figure-small" />`;
@@ -64,6 +80,7 @@ function AddMediaToMediasContainer(media) {
                                         <div class="col">
                                             <a href="/Medias/Show/${media.Link}" target="_blank"><h5 class="underlined">${media.Title}</h5></a>
                                             <p>${media.Description}</p>
+                                            ${addText}
                                         </div>
                                         <div class="col">
                                             ${mediaText}
@@ -102,6 +119,7 @@ function loadMedia(mediaElement) {
         })
         .done(function (res) {
             mediaElement.text("");
+            mediaElement.next("figure").remove();
             var figureContent = getFigureContent(res, figureClass);
             $(`<figure class="figure">
                     <a href="/Medias/Show/${link}">
@@ -131,3 +149,5 @@ function getFigureContent(res, figureClass) {
             return "<p>Media type is unsupported.</p>";
     }
 }
+
+loadMedias();

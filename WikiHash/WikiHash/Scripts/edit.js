@@ -92,6 +92,14 @@ $("#save-changes-button").click(function () {
     saveChanges();
 });
 
+//Select button click in medias list
+$(document).on('click', "button[selectButton]", function (e) {
+    var button = $(e.target);
+    var link = button.data("link");
+
+    $("#selected-media-link").text(link);
+});
+
 
 function setFrameWidth(frameElement, width) {
     frameElement.data("width", width);
@@ -105,11 +113,6 @@ function setFrameWidth(frameElement, width) {
         frameElement.removeClass();
         frameElement.addClass("col-" + bootstrapWidth);
     }
-}
-
-function setFrameContent(contentFrame, content) {
-    var contentElement = getEditorContentElement(contentFrame);
-    contentElement.html(content);
 }
 
 function slideToElementPosition(elementToAnimate, target, callback) {
@@ -227,16 +230,19 @@ function setBasicEditDialogData(contentFrame) {
 }
 
 function fillContentEditor(contentFrame) {
-    var contentElement = getEditorContentElement(contentFrame);
-
     var isMedia = frameContainMedia(contentFrame);
 
+    clearMediaEditor();
+    clearTextEditor();
+
     if (!isMedia) {
+        var contentElement = getEditorContentElement(contentFrame);
         fillTextEditor(contentElement);
         activateTab($("li[data-tab=edit-text-tab]"));
     }
     else {
-        clearTextEditor();
+        var contentElement = getContentElement(contentFrame);
+        fillMediaEditor(contentElement);
         activateTab($("li[data-tab=edit-media-tab]"));
     }
         
@@ -254,8 +260,32 @@ function fillTextEditor(contentElement) {
     quill.root.innerHTML = contentElement.html();
 }
 
+function fillMediaEditor(contentElement) {
+    var media = contentElement.children().first();
+
+    $("#selected-media-link").text(media.data("link"));
+
+    switch (media.data("class")) {
+        case "figure-small":
+            $("#media-size").val("small");
+            break;
+
+        case "figure-big":
+            $("#media-size").val("big");
+            break;
+
+        default:
+            $("#media-size").val("normal");
+            break;
+    }
+}
+
 function clearTextEditor() {
     quill.root.innerHTML = "";
+}
+
+function clearMediaEditor() {
+    $("#selected-media-link").text("");
 }
 
 function saveContentFrameChanges() {
@@ -263,9 +293,35 @@ function saveContentFrameChanges() {
     var width = $("#edit-width-input").val();
     var contentFrame = $("#" + contentFrameId);
     setFrameWidth(contentFrame, width);
-    setFrameContent(contentFrame, quill.root.innerHTML);
+
+    if ($("ul.edit-topbar li[selected]").data("tab") == "edit-text-tab")
+        setFrameTextContent(contentFrame, quill.root.innerHTML);
+    else {
+        var link = $('#selected-media-link').text();
+        var size = $('#media-size').val();
+
+        if (link == "")
+            alert("Select media.");
+        else {
+            var content = `<media data-link="${link}" data-class="figure-${size}"></media>`;
+            setFrameMediaContent(contentFrame, content);
+        }
+    }
 
     $('#edit-frame-dialog').modal('toggle');
+}
+
+function setFrameTextContent(contentFrame, content) {
+    var contentElement = getContentElement(contentFrame);
+    contentElement.prop("class", "ql-container ql-disabled");
+    contentElement.html(`<div class="ql-editor" data-gramm="false" contenteditable="false">${content}</div><div class="ql-clipboard" contenteditable="true" tabindex="-1"></div>`);
+}
+
+function setFrameMediaContent(contentFrame, content) {
+    var contentElement = getContentElement(contentFrame);
+    contentElement.prop("class", "");
+    contentElement.html(content);
+    loadMedias();
 }
 
 function getContentElement(contentFrame) {
