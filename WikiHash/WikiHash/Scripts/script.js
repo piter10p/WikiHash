@@ -33,7 +33,6 @@ $("#medias-filter-button").click(function () {
         }
     })
     .done(function (res) {
-        console.log(res);
         var container = $("#medias-container");
         container.text("");
 
@@ -44,17 +43,24 @@ $("#medias-filter-button").click(function () {
         else {
             for (var i = 0; i < res.Medias.length; i++) {
                 var media = res.Medias[i];
-                var mediaText = "";
+                AddMediaToMediasContainer(media);
+            }
+        }
+    });
+});
 
-                if (media.Type == "image")
-                    mediaText = `<img src="${media.Url}" class="figure-small" />`;
-                else
-                    mediaText = `<video class="figure-small" controls>
+function AddMediaToMediasContainer(media) {
+    var mediaText = "";
+
+    if (media.Type == "image")
+        mediaText = `<img src="${media.Url}" class="figure-small" />`;
+    else
+        mediaText = `<video class="figure-small" controls>
                                     <source src="${media.Url}" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>`;
 
-                container.append($(`<div class="row medias-list-container">
+    $("#medias-container").append($(`<div class="row medias-list-container">
                                         <div class="col">
                                             <a href="/Medias/Show/${media.Link}" target="_blank"><h5 class="underlined">${media.Title}</h5></a>
                                             <p>${media.Description}</p>
@@ -63,10 +69,7 @@ $("#medias-filter-button").click(function () {
                                             ${mediaText}
                                         </div>
                                     </div>`));
-            }
-        }
-    });
-});
+}
 
 // Add slideDown animation to Bootstrap dropdown when expanding.
 $('.dropdown').on('show.bs.dropdown', function () {
