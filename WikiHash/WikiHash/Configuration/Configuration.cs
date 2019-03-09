@@ -19,6 +19,7 @@ namespace WikiHash
                 var root = doc.FirstChild;
 
                 WebsiteName = root.SelectSingleNode("websiteName").InnerText;
+                MediasAJAXListMaximumLength = int.Parse(root.SelectSingleNode("mediasAJAXListMaximumLength").InnerText);
             }
             catch(Exception e)
             {
@@ -28,6 +29,7 @@ namespace WikiHash
         }
 
         public static string WebsiteName { get; private set; }
+        public static int MediasAJAXListMaximumLength { get; private set; }
 
         private static XmlDocument LoadConfigFile()
         {

@@ -37,6 +37,11 @@ namespace WikiHash.Controllers
             return RedirectToAction("MediasUploadingComplete");
         }
 
+        public ActionResult Explore()
+        {
+            return View();
+        }
+
         public ActionResult MediasUploadingComplete()
         {
             return View("MessagePage", new WikiHash.Models.MessageViewModel { Title = "Media uploaded", Message = "Media has been uploaded successfully." });
@@ -48,6 +53,12 @@ namespace WikiHash.Controllers
             var viewMedia = MediaViewModel.FromMedia(media);
             var json = JsonConvert.SerializeObject(viewMedia);
             return json;
+        }
+
+        public string GetMediasAJAX(string filter = "")
+        {
+            var list = MediasManager.GetFilteredMedias(filter);
+            return JsonConvert.SerializeObject(list);
         }
     }
 }

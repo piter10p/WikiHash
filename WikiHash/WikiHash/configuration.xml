@@ -1,3 +1,4 @@
 ﻿<configuration>
   <websiteName>WikiHash</websiteName>
+  <mediasAJAXListMaximumLength>2</mediasAJAXListMaximumLength>
 </configuration>

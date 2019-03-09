@@ -237,6 +237,7 @@
     <Compile Include="Models\Linkable.cs" />
     <Compile Include="Models\LinkableViewModel.cs" />
     <Compile Include="Models\Medias\MediaCreationModel.cs" />
+    <Compile Include="Models\Medias\MediasListModel.cs" />
     <Compile Include="Models\Medias\MediasManager.cs" />
     <Compile Include="Models\Medias\MediaTypeGetter.cs" />
     <Compile Include="Models\Medias\MediaViewModel.cs" />
@@ -372,6 +373,7 @@
     <Content Include="Views\Medias\New.cshtml" />
     <Content Include="Views\Shared\MessagePage.cshtml" />
     <Content Include="Views\Shared\_EditorDialogPartial.cshtml" />
+    <Content Include="Views\Medias\Explore.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

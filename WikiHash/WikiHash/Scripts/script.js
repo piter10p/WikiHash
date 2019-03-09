@@ -22,6 +22,62 @@ $("div.alert button").click(function () {
     $(this).parent().hide(200);
 });
 
+//Medias list button click
+$("#medias-filter-button").click(function () {
+    $.ajax({
+        url: "/Medias/GetMediasAJAX",
+        method: "get",
+        dataType: 'json',
+        data: {
+            filter: $("#medias-filter-input").val()
+        }
+    })
+    .done(function (res) {
+        console.log(res);
+        var container = $("#medias-container");
+        container.text("");
+
+        if (res.ToMuchResults)
+            container.text("Too many results.");
+        else if (res.Medias.length == 0)
+            container.text("No results.");
+        else {
+            for (var i = 0; i < res.Medias.length; i++) {
+                var media = res.Medias[i];
+                var mediaText = "";
+
+                if (media.Type == "image")
+                    mediaText = `<img src="${media.Url}" class="figure-small" />`;
+                else
+                    mediaText = `<video class="figure-small" controls>
+                                    <source src="${media.Url}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>`;
+
+                container.append($(`<div class="row medias-list-container">
+                                        <div class="col">
+                                            <a href="/Medias/Show/${media.Link}" target="_blank"><h5 class="underlined">${media.Title}</h5></a>
+                                            <p>${media.Description}</p>
+                                        </div>
+                                        <div class="col">
+                                            ${mediaText}
+                                        </div>
+                                    </div>`));
+            }
+        }
+    });
+});
+
+// Add slideDown animation to Bootstrap dropdown when expanding.
+$('.dropdown').on('show.bs.dropdown', function () {
+    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+});
+
+// Add slideUp animation to Bootstrap dropdown when collapsing.
+$('.dropdown').on('hide.bs.dropdown', function () {
+    $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+});
+
 function loadMedia(mediaElement) {
     var link = mediaElement.data("link");
     var figureClass = "figure-standard";

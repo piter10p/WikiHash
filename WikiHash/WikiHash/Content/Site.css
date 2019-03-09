@@ -90,6 +90,10 @@ div.contents {
     background-color: #e5e5e5;
 }
 
+div.medias-list-container {
+    margin-top: 20px;
+}
+
 .save-changes-button {
     position: fixed;
     bottom: 20px;

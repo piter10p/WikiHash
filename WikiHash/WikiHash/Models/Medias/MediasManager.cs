@@ -12,7 +12,7 @@ namespace WikiHash.Models.Medias
             try
             {
                 var context = DAL.ApplicationDbContext.Create();
-                var query = from a in context.Medias select a;
+                var query = from m in context.Medias select m;
 
                 foreach (var media in query)
                 {
@@ -25,6 +25,32 @@ namespace WikiHash.Models.Medias
             catch (Exception e)
             {
                 throw new Exception("Failed to get media.", e);
+            }
+        }
+
+        public static MediasListModel GetFilteredMedias(string filter)
+        {
+            try
+            {
+                var context = DAL.ApplicationDbContext.Create();
+                var query = from m in context.Medias where m.Title.Contains(filter) select m;
+
+                if (query.Count() > Configuration.MediasAJAXListMaximumLength)
+                    return MediasListModel.CreateToMuch();
+
+                var mediasViewList = new List<MediaViewModel>();
+
+                foreach (var media in query)
+                {
+                    var viewModel = MediaViewModel.FromMedia(media);
+                    mediasViewList.Add(viewModel);
+                }
+
+                return MediasListModel.Create(mediasViewList.ToArray());
+            }
+            catch(Exception e)
+            {
+                throw new Exception("Failed to get filtered medias list.", e);
             }
         }
 
