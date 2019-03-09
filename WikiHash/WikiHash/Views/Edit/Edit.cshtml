@@ -70,52 +70,7 @@
 </div>
 
 <!--EDITOR DIALOG-->
-<div id="edit-frame-dialog" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Edit Content Frame</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div>
-                    <input id="edit-frame-id" type="hidden" />
-                    Column width:
-                    <select id="edit-width-input">
-                        <option value="1">1/6</option>
-                        <option value="2">2/6</option>
-                        <option value="3">3/6</option>
-                        <option value="4">4/6</option>
-                        <option value="5">5/6</option>
-                        <option value="6">6/6</option>
-                        <option value="auto">auto</option>
-                    </select>
-
-                    <ul class="list-inline edit-topbar underlined">
-                        <li selected class="list-inline-item" data-tab="edit-text-tab">Text</li>
-                        <li class="list-inline-item" data-tab="edit-media-tab">Media</li>
-                    </ul>
-                    <div id="edit-tabs">
-                        <!--Text editor-->
-                        <div id="edit-text-tab" style="display: none;">
-                            <div id="quill"></div>
-                        </div>
-
-                        <!--Media editor-->
-                        <div id="edit-media-tab" style="display: none;">Media content</div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="modal-footer">
-                <button id="edit-save-button" type="button" class="btn btn-primary">Save changes</button>
-                <button id="edit-remove-button" type="button" class="btn btn-danger">Remove frame</button>
-            </div>
-        </div>
-    </div>
-</div>
+@Html.Partial("_EditorDialogPartial")
 
 <!--ALERTS-->
 <div class="alerts-container">
@@ -135,7 +90,7 @@
 
 @section scripts {
     @Scripts.Render("~/bundles/edit")
-    <script>
+<script>
         FramesCounter = @framesCounter;
 
         var quill = new Quill("#quill", {

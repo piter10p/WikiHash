@@ -30,11 +30,16 @@ namespace WikiHash.Controllers
             if(!ModelState.IsValid)
                 return View(model);
 
-            //TODO: Implement saving
+            var path = Models.PathsGenerator.Media(model.File.FileName);
+            model.File.SaveAs(path);
+            MediasManager.AddMedia(model);
 
-            throw new NotImplementedException();
+            return RedirectToAction("MediasUploadingComplete");
+        }
 
-            return View();
+        public ActionResult MediasUploadingComplete()
+        {
+            return View("MessagePage", new WikiHash.Models.MessageViewModel { Title = "Media uploaded", Message = "Media has been uploaded successfully." });
         }
 
         public string GetMediaUrl(string link)

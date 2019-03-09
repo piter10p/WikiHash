@@ -34,5 +34,16 @@ namespace WikiHash.Models.Medias
                 return MediaTypeGetter.GetMediaType(FileName);
             }
         }
+
+        public static Media FromCreationModel(MediaCreationModel model)
+        {
+            var output = new Media();
+            output.Title = model.Title;
+            output.CreationDate = DateTime.Now;
+            output.Description = model.Description;
+            output.FileName = model.File.FileName;
+
+            return output;
+        }
     }
 }

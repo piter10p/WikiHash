@@ -81,7 +81,7 @@ namespace WikiHash.Models.Articles.BodiesWriter
         {
             try
             {
-                var path = ArticlesPathGenerator.Generate(link);
+                var path = PathsGenerator.Article(link);
                 Doc.Save(path);
             }
             catch (Exception e)

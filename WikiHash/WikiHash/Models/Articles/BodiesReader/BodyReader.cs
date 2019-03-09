@@ -32,7 +32,7 @@ namespace WikiHash.Models.Articles.BodiesReader
         {
             try
             {
-                var path = ArticlesPathGenerator.Generate(link);
+                var path = PathsGenerator.Article(link);
 
                 var fileInfo = new FileInfo(path);
                 if (!fileInfo.Exists)

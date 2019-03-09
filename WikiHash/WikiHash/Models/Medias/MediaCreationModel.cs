@@ -16,7 +16,8 @@ namespace WikiHash.Models.Medias
         [MaxLength(256)]
         public string Description { get; set; }
 
-        [Required, Microsoft.Web.Mvc.FileExtensions(Extensions = "jpg,png,jpeg,gif,apng,svg,bmp,mp4",
+        [Required]
+        [Microsoft.Web.Mvc.FileExtensions(Extensions = "jpg,png,jpeg,gif,apng,svg,bmp,mp4",
              ErrorMessage = "Unsupported file extension. Supported: jpg, png, jpeg, gif, apng, svg, bmp, mp4")]
         public HttpPostedFileBase File { get; set; }
     }

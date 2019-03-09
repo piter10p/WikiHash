@@ -27,5 +27,21 @@ namespace WikiHash.Models.Medias
                 throw new Exception("Failed to get media.", e);
             }
         }
+
+        public static void AddMedia(MediaCreationModel creationModel)
+        {
+            try
+            {
+                var context = DAL.ApplicationDbContext.Create();
+                var media = Media.FromCreationModel(creationModel);
+
+                context.Medias.Add(media);
+                context.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Failed to add media.", e);
+            }
+        }
     }
 }

@@ -33,7 +33,7 @@ $("#edit-remove-button").click(function () {
 
 //Add frame button click
 $(document).on('click', ' div.content-frame-edit-add span', function () {
-    var element = `<div contentframe="" id="Frame-${FramesCounter}" class="col-12" data-width="6">
+    var element = `<div contentframe="" id="Frame-${FramesCounter}" class="col-12" data-width="6" style="display: none;">
                         <div class="content-frame content-frame-edit">
 
                             <div class="ql-container ql-disabled"><div class="ql-editor" data-gramm="false" contenteditable="false"><p class="ql-align-left">New Content Frame.</p></div><div class="ql-clipboard" contenteditable="true" tabindex="-1"></div></div>

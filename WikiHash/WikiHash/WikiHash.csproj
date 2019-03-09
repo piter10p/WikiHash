@@ -219,7 +219,6 @@
     <Compile Include="Models\Articles\Article.cs" />
     <Compile Include="Models\Articles\ArticleJsonParser.cs" />
     <Compile Include="Models\Articles\ArticlesManager.cs" />
-    <Compile Include="Models\Articles\ArticlesPathGenerator.cs" />
     <Compile Include="Models\Articles\ArticleViewModel.cs" />
     <Compile Include="Models\Articles\BodiesReader\BodyReader.cs" />
     <Compile Include="Models\Articles\BodiesReader\MetaDataReader.cs" />
@@ -241,6 +240,8 @@
     <Compile Include="Models\Medias\MediasManager.cs" />
     <Compile Include="Models\Medias\MediaTypeGetter.cs" />
     <Compile Include="Models\Medias\MediaViewModel.cs" />
+    <Compile Include="Models\MessageViewModel.cs" />
+    <Compile Include="Models\PathsGenerator.cs" />
     <Compile Include="Models\TitleFunctions.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Medias\Media.cs" />
@@ -369,6 +370,8 @@
     <Content Include="Views\Edit\Edit.cshtml" />
     <Content Include="Scripts\quill\quill.min.js.map" />
     <Content Include="Views\Medias\New.cshtml" />
+    <Content Include="Views\Shared\MessagePage.cshtml" />
+    <Content Include="Views\Shared\_EditorDialogPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
