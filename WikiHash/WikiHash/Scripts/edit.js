@@ -19,7 +19,7 @@ $("#edit-save-button").click(function () {
 
 //Remove frame button click
 $("#edit-remove-button").click(function () {
-    var confirmation = confirm("Are you sure?");
+    var confirmation = confirm("Are you sure to remove this frame?");
 
     if (confirmation) {
         var frameId = $("#edit-frame-id").val();
@@ -66,7 +66,7 @@ function activateTab(tabElement) {
 //Frame up button
 $(document).on('click', "div.content-frame-edit-buttons span.fa-caret-up", function () {
     var contentFrame = $(this).closest("div[contentFrame]");
-    var targetFrame = contentFrame.prev();
+    var targetFrame = contentFrame.prev("div:not([newContentFrame])");
 
     slideToElementPosition(contentFrame, targetFrame, function () {
         targetFrame.before(contentFrame);
@@ -78,13 +78,49 @@ $(document).on('click', "div.content-frame-edit-buttons span.fa-caret-up", funct
 //Frame down button
 $(document).on('click', "div.content-frame-edit-buttons span.fa-caret-down", function () {
     var contentFrame = $(this).closest("div[contentFrame]");
-    var targetFrame = contentFrame.next();
+    var targetFrame = contentFrame.next("div:not([newContentFrame])");
 
     slideToElementPosition(contentFrame, targetFrame, function () {
         targetFrame.after(contentFrame);
     });
 
     slideToElementPosition(targetFrame, contentFrame);
+});
+
+//Section up button
+$(document).on('click', "div.section-edit-buttons span.fa-caret-up", function () {
+    var section = $(this).closest("section");
+    var targetSection = section.prev();
+
+    slideToElementPosition(section, targetSection, function () {
+        targetSection.before(section);
+    });
+
+    slideToElementPosition(targetSection, section);
+});
+
+//Section down button
+$(document).on('click', "div.section-edit-buttons span.fa-caret-down", function () {
+    var section = $(this).closest("section");
+    var targetSection = section.next();
+
+    slideToElementPosition(section, targetSection, function () {
+        targetSection.after(section);
+    });
+
+    slideToElementPosition(targetSection, section);
+});
+
+//Section remove button
+$(document).on('click', "div.section-edit-buttons span.fa-trash", function () {
+
+    if (confirm("Are you sure to delete this section?")) {
+        var section = $(this).closest("section");
+
+        section.slideUp(200, function () {
+            section.remove();
+        });
+    }
 });
 
 //Save changes button click

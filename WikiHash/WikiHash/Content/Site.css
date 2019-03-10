@@ -100,6 +100,33 @@ div.medias-list-container {
     left: 20px;
 }
 
+section {
+    position: relative;
+}
+
+.section-edit-buttons {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    cursor: default;
+}
+
+.remove-button:hover {
+    color: #c93838 !important;
+}
+
+.section-edit-buttons span {
+    color: #dbdbdb;
+    font-size: 15px;
+    transition: all 200ms;
+    cursor: pointer;
+}
+
+.section-edit-buttons span:hover {
+    transform: scale(1.2);
+    color: #47a3ff;
+}
+
 /*Content Frame*/
 .content-frame-edit {
     border: 1px solid #dbdbdb;

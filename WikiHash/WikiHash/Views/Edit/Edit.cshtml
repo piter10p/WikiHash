@@ -27,41 +27,46 @@
                 <article>
                     @foreach (var bodySection in Model.Body.Sections)
                     {
-                        <section>
-                            <h3 id="@WikiHash.Models.TitleFunctions.GenerateLink(bodySection.Title)"><input type="text" class="edit-input underlined" value="@bodySection.Title" /></h3>
+                    <section>
+                        <h3 id="@WikiHash.Models.TitleFunctions.GenerateLink(bodySection.Title)"><input type="text" class="edit-input underlined" value="@bodySection.Title" /></h3>
+                        <div class="section-edit-buttons noselect">
+                            <span class="fa fa-caret-up" aria-hidden="true"></span>
+                            <span class="fa fa-caret-down" aria-hidden="true"></span>
+                            <span class="fa fa-trash remove-button" aria-hidden="true"></span>
+                        </div>
 
-                            <div class="row">
-                                @foreach (var frame in bodySection.Frames)
-                                {
-                                    <div contentFrame id="Frame-@framesCounter" class="col@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToBootstrapString(frame.Width)}"
-                                         data-width="@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToString(frame.Width)}">
-                                        <div class="content-frame content-frame-edit">
+                        <div class="row">
+                            @foreach (var frame in bodySection.Frames)
+                            {
+                                <div contentFrame id="Frame-@framesCounter" class="col@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToBootstrapString(frame.Width)}"
+                                     data-width="@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToString(frame.Width)}">
+                                    <div class="content-frame content-frame-edit">
 
-                                            <div>@Html.Raw(frame.Content)</div>
+                                        <div>@Html.Raw(frame.Content)</div>
 
-                                            <div class="content-frame-edit-buttons noselect">
-                                                <span class="fa fa-caret-up" aria-hidden="true"></span>
-                                                <span class="fa fa-caret-down" aria-hidden="true"></span>
-                                                <span class="fa fa-pencil" aria-hidden="true"
-                                                      data-toggle="modal" data-target="#edit-frame-dialog"></span>
-                                            </div>
+                                        <div class="content-frame-edit-buttons noselect">
+                                            <span class="fa fa-caret-up" aria-hidden="true"></span>
+                                            <span class="fa fa-caret-down" aria-hidden="true"></span>
+                                            <span class="fa fa-pencil" aria-hidden="true"
+                                                  data-toggle="modal" data-target="#edit-frame-dialog"></span>
                                         </div>
                                     </div>
+                                </div>
 
-                                    framesCounter++;
-                                }
+                                framesCounter++;
+                            }
 
-                                <div contentFrame newContentFrame class="col noselect">
-                                    <div class="content-frame content-frame-edit-add">
-                                        <span class="fa fa-plus" aria-hidden="true"></span>
-                                    </div>
-                                    <div class="content-frame-edit-buttons">
-                                        <span class="fa fa-caret-up" aria-hidden="true"></span>
-                                        <span class="fa fa-caret-down" aria-hidden="true"></span>
-                                    </div>
+                            <div contentFrame newContentFrame class="col noselect">
+                                <div class="content-frame content-frame-edit-add">
+                                    <span class="fa fa-plus" aria-hidden="true"></span>
+                                </div>
+                                <div class="content-frame-edit-buttons">
+                                    <span class="fa fa-caret-up" aria-hidden="true"></span>
+                                    <span class="fa fa-caret-down" aria-hidden="true"></span>
                                 </div>
                             </div>
-                        </section>
+                        </div>
+                    </section>
                     }
                 </article>
             </div>
