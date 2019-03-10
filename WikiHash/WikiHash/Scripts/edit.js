@@ -41,6 +41,10 @@ $("#new-section-button").click(function () {
                 </div>
             </div>
         </section>`).insertBefore($("#new-section-adding-place"));
+
+    $('html, body').animate({ scrollTop: $("body").height() }, 800);
+    NewSectionsCounter++;
+    GenerateContentsList();
 });
 
 //Remove frame button click
@@ -120,6 +124,7 @@ $(document).on('click', "div.section-edit-buttons span.fa-caret-up", function ()
 
     slideToElementPosition(section, targetSection, function () {
         targetSection.before(section);
+        GenerateContentsList();
     });
 
     slideToElementPosition(targetSection, section);
@@ -132,6 +137,7 @@ $(document).on('click', "div.section-edit-buttons span.fa-caret-down", function 
 
     slideToElementPosition(section, targetSection, function () {
         targetSection.after(section);
+        GenerateContentsList();
     });
 
     slideToElementPosition(targetSection, section);
@@ -149,6 +155,12 @@ $(document).on('click', "div.section-edit-buttons span.fa-trash", function () {
     }
 });
 
+//Section name change
+$(document).on('change', "section h3 input", function () {
+    GenerateContentsList();
+});
+
+
 //Save changes button click
 $("#save-changes-button").click(function () {
     saveChanges();
@@ -161,6 +173,17 @@ $(document).on('click', "button[selectButton]", function (e) {
 
     $("#selected-media-link").text(link);
 });
+
+//Generate contents
+function GenerateContentsList() {
+    $("#contents-list").text("");
+
+    $("section").each(function () {
+        var id = $(this).find("h3").first().attr("id");
+        var title = $(this).find("input").first().val();
+        $("#contents-list").append(`<li><a data-slide="true" href="#${id}">${title}</a></li>`);
+    });
+}
 
 
 function setFrameWidth(frameElement, width) {
@@ -394,3 +417,4 @@ function getEditorContentElement(contentFrame) {
     return getContentElement(contentFrame).children().first();
 }
 
+GenerateContentsList();

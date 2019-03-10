@@ -9,11 +9,7 @@
             <div class="col-2">
                 <div class="contents">
                     CONTENTS:
-                    <ol>
-                        @foreach (var bodySection in Model.Body.Sections)
-                        {
-                            <li><a data-slide="true" href="#@WikiHash.Models.TitleFunctions.GenerateLink(bodySection.Title)">@bodySection.Title</a></li>
-                        }
+                    <ol id="contents-list">
                     </ol>
                 </div>
                 <button id="save-changes-button" type="button" class="btn btn-primary save-changes-button">Save Changes</button>
