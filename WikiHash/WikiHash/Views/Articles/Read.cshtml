@@ -1,6 +1,7 @@
 ﻿@model WikiHash.Models.Articles.ArticleViewModel
 @{
     ViewBag.Title = Model.Title;
+    ViewBag.Tags = Model.Body.MetaData.Tags;
 }
 <div class="article-body">
     <div class="container-fluid">

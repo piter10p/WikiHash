@@ -18,7 +18,15 @@
             <div class="col-10 content-body">
                 <header>
                     <div class="article-title-container">
-                        <h1 id="title">@Model.Title</h1>
+                        <h1 id="title" class="underlined">@Model.Title</h1>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                Tags (separate with commas):
+                            </div>
+                            <div class="col-lg">
+                                <input id="tags-input" type="text" style="width: 100%" placeholder="tag1, tag2, tag3..." value="@Model.Body.MetaData.Tags" />
+                            </div>
+                        </div>
                     </div>
                 </header>
                 <article>

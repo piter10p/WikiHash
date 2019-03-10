@@ -34,8 +34,9 @@ namespace WikiHash.Models.Articles
             try
             {
                 var sections = body.Sections;
+                var metaData = body.MetaData;
                 var bodyPrototype = new BodyPrototype();
-                bodyPrototype.MetaData = new MetaData("asd");//TODO: Add MetaData handling.
+                bodyPrototype.MetaData = new MetaData((string)metaData.Author, (string)metaData.Tags);
 
                 foreach (var sec in sections)
                 {

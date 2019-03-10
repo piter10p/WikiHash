@@ -49,6 +49,10 @@ namespace WikiHash.Models.Articles.BodiesWriter
                 var author = Doc.CreateElement("author");
                 author.InnerText = Body.MetaData.Author;
                 meta.AppendChild(author);
+
+                var tags = Doc.CreateElement("tags");
+                tags.InnerText = Body.MetaData.Tags;
+                meta.AppendChild(tags);
             }
             catch(Exception e)
             {

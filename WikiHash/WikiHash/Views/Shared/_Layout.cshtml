@@ -4,6 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - @Configuration.WebsiteName</title>
+    @if (ViewBag.Tags != null)
+    {
+        <meta name="keywords" content="@ViewBag.Tags">
+    }
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 

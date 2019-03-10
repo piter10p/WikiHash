@@ -254,10 +254,18 @@ function submit(action, method, value) {
 
 function getBody() {
     var output = {
-        Sections: getSections()
+        Sections: getSections(),
+        MetaData: getMeta()
     };
 
     return output;
+}
+
+function getMeta() {
+    return {
+        Author: "ASD",
+        Tags: $("#tags-input").val()
+    }
 }
 
 function getSections() {

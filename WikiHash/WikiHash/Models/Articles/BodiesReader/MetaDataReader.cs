@@ -14,12 +14,13 @@ namespace WikiHash.Models.Articles.BodiesReader
             try
             {
                 var author = metaNode.SelectSingleNode("author").InnerText;
+                var tags = metaNode.SelectSingleNode("tags").InnerText;
 
-                return new MetaData(author);
+                return new MetaData(author, tags);
             }
             catch(Exception e)
             {
-                throw new Exception("Failed to read metadata.");
+                throw new Exception("Failed to read metadata.", e);
             }
         }
     }
