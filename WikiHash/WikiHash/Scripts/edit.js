@@ -1,4 +1,5 @@
 ﻿var FramesCounter = 0;
+var NewSectionsCounter = 0;
 
 var toolbarOptions = [
     ['bold', 'italic', 'underline', 'strike', { 'script': 'sub' }, { 'script': 'super' }],
@@ -15,6 +16,31 @@ $('div.modal#edit-frame-dialog').on('show.bs.modal', function (e) {
 //Save frame button click
 $("#edit-save-button").click(function () {
     saveContentFrameChanges();
+});
+
+//Add section button click
+$("#new-section-button").click(function () {
+
+    $(`<section>
+            <h3 id="new-section-${NewSectionsCounter}"><input type="text" class="edit-input underlined" value="New Section" /></h3>
+            <div class="section-edit-buttons noselect">
+                <span class="fa fa-caret-up" aria-hidden="true"></span>
+                <span class="fa fa-caret-down" aria-hidden="true"></span>
+                <span class="fa fa-trash remove-button" aria-hidden="true"></span>
+            </div>
+
+            <div class="row">
+                <div contentFrame newContentFrame class="col noselect">
+                    <div class="content-frame content-frame-edit-add">
+                        <span class="fa fa-plus" aria-hidden="true"></span>
+                    </div>
+                    <div class="content-frame-edit-buttons">
+                        <span class="fa fa-caret-up" aria-hidden="true"></span>
+                        <span class="fa fa-caret-down" aria-hidden="true"></span>
+                    </div>
+                </div>
+            </div>
+        </section>`).insertBefore($("#new-section-adding-place"));
 });
 
 //Remove frame button click

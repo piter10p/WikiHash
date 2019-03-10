@@ -100,6 +100,12 @@ div.medias-list-container {
     left: 20px;
 }
 
+.new-section-button {
+    position: fixed;
+    bottom: 70px;
+    left: 20px;
+}
+
 section {
     position: relative;
 }
