@@ -57,6 +57,7 @@ namespace WikiHash.Models.Articles.BodiesReader
             try
             {
                 var content = node.SelectSingleNode("content").InnerXml;
+                content = HTMLSecurityTagsRemover.RemoveUnsecureTags(content);
                 var width = node.SelectSingleNode("width").InnerText;
                 return new ContentFrame(content, width);
             }

@@ -233,6 +233,7 @@
     <Compile Include="Models\Articles\Bodies\MetaData.cs" />
     <Compile Include="Models\Articles\Bodies\Section.cs" />
     <Compile Include="Models\Articles\Bodies\Prototypes\SectionPrototype.cs" />
+    <Compile Include="Models\Articles\HTMLSecurityTagsRemover.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Linkable.cs" />
     <Compile Include="Models\LinkableViewModel.cs" />

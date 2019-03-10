@@ -65,6 +65,7 @@ namespace WikiHash.Models.Articles.BodiesWriter
 
             var trimmedContent = Regex.Replace(contentFrame.Content, @"\s\s+", "");
             trimmedContent = Regex.Replace(trimmedContent, @"<br>", "");//TODO: Dirty way to remove <br> objects created by Quill. Becouse they're not closed, they're throwing exception.
+            trimmedContent = HTMLSecurityTagsRemover.RemoveUnsecureTags(trimmedContent);
             var content = Document.CreateElement("content");
             content.InnerXml = trimmedContent;
             frame.AppendChild(content);
