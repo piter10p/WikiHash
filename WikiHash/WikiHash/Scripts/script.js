@@ -34,6 +34,12 @@ $("#medias-filter-button-editor").click(function () {
     GenerateMediasList(true)
 });
 
+//Contents mobile button click
+$("div.contents-mobile").click(function () {
+    var container = $("div.contents-mobile-container");
+    $("div.contents-mobile-container").stop(true).toggle(500);
+});
+
 function GenerateMediasList(addOption) {
     $.ajax({
         url: "/Medias/GetMediasAJAX",

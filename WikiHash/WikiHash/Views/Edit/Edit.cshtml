@@ -6,16 +6,23 @@
 <div class="article-body">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-2">
-                <div class="contents">
+            <div class="col-xl-2">
+                <div class="contents-desktop d-none d-xl-block">
                     CONTENTS:
-                    <ol id="contents-list">
-                    </ol>
+                    <ol contentList></ol>
                 </div>
-                <button id="save-changes-button" type="button" class="btn btn-primary save-changes-button">Save Changes</button>
-                <button id="new-section-button" type="button" class="btn btn-secondary new-section-button">New Section</button>
+                <div class="contents-mobile noselect d-xl-none">
+                    CONTENTS EDIT <span class="fa fa-caret-left" aria-hidden="true"></span>
+                </div>
+                <div class="contents-mobile-container d-xl-none">
+                    <ol contentList></ol>
+                    <button save-changes-button type="button" class="btn btn-primary">Save Changes</button>
+                    <button new-section-button type="button" class="btn btn-secondary">New Section</button>
+                </div>
+                <button save-changes-button type="button" class="btn btn-primary save-changes-button d-none d-xl-block">Save Changes</button>
+                <button new-section-button type="button" class="btn btn-secondary new-section-button d-none d-xl-block">New Section</button>
             </div>
-            <div class="col-10 content-body">
+            <div class="col content-body">
                 <header>
                     <div class="article-title-container">
                         <h1 id="title" class="underlined">@Model.Title</h1>
@@ -43,7 +50,7 @@
                             <div class="row">
                                 @foreach (var frame in bodySection.Frames)
                                 {
-                                    <div contentFrame id="Frame-@framesCounter" class="col@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToBootstrapString(frame.Width)}"
+                                    <div contentFrame id="Frame-@framesCounter" class="col-lg@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToBootstrapString(frame.Width)}"
                                          data-width="@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToString(frame.Width)}">
                                         <div class="content-frame content-frame-edit">
 

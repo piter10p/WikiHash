@@ -19,7 +19,7 @@ $("#edit-save-button").click(function () {
 });
 
 //Add section button click
-$("#new-section-button").click(function () {
+$("button[new-section-button]").click(function () {
 
     $(`<section>
             <h3 id="new-section-${NewSectionsCounter}"><input type="text" class="edit-input underlined" value="New Section" /></h3>
@@ -63,7 +63,7 @@ $("#edit-remove-button").click(function () {
 
 //Add frame button click
 $(document).on('click', ' div.content-frame-edit-add span', function () {
-    var element = `<div contentframe="" id="Frame-${FramesCounter}" class="col-12" data-width="6" style="display: none;">
+    var element = `<div contentframe="" id="Frame-${FramesCounter}" class="col-lg-12" data-width="6" style="display: none;">
                         <div class="content-frame content-frame-edit">
 
                             <div class="ql-container ql-disabled"><div class="ql-editor" data-gramm="false" contenteditable="false"><p class="ql-align-left">New Content Frame.</p></div><div class="ql-clipboard" contenteditable="true" tabindex="-1"></div></div>
@@ -162,7 +162,7 @@ $(document).on('change', "section h3 input", function () {
 
 
 //Save changes button click
-$("#save-changes-button").click(function () {
+$("button[save-changes-button]").click(function () {
     saveChanges();
 });
 
@@ -176,12 +176,12 @@ $(document).on('click', "button[selectButton]", function (e) {
 
 //Generate contents
 function GenerateContentsList() {
-    $("#contents-list").text("");
+    $("ol[contentList]").text("");
 
     $("section").each(function () {
         var id = $(this).find("h3").first().attr("id");
         var title = $(this).find("input").first().val();
-        $("#contents-list").append(`<li><a data-slide="true" href="#${id}">${title}</a></li>`);
+        $("ol[contentList]").append(`<li><a data-slide="true" href="#${id}">${title}</a></li>`);
     });
 }
 
@@ -191,12 +191,12 @@ function setFrameWidth(frameElement, width) {
 
     if (width == "auto") {
         frameElement.removeClass();
-        frameElement.addClass("col");
+        frameElement.addClass("col-lg");
     }
     else {
         var bootstrapWidth = Number.parseInt(width) * 2;
         frameElement.removeClass();
-        frameElement.addClass("col-" + bootstrapWidth);
+        frameElement.addClass("col-lg-" + bootstrapWidth);
     }
 }
 
