@@ -41,10 +41,19 @@
                             <span class="fa fa-user-circle" aria-hidden="true"></span> @User.Identity.Name
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                            @if (User.IsInRole(WikiHash.Models.RoleNames.Admin))
+                            {
+                                <p>Admin</p>
+                            }
+
+                            <a class="dropdown-item" href="@Url.Action("Index", "Manage")"><span class="fa fa-user-circle" aria-hidden="true"></span> Account</a>
+
+                            <div class="dropdown-divider"></div>
                             @using (Html.BeginForm("Logoff", "Account", FormMethod.Post))
                             {
                                 @Html.AntiForgeryToken()
-                                <button type="submit" class="dropdown-item">Logout</button>
+                                <button type="submit" class="dropdown-item"><span class="fa fa-sign-out" aria-hidden="true"></span> Logout</button>
                             }
 
                         </div>

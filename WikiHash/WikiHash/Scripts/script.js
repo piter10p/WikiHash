@@ -1,5 +1,4 @@
 ﻿//Add slide down effect to links with data-slide=true attributes
-
 $(document).on("click", "a[data-slide=true]", function (event) {
     event.preventDefault();
     var targetOffset = $(this.hash).offset().top;
@@ -96,12 +95,12 @@ function AddMediaToMediasContainer(media, addOption) {
 
 // Add slideDown animation to Bootstrap dropdown when expanding.
 $('.dropdown').on('show.bs.dropdown', function () {
-    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+    $(this).find('.dropdown-menu').first().stop(true).slideDown();
 });
 
 // Add slideUp animation to Bootstrap dropdown when collapsing.
 $('.dropdown').on('hide.bs.dropdown', function () {
-    $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+    $(this).find('.dropdown-menu').first().stop(true).slideUp();
 });
 
 function loadMedia(mediaElement) {
