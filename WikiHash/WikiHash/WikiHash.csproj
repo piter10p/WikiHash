@@ -249,6 +249,7 @@
     <Compile Include="Models\Medias\MediaViewModel.cs" />
     <Compile Include="Models\MessageViewModel.cs" />
     <Compile Include="Models\PathsGenerator.cs" />
+    <Compile Include="Models\RoleNames.cs" />
     <Compile Include="Models\TitleFunctions.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Medias\Media.cs" />
