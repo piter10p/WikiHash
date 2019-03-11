@@ -17,6 +17,8 @@ namespace WikiHash.Models.Medias
             output.Url = media.Url;
             output.Type = media.Type;
             output.CreationDate = media.CreationDate;
+            if (media.Category != null)
+                output.CategoryName = media.Category.CategoryName;
 
             return output;
         }

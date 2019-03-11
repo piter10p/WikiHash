@@ -12,7 +12,7 @@ namespace WikiHash.Models.Medias
             try
             {
                 var context = DAL.ApplicationDbContext.Create();
-                var query = from m in context.Medias select m;
+                var query = from m in context.Medias.Include("Category") select m;
 
                 foreach (var media in query)
                 {
@@ -33,7 +33,7 @@ namespace WikiHash.Models.Medias
             try
             {
                 var context = DAL.ApplicationDbContext.Create();
-                var query = from m in context.Medias where m.Title.Contains(filter) select m;
+                var query = from m in context.Medias.Include("Category") where m.Title.Contains(filter) || m.Category.CategoryName.Contains(filter) select m;
 
                 if (query.Count() > Configuration.MediasAJAXListMaximumLength)
                     return MediasListModel.CreateToMuch();

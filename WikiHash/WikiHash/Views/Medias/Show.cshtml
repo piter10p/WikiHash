@@ -1,6 +1,17 @@
 ﻿@model WikiHash.Models.Medias.MediaViewModel
 @{
     ViewBag.Title = "Media: " + Model.Title;
+
+    var category = "";
+
+    if (Model.CategoryName == null)
+    {
+        category = "Uncategorised";
+    }
+    else
+    {
+        category = Model.CategoryName;
+    }
 }
 <div class="article-body">
     <div class="container">
@@ -9,6 +20,7 @@
         <div id="media-container"></div>
         <br /><br />
         <p class="text-justify">@Model.Description</p>
+        <p>Category: @category</p>
         <p>Creation date: @Model.CreationDate</p>
     </div>
 </div>

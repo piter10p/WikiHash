@@ -13,6 +13,8 @@ namespace WikiHash.Models
 
         public DateTime CreationDate { get; set; } = DateTime.Now;
 
+        public string CategoryName { get; set; }
+
         public string Link
         {
             get

@@ -42,6 +42,7 @@ namespace WikiHash.Models.Medias
             output.CreationDate = DateTime.Now;
             output.Description = model.Description;
             output.FileName = model.File.FileName;
+            output.CategoryId = model.CategoryId;
 
             return output;
         }

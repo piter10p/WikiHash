@@ -214,6 +214,10 @@
     <Compile Include="Migrations\201902281607530_Added CreationDate column to all Linkable tables..Designer.cs">
       <DependentUpon>201902281607530_Added CreationDate column to all Linkable tables..cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903111325487_Added Category table.cs" />
+    <Compile Include="Migrations\201903111325487_Added Category table.Designer.cs">
+      <DependentUpon>201903111325487_Added Category table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Articles\Article.cs" />
@@ -237,6 +241,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Linkable.cs" />
     <Compile Include="Models\LinkableViewModel.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Medias\MediaCreationModel.cs" />
     <Compile Include="Models\Medias\MediasListModel.cs" />
     <Compile Include="Models\Medias\MediasManager.cs" />
@@ -411,6 +416,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902281607530_Added CreationDate column to all Linkable tables..resx">
       <DependentUpon>201902281607530_Added CreationDate column to all Linkable tables..cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903111325487_Added Category table.resx">
+      <DependentUpon>201903111325487_Added Category table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

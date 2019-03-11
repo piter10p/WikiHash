@@ -14,32 +14,45 @@ namespace WikiHash.Migrations
 
         protected override void Seed(DAL.ApplicationDbContext context)
         {
-            GenerateTestArticles(context);
-            GenerateTestMedias(context);
+            var testCategory = GenerateTestCategories(context);
+            GenerateTestArticles(context, testCategory);
+            GenerateTestMedias(context, testCategory);
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
         }
 
-        private void GenerateTestArticles(DAL.ApplicationDbContext context)
+        private void GenerateTestArticles(DAL.ApplicationDbContext context, Models.Category testCategory)
         {
             if(context.Articles.Count() == 0)
             {
-                context.Articles.Add(new Models.Articles.Article() { Title = "Test Article" });
+                context.Articles.Add(new Models.Articles.Article() { Title = "Test Article", Category = testCategory });
                 context.Articles.AddOrUpdate();
             }
         }
 
-        private void GenerateTestMedias(DAL.ApplicationDbContext context)
+        private void GenerateTestMedias(DAL.ApplicationDbContext context, Models.Category testCategory)
         {
             if (context.Medias.Count() == 0)
             {
-                context.Medias.Add(new Models.Medias.Media() { Title = "Test Media", Description = "Some test description of media", FileName = "test-media.jpg" });
+                context.Medias.Add(new Models.Medias.Media() { Title = "Test Media", Description = "Some test description of media", FileName = "test-media.jpg", Category = testCategory });
                 context.Medias.Add(new Models.Medias.Media() { Title = "Nyan Cat", Description = "Get Nyaned! A video media example", FileName = "nyan cat.mp4" });
                 context.Medias.Add(new Models.Medias.Media() { Title = "Programming", Description = "A gif media example", FileName = "programming.gif" });
                 context.Medias.AddOrUpdate();
             }
+        }
+
+        private Models.Category GenerateTestCategories(DAL.ApplicationDbContext context)
+        {
+            if(context.Categories.Count() == 0)
+            {
+                var category = context.Categories.Add(new Models.Category() { CategoryName = "Test category" });
+                context.Categories.AddOrUpdate();
+                return category;
+            }
+
+            return context.Categories.First();
         }
     }
 }
