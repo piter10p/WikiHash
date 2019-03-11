@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Articles explorer";
+}
+<div class="article-body">
+    <div class="container">
+        <h1 class="underlined">Articles explorer</h1>
+        <br />
+
+        <div>
+            <h3>Filter</h3>
+            <div class="underlined" style="padding-bottom: 10px;">
+                Category:
+                <select id="articles-category-input">
+                    <option selected value="all">All</option>@*TODO: Add articles selection*@
+                </select>
+                Title:
+                <input id="articles-filter-input" type="text" placeholder="title" />
+                <button id="articles-filter-button" type="button" class="btn btn-primary">
+                    <span class="fa fa-search" aria-hidden="true"></span>
+                </button>
+            </div>
+
+            <div id="articles-container" style="padding-top: 20px;">
+            </div>
+        </div>
+    </div>
+</div>

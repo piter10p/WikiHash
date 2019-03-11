@@ -56,5 +56,42 @@ namespace WikiHash.Models.Articles
                 throw;
             }
         }
+
+        public static ArticleListModel[] GetFilteredArticles(string filter, string category)
+        {
+            try
+            {
+                if (filter == null || category == null)
+                    throw new ArgumentNullException();
+
+                var context = DAL.ApplicationDbContext.Create();
+
+                IQueryable query;
+
+                if(category == "all")
+                {
+                    query = from a in context.Articles where a.Title.Contains(filter) select a;
+                }
+                else
+                {
+                    query = from a in context.Articles.Include("Category")
+                            where a.Title.Contains(filter) && a.Category.CategoryName == category select a;
+                }
+
+                var articlesList = new List<ArticleListModel>();
+
+                foreach(Article article in query)
+                {
+                    var listModel = ArticleListModel.FromArticle(article);
+                    articlesList.Add(listModel);
+                }
+
+                return articlesList.ToArray();
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }

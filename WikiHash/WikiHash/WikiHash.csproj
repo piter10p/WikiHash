@@ -179,6 +179,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\EditController.cs" />
+    <Compile Include="Controllers\ExploreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MediasController.cs" />
@@ -222,6 +223,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Articles\Article.cs" />
     <Compile Include="Models\Articles\ArticleJsonParser.cs" />
+    <Compile Include="Models\Articles\ArticleListModel.cs" />
     <Compile Include="Models\Articles\ArticlesManager.cs" />
     <Compile Include="Models\Articles\ArticleViewModel.cs" />
     <Compile Include="Models\Articles\BodiesReader\BodyReader.cs" />
@@ -381,6 +383,7 @@
     <Content Include="Views\Shared\MessagePage.cshtml" />
     <Content Include="Views\Shared\_EditorDialogPartial.cshtml" />
     <Content Include="Views\Medias\Explore.cshtml" />
+    <Content Include="Views\Explore\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

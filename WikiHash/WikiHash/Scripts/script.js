@@ -10,7 +10,7 @@ $(document).on("click", "a[data-slide=true]", function (event) {
         $('html,body').animate({ scrollTop: targetOffset - 75 }, 500);
 });
 
-//Loads medias
+//Load medias
 function loadMedias() {
     $('media').each(function () {
         $(this).text("LOADING...");
@@ -33,6 +33,11 @@ $("#medias-filter-button-editor").click(function () {
     GenerateMediasList(true)
 });
 
+//Articles filter click
+$("#articles-filter-button").click(function () {
+    GenerateArticlesList()
+});
+
 //Contents mobile button click
 $("div.contents-mobile").click(function () {
     var container = $("div.contents-mobile-container");
@@ -48,21 +53,47 @@ function GenerateMediasList(addOption) {
             filter: $("#medias-filter-input").val()
         }
     })
-        .done(function (res) {
-            var container = $("#medias-container");
-            container.text("");
+    .done(function (res) {
+        var container = $("#medias-container");
+        container.text("");
 
-            if (res.ToMuchResults)
-                container.text("Too many results.");
-            else if (res.Medias.length == 0)
-                container.text("No results.");
-            else {
-                for (var i = 0; i < res.Medias.length; i++) {
-                    var media = res.Medias[i];
-                    AddMediaToMediasContainer(media, addOption);
-                }
+        if (res.ToMuchResults)
+            container.text("Too many results.");
+        else if (res.Medias.length == 0)
+            container.text("No results.");
+        else {
+            for (var i = 0; i < res.Medias.length; i++) {
+                var media = res.Medias[i];
+                AddMediaToMediasContainer(media, addOption);
             }
-        });
+        }
+    });
+}
+
+function GenerateArticlesList() {
+    $.ajax({
+        url: "/Explore/GetArticlesAJAX",
+        method: "get",
+        dataType: 'json',
+        data: {
+            filter: $("#articles-filter-input").val(),
+            category: $("#articles-category-input").val(),
+        }
+    })
+    .done(function (res) {
+        var container = $("#articles-container");
+        container.text("");
+        console.log(res);
+
+        if (res.length == 0)
+            container.text("No results.");
+        else {
+            for (var i = 0; i < res.length; i++) {
+                var article = res[i];
+                AddArticleToArticlesContainer(article);
+            }
+        }
+    });
 }
 
 function AddMediaToMediasContainer(media, addOption) {
@@ -91,6 +122,39 @@ function AddMediaToMediasContainer(media, addOption) {
                                             ${mediaText}
                                         </div>
                                     </div>`));
+}
+
+function AddArticleToArticlesContainer(article) {
+
+    $("#articles-container").append($(`<p>
+                                            <a href="/Articles/${article.Link}">${article.Title}</a>
+                                        </p>`));
+
+    /*var mediaText = "";
+
+    var addText = "";
+
+    if (addOption)
+        addText = `<p><button type='button' class='btn btn-secondary' selectButton data-link='${media.Link}'>Select</button></p>`;
+
+    if (media.Type == "image")
+        mediaText = `<img src="${media.Url}" class="figure-small" />`;
+    else
+        mediaText = `<video class="figure-small" controls>
+                                    <source src="${media.Url}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>`;
+
+    $("#medias-container").append($(`<div class="row medias-list-container">
+                                        <div class="col">
+                                            <a href="/Medias/Show/${media.Link}" target="_blank"><h5 class="underlined">${media.Title}</h5></a>
+                                            <p>${media.Description}</p>
+                                            ${addText}
+                                        </div>
+                                        <div class="col">
+                                            ${mediaText}
+                                        </div>
+                                    </div>`));*/
 }
 
 // Add slideDown animation to Bootstrap dropdown when expanding.
