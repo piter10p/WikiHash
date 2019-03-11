@@ -33,6 +33,28 @@
                     </div>
                 </li>
             </ul>
+            <div class="text-right">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="nav-item dropdown login-panel">
+                        <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="fa fa-user-circle" aria-hidden="true"></span> @User.Identity.Name
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @using (Html.BeginForm("Logoff", "Account", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="dropdown-item">Logout</button>
+                            }
+
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <a class="nav-link login-panel" href="@Url.Action("Login", "Account")"><span class="fa fa-user-circle" aria-hidden="true"></span> Login</a>
+                }
+            </div>
         </div>
     </nav>
 

@@ -26,6 +26,10 @@ body {
                                   supported by Chrome and Opera */
 }
 
+.login-panel {
+    cursor: pointer;
+}
+
 .underlined {
     border-width: 0px 0px 1px 0px !important;
     border-style: solid solid solid solid !important;
