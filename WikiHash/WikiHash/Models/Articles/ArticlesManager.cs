@@ -9,6 +9,7 @@ namespace WikiHash.Models.Articles
     {
         public static Article GetArticle(string link)
         {
+            
             try
             {
                 if (link == null)
@@ -23,12 +24,14 @@ namespace WikiHash.Models.Articles
                         return article;
                 }
 
-                throw new Exception("No article with specified link found.");
+                throw new KeyNotFoundException();
             }
-            catch(Exception e)
+            catch
             {
-                throw new Exception("Failed to get article.", e);
+                throw;
             }
+
+            
         }
 
         public static void UpdateArticle(Article article)
@@ -43,7 +46,7 @@ namespace WikiHash.Models.Articles
                 var query = from a in context.Articles where a.Title == article.Title select a;
 
                 if (query.Count() != 1)
-                    throw new Exception("No article with specified title found.");
+                    throw new KeyNotFoundException();
 
                 var targetArticle = query.First();
                 targetArticle.Title = article.Title;

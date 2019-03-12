@@ -12,9 +12,20 @@ namespace WikiHash.Controllers
     {
         public ActionResult Show(string link)
         {
-            var media = MediasManager.GetMedia(link);
-            var viewMedia = MediaViewModel.FromMedia(media);
-            return View(viewMedia);
+            try
+            {
+                var media = MediasManager.GetMedia(link);
+                var viewMedia = MediaViewModel.FromMedia(media);
+                return View(viewMedia);
+            }
+            catch(KeyNotFoundException e)
+            {
+                return View("Error", null, "No matching media found.");
+            }
+            catch
+            {
+                return View("Error");
+            }
         }
 
         [HttpGet]
@@ -27,14 +38,25 @@ namespace WikiHash.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult New(MediaCreationModel model)
         {
-            if(!ModelState.IsValid)
-                return View(model);
+            try
+            {
+                if (!ModelState.IsValid)
+                    return View(model);
 
-            var path = Models.PathsGenerator.Media(model.File.FileName);
-            model.File.SaveAs(path);
-            MediasManager.AddMedia(model);
+                MediasManager.AddMedia(model);
+                var path = Models.PathsGenerator.Media(model.File.FileName);
+                model.File.SaveAs(path);
 
-            return RedirectToAction("MediasUploadingComplete");
+                return RedirectToAction("MediasUploadingComplete");
+            }
+            catch(Models.EntryExistsException e)
+            {
+                return View("Error", null, "Media with the selected title already exists.");
+            }
+            catch
+            {
+                return View("Error");
+            }
         }
 
         public ActionResult Explore()

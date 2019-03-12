@@ -11,6 +11,9 @@ namespace WikiHash.Models.Medias
         {
             try
             {
+                if (link == null)
+                    throw new ArgumentNullException();
+
                 var context = DAL.ApplicationDbContext.Create();
                 var query = from m in context.Medias.Include("Category") select m;
 
@@ -20,11 +23,11 @@ namespace WikiHash.Models.Medias
                         return media;
                 }
 
-                throw new Exception("No media with specified link found.");
+                throw new KeyNotFoundException();
             }
-            catch (Exception e)
+            catch
             {
-                throw new Exception("Failed to get media.", e);
+                throw;
             }
         }
 
@@ -32,6 +35,9 @@ namespace WikiHash.Models.Medias
         {
             try
             {
+                if (filter == null)
+                    throw new ArgumentNullException();
+
                 var context = DAL.ApplicationDbContext.Create();
                 var query = from m in context.Medias.Include("Category") where m.Title.Contains(filter) || m.Category.CategoryName.Contains(filter) select m;
 
@@ -48,9 +54,9 @@ namespace WikiHash.Models.Medias
 
                 return MediasListModel.Create(mediasViewList.ToArray());
             }
-            catch(Exception e)
+            catch
             {
-                throw new Exception("Failed to get filtered medias list.", e);
+                throw;
             }
         }
 
@@ -61,12 +67,17 @@ namespace WikiHash.Models.Medias
                 var context = DAL.ApplicationDbContext.Create();
                 var media = Media.FromCreationModel(creationModel);
 
+                var query = from m in context.Medias where m.Title == media.Title select m;
+
+                if (query.Count() != 0)
+                    throw new EntryExistsException();
+
                 context.Medias.Add(media);
                 context.SaveChanges();
             }
-            catch (Exception e)
+            catch
             {
-                throw new Exception("Failed to add media.", e);
+                throw;
             }
         }
     }

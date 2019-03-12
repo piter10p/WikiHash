@@ -11,10 +11,21 @@ namespace WikiHash.Controllers
     {
         public ActionResult Read(string link)
         {
-            var article = ArticlesManager.GetArticle(link);
+            try
+            {
+                var article = ArticlesManager.GetArticle(link);
 
-            var viewModel = ArticleViewModel.FromArticle(article);
-            return View(viewModel);
+                var viewModel = ArticleViewModel.FromArticle(article);
+                return View(viewModel);
+            }
+            catch(KeyNotFoundException e)
+            {
+                return View("Error", null, "No matching article found.");
+            }
+            catch
+            {
+                return View("Error");
+            }
         }
     }
 }
