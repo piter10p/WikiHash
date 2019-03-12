@@ -222,6 +222,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Articles\Article.cs" />
+    <Compile Include="Models\Articles\ArticleCreationModel.cs" />
     <Compile Include="Models\Articles\ArticleJsonParser.cs" />
     <Compile Include="Models\Articles\ArticleListModel.cs" />
     <Compile Include="Models\Articles\ArticlesManager.cs" />
@@ -240,6 +241,7 @@
     <Compile Include="Models\Articles\Bodies\Section.cs" />
     <Compile Include="Models\Articles\Bodies\Prototypes\SectionPrototype.cs" />
     <Compile Include="Models\Articles\HTMLSecurityTagsRemover.cs" />
+    <Compile Include="Models\Articles\NewArticleGenerator.cs" />
     <Compile Include="Models\EntryExistsException.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Linkable.cs" />
@@ -385,6 +387,7 @@
     <Content Include="Views\Shared\_EditorDialogPartial.cshtml" />
     <Content Include="Views\Medias\Explore.cshtml" />
     <Content Include="Views\Explore\Index.cshtml" />
+    <Content Include="Views\Explore\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

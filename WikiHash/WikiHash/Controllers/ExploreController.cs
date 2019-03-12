@@ -20,5 +20,39 @@ namespace WikiHash.Controllers
             var articles = ArticlesManager.GetFilteredArticles(filter, category);
             return JsonConvert.SerializeObject(articles);
         }
+
+        [HttpGet]
+        public ActionResult New()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult New(ArticleCreationModel model)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                    return View(model);
+
+                var article = ArticlesManager.AddArticle(model);
+                NewArticleGenerator.Create(article);
+                return RedirectToAction("ArticleCreated");
+            }
+            catch(Models.EntryExistsException e)
+            {
+                return View("Error", null, "Article with this title already exists.");
+            }
+            catch
+            {
+                return View("Error");
+            }
+        }
+
+        public ActionResult ArticleCreated()
+        {
+            return View("MessagePage", new Models.MessageViewModel { Title = "Article created", Message = "Article was created successfully." });
+        }
     }
 }

@@ -96,5 +96,31 @@ namespace WikiHash.Models.Articles
                 throw;
             }
         }
+
+        public static Article AddArticle(ArticleCreationModel model)
+        {
+            try
+            {
+                if (model == null)
+                    throw new ArgumentNullException();
+
+                var context = DAL.ApplicationDbContext.Create();
+                var article = Article.FromCreationModel(model);
+
+                var query = from a in context.Articles where a.Title == article.Title select a;
+
+                if (query.Count() != 0)
+                    throw new EntryExistsException();
+
+                article = context.Articles.Add(article);
+                context.SaveChanges();
+
+                return article;
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }

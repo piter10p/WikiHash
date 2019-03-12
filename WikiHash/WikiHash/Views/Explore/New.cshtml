@@ -1,0 +1,32 @@
+﻿@model WikiHash.Models.Articles.ArticleCreationModel
+@{
+    ViewBag.Title = "Create new article";
+}
+<div class="article-body">
+    <div class="container">
+        <h1 class="underlined">Creating new article</h1>
+        <br />
+
+        @using (Html.BeginForm("New", "Explore", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-input-container">
+                <div>
+                    @Html.LabelFor(m => Model.Title)
+                </div>
+                <div>
+
+                    @Html.TextBoxFor(m => Model.Title)
+                </div>
+                <div>
+                    @Html.ValidationMessageFor(m => Model.Title, null, new { @class = "validation-message" })
+                </div>
+            </div>
+
+            <div class="form-input-container">
+                <input type="submit" value="Create article" />
+            </div>
+        }
+    </div>
+</div>

@@ -30,5 +30,16 @@ namespace WikiHash.Models.Articles
 
             return article;
         }
+
+        public static Article FromCreationModel(ArticleCreationModel model)
+        {
+            if (model == null)
+                throw new ArgumentNullException();
+
+            var article = new Article();
+            article.Title = model.Title;
+            article.CategoryId = model.CategoryId;
+            return article;
+        }
     }
 }
