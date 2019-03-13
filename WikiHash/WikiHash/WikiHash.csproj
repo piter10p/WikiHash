@@ -219,6 +219,10 @@
     <Compile Include="Migrations\201903111325487_Added Category table.Designer.cs">
       <DependentUpon>201903111325487_Added Category table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903131157154_Added Modifications Table.cs" />
+    <Compile Include="Migrations\201903131157154_Added Modifications Table.Designer.cs">
+      <DependentUpon>201903131157154_Added Modifications Table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Articles\Article.cs" />
@@ -242,6 +246,7 @@
     <Compile Include="Models\Articles\Bodies\Prototypes\SectionPrototype.cs" />
     <Compile Include="Models\Articles\HTMLSecurityTagsRemover.cs" />
     <Compile Include="Models\Articles\NewArticleGenerator.cs" />
+    <Compile Include="Models\Content.cs" />
     <Compile Include="Models\EntryExistsException.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Linkable.cs" />
@@ -253,6 +258,9 @@
     <Compile Include="Models\Medias\MediaTypeGetter.cs" />
     <Compile Include="Models\Medias\MediaViewModel.cs" />
     <Compile Include="Models\MessageViewModel.cs" />
+    <Compile Include="Models\Modifications\Modification.cs" />
+    <Compile Include="Models\Modifications\ModificationsManager.cs" />
+    <Compile Include="Models\Modifications\ModificationWriter.cs" />
     <Compile Include="Models\PathsGenerator.cs" />
     <Compile Include="Models\RoleNames.cs" />
     <Compile Include="Models\TitleFunctions.cs" />
@@ -428,6 +436,9 @@
     <EmbeddedResource Include="Migrations\201903111325487_Added Category table.resx">
       <DependentUpon>201903111325487_Added Category table.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903131157154_Added Modifications Table.resx">
+      <DependentUpon>201903131157154_Added Modifications Table.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -456,7 +467,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties BuildVersion_StartDate="2000/1/1" BuildVersion_BuildVersioningStyle="None.None.TimeStamp.Increment" BuildVersion_UpdateAssemblyVersion="False" BuildVersion_UpdateFileVersion="False" />
+      <UserProperties BuildVersion_UpdateFileVersion="False" BuildVersion_UpdateAssemblyVersion="False" BuildVersion_BuildVersioningStyle="None.None.TimeStamp.Increment" BuildVersion_StartDate="2000/1/1" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

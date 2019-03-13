@@ -8,7 +8,7 @@ using System.Web.Hosting;
 
 namespace WikiHash.Models.Medias
 {
-    public sealed class Media: Linkable
+    public sealed class Media: Content
     {
         [MaxLength(256)]
         public string Description { get; set; }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WikiHash.Models.Articles;
-using WikiHash.Models.Articles.BodiesWriter;
+using WikiHash.Models.Modifications;
 
 namespace WikiHash.Controllers
 {
@@ -37,13 +37,18 @@ namespace WikiHash.Controllers
             {
                 var articleViewModel = ArticleJsonParser.Parse(articleJson);
                 var article = Article.FromViewModel(articleViewModel);
-                ArticlesManager.UpdateArticle(article);
-                var writer = new BodyWriter();
-                writer.Write(articleViewModel.Body, articleViewModel.Link);
+                article = ArticlesManager.UpdateArticle(article);
+
+                var modification = new Modification() { Article = article, AuthorIp = Request.UserHostAddress };
+                if (User.Identity.Name != "")
+                    modification.UserEmail = User.Identity.Name;
+                modification = ModificationsManager.AddModification(modification);
+
+                ModificationWriter.Write(modification, articleViewModel);
 
                 return "ok";
             }
-            catch
+            catch(Exception e)
             {
                 return "failed";
             }

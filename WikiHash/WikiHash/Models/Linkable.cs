@@ -12,24 +12,10 @@ namespace WikiHash.Models
         [Key]
         public int Id { get; set; }
 
-        [Index(IsUnique = true)]
-        [MaxLength(256)]
-        public string Title { get; set; }
-
         [DataType(DataType.Date)]
         public DateTime CreationDate { get; set; } = DateTime.Now;
 
-        [ForeignKey("Category")]
-        public int? CategoryId { get; set; }
-        public Category Category { get; set; }
-
         [NotMapped]
-        public string Link
-        {
-            get
-            {
-                return TitleFunctions.GenerateLink(Title);
-            }
-        }
+        public abstract string Link { get; }
     }
 }

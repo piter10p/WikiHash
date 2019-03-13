@@ -30,11 +30,9 @@ namespace WikiHash.Models.Articles
             {
                 throw;
             }
-
-            
         }
 
-        public static void UpdateArticle(Article article)
+        public static Article UpdateArticle(Article article)
         {
             try
             {
@@ -53,6 +51,8 @@ namespace WikiHash.Models.Articles
                 targetArticle.CreationDate = article.CreationDate;
 
                 context.SaveChanges();
+
+                return targetArticle;
             }
             catch
             {

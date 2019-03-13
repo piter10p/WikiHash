@@ -10,13 +10,13 @@ namespace WikiHash.Models
     public static class PathsGenerator
     {
         private const string ArticlesFolderPath = @"~/Content/Articles/";
-        private const string FileExtension = ".xml";
+        private const string ArticleFilesExtension = ".xml";
 
         private const string MediasFolderPath = @"~/Content/Medias/";
 
         public static string Article(string link)
         {
-            return HostingEnvironment.MapPath(ArticlesFolderPath + link + FileExtension);
+            return HostingEnvironment.MapPath(ArticlesFolderPath + link + ArticleFilesExtension);
         }
 
         public static string Media(string fileName)

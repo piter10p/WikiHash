@@ -7,7 +7,7 @@ using System.Web;
 
 namespace WikiHash.Models.Articles
 {
-    public sealed class Article: Linkable
+    public sealed class Article: Content
     {
         [NotMapped]
         public Bodies.Body Body
