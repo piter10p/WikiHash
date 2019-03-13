@@ -180,6 +180,7 @@
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\EditController.cs" />
     <Compile Include="Controllers\ExploreController.cs" />
+    <Compile Include="Controllers\HistoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MediasController.cs" />
@@ -260,6 +261,8 @@
     <Compile Include="Models\MessageViewModel.cs" />
     <Compile Include="Models\Modifications\Modification.cs" />
     <Compile Include="Models\Modifications\ModificationsManager.cs" />
+    <Compile Include="Models\Modifications\ModificationViewList.cs" />
+    <Compile Include="Models\Modifications\ModificationViewModel.cs" />
     <Compile Include="Models\Modifications\ModificationWriter.cs" />
     <Compile Include="Models\PathsGenerator.cs" />
     <Compile Include="Models\RoleNames.cs" />
@@ -396,6 +399,7 @@
     <Content Include="Views\Medias\Explore.cshtml" />
     <Content Include="Views\Explore\Index.cshtml" />
     <Content Include="Views\Explore\New.cshtml" />
+    <Content Include="Views\History\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

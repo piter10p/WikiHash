@@ -34,5 +34,37 @@ namespace WikiHash.Models.Modifications
                 throw;
             }
         }
+
+        public static ModificationViewModel[] GetArticleModificationHistory(string articleLink)
+        {
+            try
+            {
+                if (articleLink == null)
+                    throw new ArgumentNullException();
+
+                var context = DAL.ApplicationDbContext.Create();
+
+                var modificationsArray = context.Modifications.Include("Article").ToArray();
+
+                var query = from m in modificationsArray where m.Article.Link == articleLink select m;
+
+                if (query.Count() == 0)
+                    throw new KeyNotFoundException();
+
+                var resultList = new List<ModificationViewModel>();
+
+                foreach(var m in query)
+                {
+                    var converted = ModificationViewModel.FromModification(m);
+                    resultList.Add(converted);
+                }
+
+                return resultList.ToArray();
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }

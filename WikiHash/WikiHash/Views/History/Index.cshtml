@@ -1,0 +1,38 @@
+﻿@model WikiHash.Models.Modifications.ModificationViewList
+@{
+    ViewBag.Title = @Model.ArticleTitle + " modification history";
+}
+<div class="article-body">
+    <div class="container">
+        <h1 class="underlined">@Model.ArticleTitle modification history</h1>
+        <br />
+        @if (Model.Modifications.Count() == 0)
+        {
+            <p>History is empty.</p>
+        }
+        else
+        {
+            foreach (var m in Model.Modifications)
+            {
+                <p>
+                    <b>Modification Date:</b> @m.ModificationDate.ToString()
+                    @if (m.UserEmail != null)
+                    {
+                        @:<b>Author:</b> @m.UserEmail
+                    }
+                    else
+                    {
+                        @:<b>Author:</b> @m.AuthorIp
+                    }
+                </p>
+            }
+        }
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        var content = getFigureContent(@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model)), "img-fluid");
+        $("div#media-container").append(content);
+    </script>
+}

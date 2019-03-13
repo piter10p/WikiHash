@@ -33,6 +33,7 @@
                     <div class="article-title-container">
                         <h1 class="underlined">@Model.Title</h1>
                         <a href="@Url.Action("Edit", "Edit", Model.Link)" class="fa fa-pencil edit-button" aria-hidden="true"></a>
+                        <a href="/History/Index/@Model.Link" class="fa fa-history history-button" aria-hidden="true"></a>
                     </div>
                 </header>
                 <article>

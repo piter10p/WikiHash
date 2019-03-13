@@ -60,6 +60,21 @@ body {
     color: #47a3ff;
 }
 
+.article-title-container .history-button {
+    position: absolute;
+    right: 40px;
+    top: 15px;
+    text-decoration: none;
+    color: grey;
+    font-size: 25px;
+    transition: all 200ms;
+}
+
+.article-title-container .history-button:hover {
+    transform: scale(1.2);
+    color: #47a3ff;
+}
+
 .content-body {
     border-width: 0px 0px 0px 1px;
     border-style: solid;
