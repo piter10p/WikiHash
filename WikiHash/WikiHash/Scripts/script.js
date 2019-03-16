@@ -12,7 +12,7 @@ $(document).on("click", "a[data-slide=true]", function (event) {
 
 //Load medias
 function loadMedias() {
-    $('media').each(function () {
+    $('div.content-frame[type="media"]').each(function () {
         $(this).text("LOADING...");
         loadMedia($(this));
     });
@@ -129,32 +129,6 @@ function AddArticleToArticlesContainer(article) {
     $("#articles-container").append($(`<p>
                                             <a href="/Articles/${article.Link}">${article.Title}</a>
                                         </p>`));
-
-    /*var mediaText = "";
-
-    var addText = "";
-
-    if (addOption)
-        addText = `<p><button type='button' class='btn btn-secondary' selectButton data-link='${media.Link}'>Select</button></p>`;
-
-    if (media.Type == "image")
-        mediaText = `<img src="${media.Url}" class="figure-small" />`;
-    else
-        mediaText = `<video class="figure-small" controls>
-                                    <source src="${media.Url}" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>`;
-
-    $("#medias-container").append($(`<div class="row medias-list-container">
-                                        <div class="col">
-                                            <a href="/Medias/Show/${media.Link}" target="_blank"><h5 class="underlined">${media.Title}</h5></a>
-                                            <p>${media.Description}</p>
-                                            ${addText}
-                                        </div>
-                                        <div class="col">
-                                            ${mediaText}
-                                        </div>
-                                    </div>`));*/
 }
 
 // Add slideDown animation to Bootstrap dropdown when expanding.
@@ -167,16 +141,17 @@ $('.dropdown').on('hide.bs.dropdown', function () {
     $(this).find('.dropdown-menu').first().stop(true).slideUp();
 });
 
-function loadMedia(mediaElement) {
-    var link = mediaElement.data("link");
+function loadMedia(contentFrame) {
+    var media = JSON.parse(contentFrame.attr("content"));
+    var link = media.link;
     var figureClass = "figure-standard";
-    var figureClassData = mediaElement.data("class");
+    var figureClassData = media.class;
 
     if (figureClassData != null)
         figureClass = figureClassData;
 
     if (link == null)
-        mediaElement.text("Media link is null.");
+        contentFrame.text("Media link is null.");
     else {
         $.ajax({
             url: "/Medias/GetMediaUrl",
@@ -187,19 +162,19 @@ function loadMedia(mediaElement) {
             }
         })
         .done(function (res) {
-            mediaElement.text("");
-            mediaElement.next("figure").remove();
+            contentFrame.text("");
+            contentFrame.next("figure").remove();
             var figureContent = getFigureContent(res, figureClass);
-            $(`<figure class="figure">
+            contentFrame.append(
+                $(`<figure class="figure">
                     <a href="/Medias/Show/${link}">
                         ${figureContent}
                     </a>
                     <figcaption class="figure-caption text-center">${res.Title}</figcaption>
-                </figure>`)
-            .insertAfter(mediaElement);
+                </figure>`));
         })
         .fail(function () {
-            mediaElement.text("Can not get media from server.");
+            contentFrame.text("Can not get media from server.");
         });
     }
 }
