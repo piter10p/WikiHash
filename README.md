@@ -7,10 +7,9 @@ An open-source open encyclopedia engine. Licensed by GNU/GPL v.3
 * Articles Editor
 * Medias handling (images and videos)
 * User accounts
-### Planned
 * Articles editing history
-* Moderator role and panel
-* Administrator role and panel
+### Planned
+* Roles and permissions systems
 * User panel (with stats, editing history etc.)
 * More built-in content formats (tables, references etc.)
 
