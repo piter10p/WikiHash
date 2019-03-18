@@ -13,10 +13,9 @@ namespace WikiHash.Models.Articles.BodiesReader
         {
             try
             {
-                var author = metaNode.SelectSingleNode("author").InnerText;
                 var tags = metaNode.SelectSingleNode("tags").InnerText;
 
-                return new MetaData(author, tags);
+                return new MetaData(tags);
             }
             catch(Exception e)
             {

@@ -46,10 +46,6 @@ namespace WikiHash.Models.Articles.BodiesWriter
                 var meta = Doc.CreateElement("meta");
                 Root.AppendChild(meta);
 
-                var author = Doc.CreateElement("author");
-                author.InnerText = Body.MetaData.Author;
-                meta.AppendChild(author);
-
                 var tags = Doc.CreateElement("tags");
                 tags.InnerText = Body.MetaData.Tags;
                 meta.AppendChild(tags);

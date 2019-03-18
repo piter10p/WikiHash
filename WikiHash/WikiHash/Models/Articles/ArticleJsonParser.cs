@@ -36,7 +36,7 @@ namespace WikiHash.Models.Articles
                 var sections = body.Sections;
                 var metaData = body.MetaData;
                 var bodyPrototype = new BodyPrototype();
-                bodyPrototype.MetaData = new MetaData((string)metaData.Author, (string)metaData.Tags);
+                bodyPrototype.MetaData = new MetaData((string)metaData.Tags);
 
                 foreach (var sec in sections)
                 {

@@ -31,7 +31,7 @@ namespace WikiHash.Models.Articles
 
             var bodyProto = new BodyPrototype();
             bodyProto.Sections.Add(section);
-            bodyProto.MetaData = new MetaData("Author", "");
+            bodyProto.MetaData = new MetaData("");
 
             return Body.FromPrototype(bodyProto);
         }
