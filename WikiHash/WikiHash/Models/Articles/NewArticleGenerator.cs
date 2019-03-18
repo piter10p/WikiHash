@@ -20,7 +20,8 @@ namespace WikiHash.Models.Articles
         private static Body GenerateBody()
         {
             var contentFrameProto = new ContentFramePrototype();
-            contentFrameProto.Content = "<p>New article content.</p>";
+            contentFrameProto.Content = "{ \"ops\": [ { \"insert\": \"New content farme.\" } ] }";
+            contentFrameProto.ContentType = ContentType.Text;
             contentFrameProto.Width = FrameWidth.W6;
             var contentFrame = ContentFrame.FromPrototype(contentFrameProto);
 
