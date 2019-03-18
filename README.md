@@ -8,8 +8,8 @@ An open-source open encyclopedia engine. Licensed by GNU/GPL v.3
 * Medias handling (images and videos)
 * User accounts
 * Articles editing history
-### Planned
 * Roles and permissions systems
+### Planned
 * User panel (with stats, editing history etc.)
 * More built-in content formats (tables, references etc.)
 

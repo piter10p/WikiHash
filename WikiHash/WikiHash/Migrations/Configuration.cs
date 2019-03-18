@@ -7,6 +7,7 @@ namespace WikiHash.Migrations
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using WikiHash.Models;
+    using WikiHash.Models.Permissions;
 
     internal sealed class Configuration : DbMigrationsConfiguration<WikiHash.DAL.ApplicationDbContext>
     {
@@ -22,6 +23,7 @@ namespace WikiHash.Migrations
 
             //Default
             GenerateRoles(context);
+            GeneratePermissions(context);
             GenerateUsers(context);
 
             //Test
@@ -69,12 +71,39 @@ namespace WikiHash.Migrations
 
         private void GenerateRoles(DAL.ApplicationDbContext context)
         {
-            if (!context.Roles.Any(r => r.Name == RoleNames.Admin))
+            if (!context.Roles.Any(r => r.Name == DefaultRolesNames.HeadAdmin))
             {
-                var role = new IdentityRole { Name = RoleNames.Admin };
+                var role = new IdentityRole { Name = DefaultRolesNames.HeadAdmin };
                 var store = new RoleStore<IdentityRole>(context);
                 var manager = new RoleManager<IdentityRole>(store);
                 manager.Create(role);
+            }
+        }
+
+        private void GeneratePermissions(DAL.ApplicationDbContext context)
+        {
+            //Head Admin Permissions
+            InsertPermission(context, PermissionTarget.CreatingNewArticles, DefaultRolesNames.HeadAdmin);
+            InsertPermission(context, PermissionTarget.ModifyingArticlesData, DefaultRolesNames.HeadAdmin);
+            InsertPermission(context, PermissionTarget.ModifyingArticlesBody, DefaultRolesNames.HeadAdmin);
+            InsertPermission(context, PermissionTarget.CreatingNewMedias, DefaultRolesNames.HeadAdmin);
+            InsertPermission(context, PermissionTarget.ReadingArticles, DefaultRolesNames.HeadAdmin);
+
+            //Global Permissions
+            /*InsertPermission(context, PermissionTarget.CreatingNewArticles, null);   TODO: that null throws an Exception. I guess that can be an EF issue.
+            InsertPermission(context, PermissionTarget.ModifyingArticlesBody, null);
+            InsertPermission(context, PermissionTarget.CreatingNewMedias, null);
+            InsertPermission(context, PermissionTarget.ReadingArticles, null);*/
+        }
+
+        private void InsertPermission(DAL.ApplicationDbContext context, PermissionTarget permissionTarget, string roleName)
+        {
+            if (!context.Permissions.Any(p => p.PermissionTarget == permissionTarget && p.RoleName == roleName))
+            {
+                var permission = new Permission();
+                permission.RoleName = roleName;
+                permission.PermissionTarget = permissionTarget;
+                PermissionsManager.CreatePermission(permission);
             }
         }
 
@@ -87,7 +116,7 @@ namespace WikiHash.Migrations
                 var user = new ApplicationUser { UserName = "admin@admin.admin" };
 
                 manager.Create(user, "!Pass123");
-                manager.AddToRole(user.Id, RoleNames.Admin);
+                manager.AddToRole(user.Id, DefaultRolesNames.HeadAdmin);
             }
         }
     }

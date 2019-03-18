@@ -5,8 +5,8 @@ using System.Web;
 
 namespace WikiHash.Models
 {
-    public static class RoleNames
+    public static class DefaultRolesNames
     {
-        public const string Admin = "Admin";
+        public const string HeadAdmin = "HeadAdmin";
     }
 }

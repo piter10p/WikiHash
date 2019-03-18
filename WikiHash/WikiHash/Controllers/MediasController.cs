@@ -14,6 +14,9 @@ namespace WikiHash.Controllers
         {
             try
             {
+                if (!Models.Permissions.PermissionChecker.CheckPermission(User.Identity.Name, Models.Permissions.PermissionTarget.ReadingArticles))
+                    return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Show") });
+
                 var media = MediasManager.GetMedia(link);
                 var viewMedia = MediaViewModel.FromMedia(media);
                 return View(viewMedia);
@@ -31,6 +34,9 @@ namespace WikiHash.Controllers
         [HttpGet]
         public ActionResult New()
         {
+            if (!Models.Permissions.PermissionChecker.CheckPermission(User.Identity.Name, Models.Permissions.PermissionTarget.CreatingNewMedias))
+                return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("New") });
+
             return View();
         }
 
@@ -40,6 +46,9 @@ namespace WikiHash.Controllers
         {
             try
             {
+                if (!Models.Permissions.PermissionChecker.CheckPermission(User.Identity.Name, Models.Permissions.PermissionTarget.CreatingNewMedias))
+                    return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("New") });
+
                 if (!ModelState.IsValid)
                     return View(model);
 

@@ -24,6 +24,9 @@ namespace WikiHash.Controllers
         [HttpGet]
         public ActionResult New()
         {
+            if (!Models.Permissions.PermissionChecker.CheckPermission(User.Identity.Name, Models.Permissions.PermissionTarget.CreatingNewArticles))
+                return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("New") });
+
             return View();
         }
 
@@ -33,6 +36,9 @@ namespace WikiHash.Controllers
         {
             try
             {
+                if (!Models.Permissions.PermissionChecker.CheckPermission(User.Identity.Name, Models.Permissions.PermissionTarget.CreatingNewArticles))
+                    return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("New") });
+
                 if (!ModelState.IsValid)
                     return View(model);
 

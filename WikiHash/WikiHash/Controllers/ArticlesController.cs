@@ -11,21 +11,24 @@ namespace WikiHash.Controllers
     {
         public ActionResult Read(string link)
         {
-            //try
-            //{
+            try
+            {
+                if (!Models.Permissions.PermissionChecker.CheckPermission(User.Identity.Name, Models.Permissions.PermissionTarget.ReadingArticles))
+                    return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Read") });
+
                 var article = ArticlesManager.GetArticle(link);
 
                 var viewModel = ArticleViewModel.FromArticle(article);
                 return View(viewModel);
-            /*}
-            catch(KeyNotFoundException e)
+            }
+            catch (KeyNotFoundException e)
             {
                 return View("Error", null, "No matching article found.");
             }
             catch
             {
                 return View("Error");
-            }*/
+            }
         }
     }
 }

@@ -224,6 +224,10 @@
     <Compile Include="Migrations\201903131157154_Added Modifications Table.Designer.cs">
       <DependentUpon>201903131157154_Added Modifications Table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903181618038_Added permissions table..cs" />
+    <Compile Include="Migrations\201903181618038_Added permissions table..Designer.cs">
+      <DependentUpon>201903181618038_Added permissions table..cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Articles\Article.cs" />
@@ -266,7 +270,11 @@
     <Compile Include="Models\Modifications\ModificationViewModel.cs" />
     <Compile Include="Models\Modifications\ModificationWriter.cs" />
     <Compile Include="Models\PathsGenerator.cs" />
-    <Compile Include="Models\RoleNames.cs" />
+    <Compile Include="Models\Permissions\Permission.cs" />
+    <Compile Include="Models\Permissions\PermissionChecker.cs" />
+    <Compile Include="Models\Permissions\PermissionsManager.cs" />
+    <Compile Include="Models\Permissions\PermissionTarget.cs" />
+    <Compile Include="Models\DefaultRolesNames.cs" />
     <Compile Include="Models\TitleFunctions.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Medias\Media.cs" />
@@ -444,6 +452,9 @@
     <EmbeddedResource Include="Migrations\201903131157154_Added Modifications Table.resx">
       <DependentUpon>201903131157154_Added Modifications Table.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903181618038_Added permissions table..resx">
+      <DependentUpon>201903181618038_Added permissions table..cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -472,7 +483,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties BuildVersion_StartDate="2000/1/1" BuildVersion_BuildVersioningStyle="None.None.TimeStamp.Increment" BuildVersion_UpdateAssemblyVersion="False" BuildVersion_UpdateFileVersion="False" />
+      <UserProperties BuildVersion_UpdateFileVersion="False" BuildVersion_UpdateAssemblyVersion="False" BuildVersion_BuildVersioningStyle="None.None.TimeStamp.Increment" BuildVersion_StartDate="2000/1/1" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

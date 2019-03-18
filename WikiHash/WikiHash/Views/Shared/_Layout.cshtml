@@ -52,9 +52,9 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                            @if (User.IsInRole(WikiHash.Models.RoleNames.Admin))
+                            @if (User.IsInRole(WikiHash.Models.DefaultRolesNames.HeadAdmin))
                             {
-                                <p>Admin</p>
+                                <p>Head Admin</p>
                             }
 
                             <a class="dropdown-item" href="@Url.Action("Index", "Manage")"><span class="fa fa-user-circle" aria-hidden="true"></span> Account</a>

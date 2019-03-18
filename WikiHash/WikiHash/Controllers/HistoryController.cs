@@ -14,6 +14,9 @@ namespace WikiHash.Controllers
         {
             try
             {
+                if (!Models.Permissions.PermissionChecker.CheckPermission(User.Identity.Name, Models.Permissions.PermissionTarget.ReadingArticles))
+                    return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Index") });
+
                 var model = ModificationViewList.Create(link);
                 return View(model);
             }

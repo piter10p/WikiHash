@@ -14,6 +14,9 @@ namespace WikiHash.Controllers
         {
             try
             {
+                if (!Models.Permissions.PermissionChecker.CheckPermission(User.Identity.Name, Models.Permissions.PermissionTarget.ModifyingArticlesBody))
+                    return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Edit")});
+
                 var article = ArticlesManager.GetArticle(link);
 
                 var viewModel = ArticleViewModel.FromArticle(article);
@@ -35,6 +38,9 @@ namespace WikiHash.Controllers
         {
             try
             {
+                if (!Models.Permissions.PermissionChecker.CheckPermission(User.Identity.Name, Models.Permissions.PermissionTarget.ModifyingArticlesBody))
+                    return "failed";
+
                 var articleViewModel = ArticleJsonParser.Parse(articleJson);
                 var article = Article.FromViewModel(articleViewModel);
                 article = ArticlesManager.UpdateArticle(article);
