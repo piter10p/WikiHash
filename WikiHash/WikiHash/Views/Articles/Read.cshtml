@@ -46,8 +46,9 @@
                                 @foreach (var frame in bodySection.Frames)
                                 {
                                     <div class="col-lg@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToBootstrapString(frame.Width)}">
-                                        <div class="content-frame">
-                                            @Html.Raw(frame.Content)
+                                        <div class="content-frame"
+                                             type="@WikiHash.Models.Articles.Bodies.ContentTypeParser.ToString(frame.ContentType)"
+                                             content="@frame.Content">
                                         </div>
                                     </div>
                                 }
@@ -62,10 +63,6 @@
 
 @section scripts {
     <script>
-        var containers = $("div.content-frame:not(:has(media))");
-        var editors = Array.from(containers).map(function (container) {
-            var editor = new Quill(container);
-            editor.enable(false);
-        });
+        loadTexts();
     </script>
 }

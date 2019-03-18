@@ -56,10 +56,10 @@ namespace WikiHash.Models.Articles.BodiesReader
         {
             try
             {
-                var content = node.SelectSingleNode("content").InnerXml;
-                content = HTMLSecurityTagsRemover.RemoveUnsecureTags(content);
+                var content = node.SelectSingleNode("content").InnerText;
+                var contentType = node.SelectSingleNode("content").Attributes["type"].Value;
                 var width = node.SelectSingleNode("width").InnerText;
-                return new ContentFrame(content, width);
+                return new ContentFrame(content, width, contentType);
             }
             catch(Exception e)
             {

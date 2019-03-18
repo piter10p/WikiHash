@@ -21,7 +21,7 @@ $("#edit-save-button").click(function () {
 //Add section button click
 $("button[new-section-button]").click(function () {
 
-    $(`<section>
+    $(`<section style="display: none;">
             <h3 id="new-section-${NewSectionsCounter}"><input type="text" class="edit-input underlined" value="New Section" /></h3>
             <div class="section-edit-buttons noselect">
                 <span class="fa fa-caret-up" aria-hidden="true"></span>
@@ -30,17 +30,13 @@ $("button[new-section-button]").click(function () {
             </div>
 
             <div class="row">
-                <div contentFrame newContentFrame class="col noselect">
+                <div class="col-lg noselect content-frame-editor-container">
                     <div class="content-frame content-frame-edit-add">
                         <span class="fa fa-plus" aria-hidden="true"></span>
                     </div>
-                    <div class="content-frame-edit-buttons">
-                        <span class="fa fa-caret-up" aria-hidden="true"></span>
-                        <span class="fa fa-caret-down" aria-hidden="true"></span>
-                    </div>
                 </div>
             </div>
-        </section>`).insertBefore($("#new-section-adding-place"));
+        </section>`).insertBefore($("#new-section-adding-place")).slideDown(200);
 
     $('html, body').animate({ scrollTop: $("body").height() }, 800);
     NewSectionsCounter++;
@@ -62,21 +58,26 @@ $("#edit-remove-button").click(function () {
 });
 
 //Add frame button click
-$(document).on('click', ' div.content-frame-edit-add span', function () {
-    var element = `<div contentframe="" id="Frame-${FramesCounter}" class="col-lg-12" data-width="6" style="display: none;">
-                        <div class="content-frame content-frame-edit">
-
-                            <div class="ql-container ql-disabled"><div class="ql-editor" data-gramm="false" contenteditable="false"><p class="ql-align-left">New Content Frame.</p></div><div class="ql-clipboard" contenteditable="true" tabindex="-1"></div></div>
-
-                            <div class="content-frame-edit-buttons noselect">
-                                <span class="fa fa-caret-up" aria-hidden="true"></span>
-                                <span class="fa fa-caret-down" aria-hidden="true"></span>
-                                <span class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#edit-frame-dialog"></span>
-                            </div>
+$(document).on('click', 'div.content-frame-edit-add span', function () {
+    var element = `<div class="col-lg-12 content-frame-editor-container" style="display: none;"
+                            id="${FramesCounter}" data-width="6">
+                        <div class="content-frame content-frame-edit"
+                                type="text"
+                                content='{ "ops": [ { "insert": "New content farme." } ] }'>
+                        </div>
+                        <div class="content-frame-edit-buttons noselect">
+                            <span class="fa fa-caret-up" aria-hidden="true"></span>
+                            <span class="fa fa-caret-down" aria-hidden="true"></span>
+                            <span class="fa fa-pencil" aria-hidden="true"
+                                    data-toggle="modal" data-target="#edit-frame-dialog"></span>
                         </div>
                     </div>`;
 
-    $(element).insertBefore($(this).closest("div[contentFrame]")).slideDown(200);
+    var jElement = $(element);
+
+    jElement.insertBefore($(this).closest("div.content-frame-editor-container"));
+    loadTexts();
+    jElement.slideDown(200);
 
     FramesCounter++;
 });
@@ -95,26 +96,30 @@ function activateTab(tabElement) {
 
 //Frame up button
 $(document).on('click', "div.content-frame-edit-buttons span.fa-caret-up", function () {
-    var contentFrame = $(this).closest("div[contentFrame]");
-    var targetFrame = contentFrame.prev("div:not([newContentFrame])");
+    var contentFrameContainer = $(this).closest("div.content-frame-editor-container");
+    var targetFrameContainer = contentFrameContainer.prev("div:not(:has(div.content-frame-edit-add))");
 
-    slideToElementPosition(contentFrame, targetFrame, function () {
-        targetFrame.before(contentFrame);
-    });
+    if (targetFrameContainer.length != 0) {
+        slideToElementPosition(contentFrameContainer, targetFrameContainer, function () {
+            targetFrameContainer.before(contentFrameContainer);
+        });
 
-    slideToElementPosition(targetFrame, contentFrame);
+        slideToElementPosition(targetFrameContainer, contentFrameContainer);
+    }
 });
 
 //Frame down button
 $(document).on('click', "div.content-frame-edit-buttons span.fa-caret-down", function () {
-    var contentFrame = $(this).closest("div[contentFrame]");
-    var targetFrame = contentFrame.next("div:not([newContentFrame])");
+    var contentFrameContainer = $(this).closest("div.content-frame-editor-container");
+    var targetFrameContainer = contentFrameContainer.next("div:not(:has(div.content-frame-edit-add))");
 
-    slideToElementPosition(contentFrame, targetFrame, function () {
-        targetFrame.after(contentFrame);
-    });
+    if (targetFrameContainer.length != 0) {
+        slideToElementPosition(contentFrameContainer, targetFrameContainer, function () {
+            targetFrameContainer.after(contentFrameContainer);
+        });
 
-    slideToElementPosition(targetFrame, contentFrame);
+        slideToElementPosition(targetFrameContainer, contentFrameContainer);
+    }
 });
 
 //Section up button
@@ -151,6 +156,7 @@ $(document).on('click', "div.section-edit-buttons span.fa-trash", function () {
 
         section.slideUp(200, function () {
             section.remove();
+            GenerateContentsList();
         });
     }
 });
@@ -185,32 +191,138 @@ function GenerateContentsList() {
     });
 }
 
-
-function setFrameWidth(frameElement, width) {
-    frameElement.data("width", width);
-
-    if (width == "auto") {
-        frameElement.removeClass();
-        frameElement.addClass("col-lg");
-    }
-    else {
-        var bootstrapWidth = Number.parseInt(width) * 2;
-        frameElement.removeClass();
-        frameElement.addClass("col-lg-" + bootstrapWidth);
-    }
-}
-
 function slideToElementPosition(elementToAnimate, target, callback) {
     var top = target.position().top - elementToAnimate.position().top;
     var left = target.position().left - elementToAnimate.position().left;
 
-    elementToAnimate.animate({ top: top , left: left}, 200, function () {
+    elementToAnimate.animate({ top: top, left: left }, 200, function () {
         elementToAnimate.css("top", 0).css("left", 0);
         if (typeof callback !== 'undefined') {
             callback();
         }
     });
 }
+
+function getContentFrame(contentFrameContainer) {
+    return contentFrameContainer.children().first();
+}
+
+//EDIT DIALOG
+function setEditDialogData(sender) {
+    var contentFrameContainer = $(sender.relatedTarget).closest("div.content-frame-editor-container");
+    setBasicEditDialogData(contentFrameContainer);
+
+    var contentFrame = getContentFrame(contentFrameContainer);
+
+    if (contentFrame.attr("type") == "text") {
+        fillTextEditor(contentFrame);
+        clearMediaEditor();
+        activateTab($("li[data-tab=edit-text-tab]"));
+    }
+    else {
+        fillMediaEditor(contentFrame);
+        clearTextEditor();
+        activateTab($("li[data-tab=edit-media-tab]"));
+    }
+}
+
+function fillTextEditor(contentFrame) {
+    var delta = JSON.parse(contentFrame.attr("content"));
+    quill.setContents(delta);
+}
+
+function fillMediaEditor(contentFrame) {
+    var media = JSON.parse(contentFrame.attr("content"));
+
+    $("#selected-media-link").text(media.link);
+
+    switch (media.class) {
+        case "figure-small":
+            $("#media-size").val("small");
+            break;
+
+        case "figure-big":
+            $("#media-size").val("big");
+            break;
+
+        default:
+            $("#media-size").val("normal");
+            break;
+    }
+}
+
+function clearTextEditor() {
+    quill.root.innerHTML = "";
+}
+
+function clearMediaEditor() {
+    $("#selected-media-link").text("");
+}
+
+function setBasicEditDialogData(contentFramecontentFrameContainer) {
+    var widthValue = contentFramecontentFrameContainer.data("width");
+    $("#edit-width-input").val(widthValue).change();
+    $("#edit-frame-id").val(contentFramecontentFrameContainer.attr("id"));
+}
+
+function saveContentFrameChanges() {
+    var contentFrameId = $("#edit-frame-id").val();
+    var width = $("#edit-width-input").val();
+    var contentFrameContainer = $("#" + contentFrameId);
+    setFrameWidth(contentFrameContainer, width);
+
+    var contentFrame = contentFrameContainer.children().first();
+
+    if ($("ul.edit-topbar li[selected]").data("tab") == "edit-text-tab")
+        setFrameTextContent(contentFrame, quill.getContents());
+    else {
+        var link = $('#selected-media-link').text();
+        var size = $('#media-size').val();
+
+        if (link == "")
+            alert("Select media.");
+        else {
+            setFrameMediaContent(contentFrame, link, size)
+        }
+    }
+
+    $('#edit-frame-dialog').modal('toggle');
+}
+
+function setFrameTextContent(contentFrame, delta) {
+    contentFrame.attr("content", JSON.stringify(delta));
+    contentFrame.attr("type", "text");
+    var domContentFrame = contentFrame.get(0);
+    createQuill(domContentFrame);
+}
+
+function setFrameMediaContent(contentFrame, link, size) {
+
+    var media = {
+        link: link,
+        class: 'figure-' + size
+    }
+
+    contentFrame.attr("content", JSON.stringify(media));
+    contentFrame.attr("type", "media");
+    loadMedias();
+}
+
+function setFrameWidth(contentFrameContainer, width) {
+    contentFrameContainer.data("width", width);
+
+    if (width == "auto") {
+        contentFrameContainer.removeClass();
+        contentFrameContainer.addClass("content-frame-editor-container col-lg");
+    }
+    else {
+        var bootstrapWidth = Number.parseInt(width) * 2;
+        contentFrameContainer.removeClass();
+        contentFrameContainer.addClass("content-frame-editor-container col-lg-" + bootstrapWidth);
+    }
+}
+
+//SAVE CHANGES
 
 function saveChanges() {
     var output = {
@@ -221,6 +333,8 @@ function saveChanges() {
     var json = JSON.stringify(output);
 
     console.log(output);
+
+    //submit("Save", "POST", json);
 
     $.ajax({
         url: "/Save",
@@ -287,19 +401,17 @@ function getSections() {
 function getContentFrames(sectionElement) {
     var framesArray = [];
 
-    sectionElement.find("[contentFrame]:not([newContentFrame])").each(function () {
+    sectionElement.find("div.content-frame-editor-container:not(:has(div.content-frame-edit-add))").each(function () {
 
-        var isMedia = frameContainMedia($(this));
+        var contentFrame = getContentFrame($(this))
 
-        var content;
+        var type = contentFrame.attr("type");
 
-        if (!isMedia)
-            content = getEditorContentElement($(this)).html();
-        else
-            content = getContentElement($(this)).children().first().prop('outerHTML');;
+        var content = contentFrame.attr("content");
 
         var frame = {
             Content: content,
+            Type: type,
             Width: $(this).data("width")
         };
 
@@ -310,7 +422,7 @@ function getContentFrames(sectionElement) {
 }
 
 /*Editor Dialog*/
-function setEditDialogData(sender) {
+/*function setEditDialogData(sender) {
     var contentFrame = $(sender.relatedTarget).closest("div[contentFrame]");
     setBasicEditDialogData(contentFrame);
     fillContentEditor(contentFrame);
@@ -339,6 +451,10 @@ function fillContentEditor(contentFrame) {
         activateTab($("li[data-tab=edit-media-tab]"));
     }
         
+}
+
+function getFrameType(frame) {
+
 }
 
 function frameContainMedia(contentElement) {
@@ -406,8 +522,7 @@ function saveContentFrameChanges() {
 
 function setFrameTextContent(contentFrame, content) {
     var contentElement = getContentElement(contentFrame);
-    contentElement.prop("class", "ql-container ql-disabled");
-    contentElement.html(`<div class="ql-editor" data-gramm="false" contenteditable="false">${content}</div><div class="ql-clipboard" contenteditable="true" tabindex="-1"></div>`);
+    contentElement.html(content);
 }
 
 function setFrameMediaContent(contentFrame, content) {
@@ -423,6 +538,6 @@ function getContentElement(contentFrame) {
 
 function getEditorContentElement(contentFrame) {
     return getContentElement(contentFrame).children().first();
-}
+}*/
 
 GenerateContentsList();

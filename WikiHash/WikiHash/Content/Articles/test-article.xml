@@ -1,6 +1,6 @@
 <article>
   <meta>
-    <author>Author</author>
+    <author>ASD</author>
     <tags>test, article, test article</tags>
   </meta>
   <sections>
@@ -9,186 +9,15 @@
       <frames>
         <frame>
           <width>6</width>
-          <content>
-            <p class="ql-align-justify">some text inside w6 frame 1.1. Paragraph justified.</p>
-          </content>
+          <content type="text">{
+              "ops": [
+                { "insert": "Some text" }
+              ]
+            }</content>
         </frame>
         <frame>
           <width>6</width>
-          <content>
-            <p class="ql-align-right">some text inside w6 frame 1.2. Paragraph right.</p>
-          </content>
-        </frame>
-      </frames>
-    </section>
-    <section>
-      <title>Section 2 Title</title>
-      <frames>
-        <frame>
-          <width>3</width>
-          <content>
-            <p>some text inside w3 frame 2.1</p>
-          </content>
-        </frame>
-        <frame>
-          <width>3</width>
-          <content>
-            <p>some text inside w3 frame 2.2</p>
-          </content>
-        </frame>
-        <frame>
-          <width>6</width>
-          <content>
-            <p>some text inside w6 frame 2.3</p>
-          </content>
-        </frame>
-        <frame>
-          <width>6</width>
-          <content>
-            <p>some text inside w6 frame 2.4</p>
-          </content>
-        </frame>
-      </frames>
-    </section>
-    <section>
-      <title>Section 3 Title</title>
-      <frames>
-        <frame>
-          <width>1</width>
-          <content>
-            <p>some text inside w1 frame 3.1</p>
-          </content>
-        </frame>
-        <frame>
-          <width>auto</width>
-          <content>
-            <p>some text inside auto frame 3.2</p>
-          </content>
-        </frame>
-        <frame>
-          <width>auto</width>
-          <content>
-            <p>some text inside auto frame 3.3</p>
-          </content>
-        </frame>
-        <frame>
-          <width>2</width>
-          <content>
-            <p>some text inside w2 frame 3.4</p>
-          </content>
-        </frame>
-      </frames>
-    </section>
-    <section>
-      <title>Really high section</title>
-      <frames>
-        <frame>
-          <width>6</width>
-          <content>
-            <p class="ql-align-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</p>
-          </content>
-        </frame>
-        <frame>
-          <width>6</width>
-          <content>
-            <p class="ql-align-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</p>
-          </content>
-        </frame>
-        <frame>
-          <width>6</width>
-          <content>
-            <p class="ql-align-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</p>
-          </content>
-        </frame>
-        <frame>
-          <width>6</width>
-          <content>
-            <p class="ql-align-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</p>
-          </content>
-        </frame>
-        <frame>
-          <width>2</width>
-          <content>
-            <p class="ql-align-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</p>
-          </content>
-        </frame>
-        <frame>
-          <width>auto</width>
-          <content>
-            <p class="ql-align-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac convallis tortor, nec varius turpis. Praesent quis sagittis purus, ut mattis lectus. Aenean bibendum, neque pharetra facilisis sagittis, nisi nisl viverra turpis, eu varius eros ex blandit mauris. Nulla malesuada tortor ut dui aliquet, non gravida nulla fermentum. Maecenas pellentesque, dolor vestibulum condimentum molestie, lectus est pellentesque arcu, id facilisis metus ligula a ligula. Praesent luctus elementum mi, id commodo nulla vestibulum quis. Suspendisse a justo at nunc porttitor blandit eu et dui. Duis efficitur erat suscipit, tincidunt libero a, accumsan velit. Praesent ultricies at lectus consequat volutpat. Aliquam iaculis tincidunt dapibus. Morbi at feugiat augue. In a risus velit. Morbi pulvinar luctus nisi. Quisque sed arcu arcu.</p>
-          </content>
-        </frame>
-      </frames>
-    </section>
-    <section>
-      <title>Section 4 Title</title>
-      <frames>
-        <frame>
-          <width>auto</width>
-          <content>
-            <p>some text inside auto frame</p>
-          </content>
-        </frame>
-      </frames>
-    </section>
-    <section>
-      <title>Media Section Title</title>
-      <frames>
-        <frame>
-          <width>auto</width>
-          <content>
-            <media data-link="test-media" data-class="figure-small">
-            </media>
-          </content>
-        </frame>
-        <frame>
-          <width>auto</width>
-          <content>
-            <media data-link="test-media">
-            </media>
-          </content>
-        </frame>
-        <frame>
-          <width>auto</width>
-          <content>
-            <media data-link="test-media" data-class="figure-big">
-            </media>
-          </content>
-        </frame>
-        <frame>
-          <width>6</width>
-          <content>
-            <p>
-            </p>
-          </content>
-        </frame>
-        <frame>
-          <width>auto</width>
-          <content>
-            <media data-link="nyan-cat" data-class="figure-small">
-            </media>
-          </content>
-        </frame>
-        <frame>
-          <width>auto</width>
-          <content>
-            <media data-link="nyan-cat">
-            </media>
-          </content>
-        </frame>
-        <frame>
-          <width>auto</width>
-          <content>
-            <media data-link="nyan-cat" data-class="figure-big">
-            </media>
-          </content>
-        </frame>
-        <frame>
-          <width>6</width>
-          <content>
-            <media data-link="programming">
-            </media>
-          </content>
+          <content type="media">{ "link": "test-media", "class": "figure-small" }</content>
         </frame>
       </frames>
     </section>

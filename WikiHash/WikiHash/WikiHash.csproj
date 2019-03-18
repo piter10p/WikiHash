@@ -238,6 +238,7 @@
     <Compile Include="Models\Articles\BodiesWriter\BodyWriter.cs" />
     <Compile Include="Models\Articles\BodiesWriter\SectionGenerator.cs" />
     <Compile Include="Models\Articles\Bodies\Body.cs" />
+    <Compile Include="Models\Articles\Bodies\ContentType.cs" />
     <Compile Include="Models\Articles\Bodies\Prototypes\BodyPrototype.cs" />
     <Compile Include="Models\Articles\Bodies\ContentFrame.cs" />
     <Compile Include="Models\Articles\Bodies\Prototypes\ContentFramePrototype.cs" />
@@ -471,7 +472,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties BuildVersion_UpdateFileVersion="False" BuildVersion_UpdateAssemblyVersion="False" BuildVersion_BuildVersioningStyle="None.None.TimeStamp.Increment" BuildVersion_StartDate="2000/1/1" />
+      <UserProperties BuildVersion_StartDate="2000/1/1" BuildVersion_BuildVersioningStyle="None.None.TimeStamp.Increment" BuildVersion_UpdateAssemblyVersion="False" BuildVersion_UpdateFileVersion="False" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

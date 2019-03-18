@@ -9,5 +9,6 @@ namespace WikiHash.Models.Articles.Bodies
     {
         public string Content { get; set; }
         public FrameWidth Width { get; set; }
+        public ContentType ContentType { get; set; }
     }
 }

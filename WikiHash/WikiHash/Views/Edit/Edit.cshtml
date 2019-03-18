@@ -48,27 +48,27 @@
                             </div>
 
                             <div class="row">
+
                                 @foreach (var frame in bodySection.Frames)
                                 {
-                                    <div contentFrame id="Frame-@framesCounter" class="col-lg@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToBootstrapString(frame.Width)}"
-                                         data-width="@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToString(frame.Width)}">
-                                        <div class="content-frame content-frame-edit">
-
-                                            <div>@Html.Raw(frame.Content)</div>
-
-                                            <div class="content-frame-edit-buttons noselect">
-                                                <span class="fa fa-caret-up" aria-hidden="true"></span>
-                                                <span class="fa fa-caret-down" aria-hidden="true"></span>
-                                                <span class="fa fa-pencil" aria-hidden="true"
-                                                      data-toggle="modal" data-target="#edit-frame-dialog"></span>
-                                            </div>
+                                    <div class="col-lg@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToBootstrapString(frame.Width)} content-frame-editor-container"
+                                         id="Frame-@framesCounter" data-width="@{@WikiHash.Models.Articles.Bodies.FrameWidthParser.ToString(frame.Width)}">
+                                        <div class="content-frame content-frame-edit"
+                                             type="@WikiHash.Models.Articles.Bodies.ContentTypeParser.ToString(frame.ContentType)"
+                                             content="@frame.Content">
+                                        </div>
+                                        <div class="content-frame-edit-buttons noselect">
+                                            <span class="fa fa-caret-up" aria-hidden="true"></span>
+                                            <span class="fa fa-caret-down" aria-hidden="true"></span>
+                                            <span class="fa fa-pencil" aria-hidden="true"
+                                                  data-toggle="modal" data-target="#edit-frame-dialog"></span>
                                         </div>
                                     </div>
 
                                     framesCounter++;
                                 }
 
-                                <div contentFrame newContentFrame class="col noselect">
+                                <div class="col-lg noselect content-frame-editor-container">
                                     <div class="content-frame content-frame-edit-add">
                                         <span class="fa fa-plus" aria-hidden="true"></span>
                                     </div>
@@ -106,19 +106,41 @@
 @section scripts {
     @Scripts.Render("~/bundles/edit")
 <script>
-        FramesCounter = @framesCounter;
+    FramesCounter = @framesCounter;
 
-        var quill = new Quill("#quill", {
-            theme: "snow",
-            modules: {
-                toolbar: toolbarOptions
-            }
-        });
+    loadTexts();
 
-        $("[contentFrame]:not([newContentFrame]):not(:has(media))").each(function () {
-            var frame = getContentElement($(this)).get(0);
+    var quill = new Quill("#quill", {
+        theme: "snow",
+        modules: {
+            toolbar: toolbarOptions
+        }
+    });
+
+    /*$("[contentFrame]:not([newContentFrame])").each(function () {
+        var frame = $(this).find("div.content-frame[type='text']").first().get(0);
+        if (frame != null) {
+            var deltaText = frame.getAttribute("content");
+            var delta = JSON.parse(deltaText);
             var editor = new Quill(frame);
+            editor.setContents(delta);
             editor.enable(false);
-        });
-    </script>
+        }
+    });
+
+    /*containers = $("[contentFrame][type='text']:not([newContentFrame])");
+    var editors = Array.from(containers).map(function (container) {
+        var deltaText = container.getAttribute("content");
+        var delta = JSON.parse(deltaText);
+        var editor = new Quill(container);
+        editor.setContents(delta);
+        editor.enable(false);
+    });*/
+
+    /*$("[contentFrame]:not([newContentFrame]):not(:has(media))").each(function () {
+        var frame = getContentElement($(this)).get(0);
+        var editor = new Quill(frame);
+        editor.enable(false);
+    });*/
+</script>
 }
