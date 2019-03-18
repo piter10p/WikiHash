@@ -80,6 +80,7 @@ namespace WikiHash.Models.Articles
             {
                 var framePrototype = new ContentFramePrototype();
                 framePrototype.Content = contentFrame.Content;
+                framePrototype.ContentType = ContentTypeParser.Parse((string)contentFrame.Type);
                 framePrototype.Width = FrameWidthParser.Parse((string)contentFrame.Width);
 
                 return ContentFrame.FromPrototype(framePrototype);

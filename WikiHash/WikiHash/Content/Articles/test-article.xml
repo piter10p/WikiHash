@@ -1,6 +1,6 @@
 <article>
   <meta>
-    <author>Author</author>
+    <author>ASD</author>
     <tags>test, article, test article</tags>
   </meta>
   <sections>
@@ -9,19 +9,15 @@
       <frames>
         <frame>
           <width>6</width>
-          <content type="text">
-            <![CDATA[{
+          <content type="text">{
               "ops": [
                 { "insert": "Some text" }
               ]
-            }]]>
-          </content>
+            }</content>
         </frame>
         <frame>
           <width>6</width>
-          <content type="media">
-            <![CDATA[{ "link": "test-media" }]]>
-          </content>
+          <content type="media">{ "link": "test-media", "class": "figure-small" }</content>
         </frame>
       </frames>
     </section>

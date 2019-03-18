@@ -63,13 +63,6 @@
 
 @section scripts {
     <script>
-        containers = $("div.content-frame[type='text']");
-        var editors = Array.from(containers).map(function (container) {
-            var deltaText = container.getAttribute("content");
-            var delta = JSON.parse(deltaText);
-            var editor = new Quill(container);
-            editor.setContents(delta);
-            editor.enable(false);
-        });
+        loadTexts();
     </script>
 }

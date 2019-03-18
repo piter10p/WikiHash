@@ -10,6 +10,23 @@ $(document).on("click", "a[data-slide=true]", function (event) {
         $('html,body').animate({ scrollTop: targetOffset - 75 }, 500);
 });
 
+//Loads texts
+function loadTexts() {
+    containers = $("div.content-frame[type='text']");
+    var editors = Array.from(containers).map(function (container) {
+        createQuill(container)
+    });
+}
+
+function createQuill(domContentFrame) {
+    domContentFrame.innerHTML = "";
+    var deltaText = domContentFrame.getAttribute("content");
+    var delta = JSON.parse(deltaText);
+    var editor = new Quill(domContentFrame);
+    editor.setContents(delta);
+    editor.enable(false);
+}
+
 //Load medias
 function loadMedias() {
     $('div.content-frame[type="media"]').each(function () {

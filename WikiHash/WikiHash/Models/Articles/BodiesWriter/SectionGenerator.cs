@@ -63,11 +63,12 @@ namespace WikiHash.Models.Articles.BodiesWriter
             width.InnerText = FrameWidthParser.ToString(contentFrame.Width);
             frame.AppendChild(width);
 
-            var trimmedContent = Regex.Replace(contentFrame.Content, @"\s\s+", "");
-            trimmedContent = Regex.Replace(trimmedContent, @"<br>", "");//TODO: Dirty way to remove <br> objects created by Quill. Becouse they're not closed, they're throwing exception.
-            trimmedContent = HTMLSecurityTagsRemover.RemoveUnsecureTags(trimmedContent);
             var content = Document.CreateElement("content");
-            content.InnerXml = trimmedContent;
+            var type = Document.CreateAttribute("type");
+            type.InnerText = ContentTypeParser.ToString(contentFrame.ContentType);
+            content.Attributes.Append(type);
+
+            content.InnerText = contentFrame.Content;
             frame.AppendChild(content);
 
             return frame;

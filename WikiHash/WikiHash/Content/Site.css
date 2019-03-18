@@ -215,10 +215,13 @@ div.footer p {
 }
 
 /*Content Frame*/
+.content-frame-editor-container {
+    padding-bottom: 20px;
+}
+
 .content-frame-edit {
     border: 1px solid #dbdbdb;
     border-radius: 3px;
-    margin: 5px 0 20px 0;
     padding: 5px;
 }
 
