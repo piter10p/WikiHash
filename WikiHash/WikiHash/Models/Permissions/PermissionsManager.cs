@@ -17,10 +17,13 @@ namespace WikiHash.Models.Permissions
                 var context = ApplicationDbContext.Create();
                 var rolesManager = GetRolesManager(context);
 
-                var role = rolesManager.FindByName(permission.RoleName);
+                if(permission.RoleName != null)
+                {
+                    var role = rolesManager.FindByName(permission.RoleName);
 
-                if (role == null)
-                    throw new KeyNotFoundException();
+                    if (role == null)
+                        throw new KeyNotFoundException();
+                }                
 
                 var output = context.Permissions.Add(permission);
                 context.SaveChanges();

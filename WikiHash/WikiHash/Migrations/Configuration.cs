@@ -90,10 +90,10 @@ namespace WikiHash.Migrations
             InsertPermission(context, PermissionTarget.ReadingArticles, DefaultRolesNames.HeadAdmin);
 
             //Global Permissions
-            /*InsertPermission(context, PermissionTarget.CreatingNewArticles, null);   TODO: that null throws an Exception. I guess that can be an EF issue.
+            InsertPermission(context, PermissionTarget.CreatingNewArticles, null);
             InsertPermission(context, PermissionTarget.ModifyingArticlesBody, null);
             InsertPermission(context, PermissionTarget.CreatingNewMedias, null);
-            InsertPermission(context, PermissionTarget.ReadingArticles, null);*/
+            InsertPermission(context, PermissionTarget.ReadingArticles, null);
         }
 
         private void InsertPermission(DAL.ApplicationDbContext context, PermissionTarget permissionTarget, string roleName)
