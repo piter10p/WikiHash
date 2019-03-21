@@ -10,6 +10,9 @@ An open-source open encyclopedia engine. Licensed by GNU/GPL v.3
 * Articles editing history
 * Roles and permissions systems
 ### Planned
+* Management options in explorers
+* Users explorer
+* Permissions panel
 * User panel (with stats, editing history etc.)
 * More built-in content formats (tables, references etc.)
 
