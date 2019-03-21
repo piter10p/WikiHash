@@ -48,9 +48,6 @@ namespace WikiHash.Models.Modifications
 
                 var query = from m in modificationsArray where m.Article.Link == articleLink select m;
 
-                if (query.Count() == 0)
-                    throw new KeyNotFoundException();
-
                 var resultList = new List<ModificationViewModel>();
 
                 foreach(var m in query)
